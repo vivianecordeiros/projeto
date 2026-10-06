@@ -1,703 +1,200 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- EXPLORAR -->
+<section id="explorar" class="hidden">
 
-    <title>PinkCloset 💗</title>
+    <div class="section">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+        <h2>💖 Explorar Looks</h2>
 
-        body {
-            background: linear-gradient(135deg, #fff0f7, #ffe0ef);
-            color: #4a1730;
-            min-height: 100vh;
-        }
+        <p>
+            Escolha uma ocasião e encontre inspirações para montar seu look!
+        </p>
 
-        header {
-            background: #fff;
-            padding: 18px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 3px 15px #d96b9630;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+        <!-- OCASIÕES -->
+        <div class="ocasioes">
 
-        .logo {
-            color: #e83e8c;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        nav button {
-            border: none;
-            background: none;
-            margin-left: 15px;
-            color: #7d3155;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        nav button:hover {
-            color: #e83e8c;
-        }
-
-        main {
-            max-width: 1200px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .hero h1 {
-            font-size: 52px;
-            color: #d92f7b;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 19px;
-            margin-bottom: 30px;
-            color: #70425a;
-        }
-
-        .buttons button,
-        .primary {
-            border: none;
-            padding: 14px 25px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: bold;
-            margin: 5px;
-            transition: .3s;
-        }
-
-        .pink {
-            background: #e83e8c;
-            color: white;
-        }
-
-        .pink:hover {
-            background: #c92770;
-            transform: translateY(-2px);
-        }
-
-        .light {
-            background: white;
-            color: #e83e8c;
-        }
-
-        .section {
-            background: white;
-            border-radius: 25px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 25px #d96b961c;
-        }
-
-        .section h2 {
-            margin-bottom: 20px;
-            color: #d92f7b;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: #fff4f9;
-            border-radius: 20px;
-            padding: 15px;
-            text-align: center;
-            transition: .3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px #d96b9630;
-        }
-
-        .card .emoji {
-            font-size: 65px;
-            padding: 25px;
-        }
-
-        .card h3 {
-            margin: 10px;
-        }
-
-        .actions {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 12px;
-        }
-
-        .actions button {
-            border: none;
-            background: white;
-            padding: 8px 12px;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
-        .actions button:hover {
-            background: #ffd8e9;
-        }
-
-        .profile {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .avatar {
-            width: 90px;
-            height: 90px;
-            background: #ffb6d5;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 45px;
-        }
-
-        .tabs {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin: 25px 0;
-        }
-
-        .tabs button {
-            border: none;
-            background: #ffe1ed;
-            color: #a32c62;
-            padding: 10px 18px;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
-        .tabs button:hover {
-            background: #e83e8c;
-            color: white;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: #4a173088;
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-        }
-
-        .modal-content {
-            background: white;
-            width: 90%;
-            max-width: 450px;
-            padding: 30px;
-            border-radius: 25px;
-        }
-
-        .modal-content h2 {
-            color: #e83e8c;
-            margin-bottom: 20px;
-        }
-
-        input,
-        select {
-            width: 100%;
-            padding: 13px;
-            margin: 8px 0;
-            border: 1px solid #f2b4cf;
-            border-radius: 12px;
-            outline: none;
-        }
-
-        .close {
-            float: right;
-            cursor: pointer;
-            font-size: 25px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #914568;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        @media(max-width: 600px) {
-            .hero h1 {
-                font-size: 38px;
-            }
-
-            header {
-                padding: 15px;
-            }
-
-            nav button {
-                margin-left: 5px;
-                font-size: 12px;
-            }
-
-            .profile {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <div class="logo">💗 PinkCloset</div>
-
-    <nav>
-        <button onclick="mostrar('inicio')">Início</button>
-        <button onclick="mostrar('explorar')">Explorar</button>
-        <button onclick="mostrar('provador')">Provador</button>
-        <button onclick="mostrar('perfil')">Perfil</button>
-    </nav>
-</header>
-
-<main>
-
-    <!-- INÍCIO -->
-    <section id="inicio">
-
-        <div class="hero">
-            <h1>✨ Seu estilo. Sua inspiração. ✨</h1>
-
-            <p>
-                Monte looks, descubra novas combinações,
-                compartilhe seu estilo e inspire outras pessoas.
-            </p>
-
-            <div class="buttons">
-                <button class="pink" onclick="abrirModal('login')">
-                    Entrar
-                </button>
-
-                <button class="light" onclick="abrirModal('cadastro')">
-                    Criar minha conta
-                </button>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>💕 Inspirações da comunidade</h2>
-
-            <div class="cards">
-
-                <div class="card">
-                    <div class="emoji">👗</div>
-                    <h3>Look Romântico</h3>
-                    <p>✨ @fashiongirl</p>
-
-                    <div class="actions">
-                        <button onclick="curtir(this)">♡ Curtir</button>
-                        <button>⭐ Salvar</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="emoji">👚</div>
-                    <h3>Look Casual</h3>
-                    <p>✨ @stylepink</p>
-
-                    <div class="actions">
-                        <button onclick="curtir(this)">♡ Curtir</button>
-                        <button>⭐ Salvar</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="emoji">👠</div>
-                    <h3>Look Festa</h3>
-                    <p>✨ @fashionlove</p>
-
-                    <div class="actions">
-                        <button onclick="curtir(this)">♡ Curtir</button>
-                        <button>⭐ Salvar</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </section>
-
-    <!-- EXPLORAR -->
-    <section id="explorar" class="hidden">
-
-        <div class="section">
-
-            <h2>💖 Explorar Looks</h2>
-
-            <input
-                type="text"
-                id="busca"
-                placeholder="🔎 Procurar looks, estilos ou ocasiões..."
-                onkeyup="buscar()"
-            >
-
-            <div class="cards" id="feed">
-
-                <div class="card look">
-                    <div class="emoji">👗</div>
-                    <h3>Look para encontro</h3>
-                    <p>🌸 Romântico</p>
-                    <div class="actions">
-                        <button onclick="curtir(this)">♡ 120</button>
-                        <button>⭐ 45</button>
-                    </div>
-                </div>
-
-                <div class="card look">
-                    <div class="emoji">👖</div>
-                    <h3>Look Casual</h3>
-                    <p>🌷 Dia a dia</p>
-                    <div class="actions">
-                        <button onclick="curtir(this)">♡ 89</button>
-                        <button>⭐ 32</button>
-                    </div>
-                </div>
-
-                <div class="card look">
-                    <div class="emoji">👠</div>
-                    <h3>Look para festa</h3>
-                    <p>✨ Elegante</p>
-                    <div class="actions">
-                        <button onclick="curtir(this)">♡ 230</button>
-                        <button>⭐ 80</button>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- PROVADOR -->
-    <section id="provador" class="hidden">
-
-        <div class="section">
-
-            <h2>👗 Meu Provador</h2>
-
-            <p>
-                Escolha suas peças e monte uma combinação.
-            </p>
-
-            <div class="cards">
-
-                <div class="card">
-                    <div class="emoji">👚</div>
-                    <h3>Parte de cima</h3>
-                    <select id="top">
-                        <option>Blusa Rosa</option>
-                        <option>Camiseta Branca</option>
-                        <option>Camisa Azul</option>
-                    </select>
-                </div>
-
-                <div class="card">
-                    <div class="emoji">👖</div>
-                    <h3>Parte de baixo</h3>
-                    <select id="bottom">
-                        <option>Calça Jeans</option>
-                        <option>Saia Rosa</option>
-                        <option>Short Branco</option>
-                    </select>
-                </div>
-
-                <div class="card">
-                    <div class="emoji">👠</div>
-                    <h3>Sapato</h3>
-                    <select id="shoes">
-                        <option>Salto Rosa</option>
-                        <option>Tênis Branco</option>
-                        <option>Sandália</option>
-                    </select>
-                </div>
-
-            </div>
-
-            <br>
-
-            <button class="primary pink" onclick="gerarLook()">
-                ✨ Montar meu Look
+            <button onclick="filtrarOcasião('praia')">
+                🏖️ Praia
             </button>
 
-            <div id="resultado" class="section hidden">
-                <h2>💗 Seu Look</h2>
-                <p id="lookResultado"></p>
+            <button onclick="filtrarOcasião('familia')">
+                🍽️ Almoço em Família
+            </button>
 
-                <br>
+            <button onclick="filtrarOcasião('festa')">
+                🎉 Festa
+            </button>
 
-                <button class="pink" onclick="publicarLook()">
-                    📸 Publicar Look
-                </button>
+            <button onclick="filtrarOcasião('aniversario')">
+                🎂 Aniversário
+            </button>
 
-                <button class="light" onclick="salvarLook()">
-                    ⭐ Salvar
-                </button>
-            </div>
+            <button onclick="filtrarOcasião('encontro')">
+                💕 Encontro
+            </button>
 
-        </div>
+            <button onclick="filtrarOcasião('escola')">
+                📚 Escola
+            </button>
 
-    </section>
+            <button onclick="filtrarOcasião('trabalho')">
+                💼 Trabalho
+            </button>
 
-    <!-- PERFIL -->
-    <section id="perfil" class="hidden">
+            <button onclick="filtrarOcasião('passeio')">
+                🛍️ Passeio
+            </button>
 
-        <div class="section">
+            <button onclick="filtrarOcasião('academia')">
+                🏋️ Academia
+            </button>
 
-            <div class="profile">
+            <button onclick="filtrarOcasião('casual')">
+                👕 Dia a Dia
+            </button>
 
-                <div class="avatar">👩🏻</div>
+            <button onclick="filtrarOcasião('viagem')">
+                ✈️ Viagem
+            </button>
 
-                <div>
-                    <h2>Meu Perfil</h2>
-                    <p>@meuestilo</p>
-                    <p>💕 Apaixonada por moda e novas combinações.</p>
-                </div>
-
-            </div>
-
-            <div class="tabs">
-                <button>👗 Meus Looks</button>
-                <button>⭐ Favoritos</button>
-                <button>👚 Meu Guarda-Roupa</button>
-                <button>💖 Inspirações</button>
-                <button>🔒 Privados</button>
-            </div>
-
-            <div class="cards">
-
-                <div class="card">
-                    <div class="emoji">👗</div>
-                    <h3>Meu look rosa</h3>
-                    <p>🌎 Público</p>
-                </div>
-
-                <div class="card">
-                    <div class="emoji">👚</div>
-                    <h3>Look casual</h3>
-                    <p>🔒 Privado</p>
-                </div>
-
-            </div>
+            <button onclick="filtrarOcasião('natal')">
+                🎄 Natal
+            </button>
 
         </div>
 
-    </section>
-
-</main>
-
-<footer>
-    💗 PinkCloset — Vista sua personalidade.
-</footer>
-
-<!-- MODAL LOGIN/CADASTRO -->
-
-<div class="modal" id="modal">
-
-    <div class="modal-content">
-
-        <span class="close" onclick="fecharModal()">×</span>
-
-        <h2 id="modalTitulo">Entrar</h2>
+        <br>
 
         <input
             type="text"
-            id="nome"
-            placeholder="Nome"
-            class="hidden"
+            id="busca"
+            placeholder="🔎 Procurar looks..."
+            onkeyup="buscar()"
         >
 
-        <input
-            type="email"
-            placeholder="Email"
-        >
+        <div class="cards" id="feed">
 
-        <input
-            type="password"
-            placeholder="Senha"
-        >
+            <div class="card look" data-ocasiao="praia">
+                <div class="emoji">🏖️👗</div>
+                <h3>Look Praia</h3>
+                <p>🌊 Leve e confortável</p>
+                <div class="actions">
+                    <button onclick="curtir(this)">♡ 120</button>
+                    <button>⭐ 45</button>
+                </div>
+            </div>
 
-        <button
-            class="primary pink"
-            onclick="login()"
-        >
-            Continuar 💗
-        </button>
+            <div class="card look" data-ocasiao="familia">
+                <div class="emoji">🍽️👚</div>
+                <h3>Almoço em Família</h3>
+                <p>🌸 Confortável e elegante</p>
+                <div class="actions">
+                    <button onclick="curtir(this)">♡ 98</button>
+                    <button>⭐ 40</button>
+                </div>
+            </div>
+
+            <div class="card look" data-ocasiao="festa">
+                <div class="emoji">🎉👠</div>
+                <h3>Look para Festa</h3>
+                <p>✨ Elegante e moderno</p>
+                <div class="actions">
+                    <button onclick="curtir(this)">♡ 230</button>
+                    <button>⭐ 80</button>
+                </div>
+            </div>
+
+            <div class="card look" data-ocasiao="aniversario">
+                <div class="emoji">🎂👗</div>
+                <h3>Aniversário</h3>
+                <p>🎀 Charmoso e divertido</p>
+                <div class="actions">
+                    <button onclick="curtir(this)">♡ 175</button>
+                    <button>⭐ 62</button>
+                </div>
+            </div>
+
+            <div class="card look" data-ocasiao="encontro">
+                <div class="emoji">💕🌷</div>
+                <h3>Look para Encontro</h3>
+                <p>🌹 Romântico</p>
+                <div class="actions">
+                    <button onclick="curtir(this)">♡ 210</button>
+                    <button>⭐ 75</button>
+                </div>
+            </div>
+
+            <div class="card look" data-ocasiao="escola">
+                <div class="emoji">📚👖</div>
+                <h3>Look para Escola</h3>
+                <p>🎒 Prático e confortável</p>
+                <div class="actions">
+                    <button onclick="curtir(this)">♡ 87</button>
+                    <button>⭐ 30</button>
+                </div>
+            </div>
+
+            <div class="card look" data-ocasiao="trabalho">
+                <div class="emoji">💼👔</div>
+                <h3>Look para Trabalho</h3>
+                <p>✨ Profissional e elegante</p>
+                <div class="actions">
+                    <button onclick="curtir(this)">♡ 150</button>
+                    <button>⭐ 55</button>
+                </div>
+            </div>
+
+            <div class="card look" data-ocasiao="passeio">
+                <div class="emoji">🛍️👚</div>
+                <h3>Look para Passeio</h3>
+                <p>🌷 Casual e estiloso</p>
+                <div class="actions">
+                    <button onclick="curtir(this)">♡ 132</button>
+                    <button>⭐ 47</button>
+                </div>
+            </div>
+
+            <div class="card look" data-ocasiao="academia">
+                <div class="emoji">🏋️👟</div>
+                <h3>Look Academia</h3>
+                <p>💪 Confortável e esportivo</p>
+                <div class="actions">
+                    <button onclick="curtir(this)">♡ 100</button>
+                    <button>⭐ 35</button>
+                </div>
+            </div>
+
+            <div class="card look" data-ocasiao="casual">
+                <div class="emoji">👕👖</div>
+                <h3>Look Dia a Dia</h3>
+                <p>🌸 Casual e confortável</p>
+                <div class="actions">
+                    <button onclick="curtir(this)">♡ 89</button>
+                    <button>⭐ 32</button>
+                </div>
+            </div>
+
+            <div class="card look" data-ocasiao="viagem">
+                <div class="emoji">✈️🧳</div>
+                <h3>Look para Viagem</h3>
+                <p>🌎 Confortável e prático</p>
+                <div class="actions">
+                    <button onclick="curtir(this)">♡ 145</button>
+                    <button>⭐ 50</button>
+                </div>
+            </div>
+
+            <div class="card look" data-ocasiao="natal">
+                <div class="emoji">🎄❤️</div>
+                <h3>Look de Natal</h3>
+                <p>🎀 Festivo e elegante</p>
+                <div class="actions">
+                    <button onclick="curtir(this)">♡ 190</button>
+                    <button>⭐ 70</button>
+                </div>
+            </div>
+
+        </div>
 
     </div>
 
-</div>
-
-<script>
-
-    function mostrar(pagina) {
-
-        const paginas = [
-            "inicio",
-            "explorar",
-            "provador",
-            "perfil"
-        ];
-
-        paginas.forEach(id => {
-            document.getElementById(id)
-                .classList.add("hidden");
-        });
-
-        document.getElementById(pagina)
-            .classList.remove("hidden");
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    }
-
-    function abrirModal(tipo) {
-
-        document.getElementById("modal")
-            .style.display = "flex";
-
-        if (tipo === "cadastro") {
-
-            document.getElementById("modalTitulo")
-                .innerText = "Criar minha conta 💗";
-
-            document.getElementById("nome")
-                .classList.remove("hidden");
-
-        } else {
-
-            document.getElementById("modalTitulo")
-                .innerText = "Entrar 💗";
-
-            document.getElementById("nome")
-                .classList.add("hidden");
-        }
-    }
-
-    function fecharModal() {
-
-        document.getElementById("modal")
-            .style.display = "none";
-    }
-
-    function login() {
-
-        fecharModal();
-
-        mostrar("perfil");
-
-        alert("Bem-vindo ao PinkCloset! 💗");
-    }
-
-    function curtir(botao) {
-
-        if (botao.innerText.includes("♡")) {
-            botao.innerText = "♥ Curtido";
-            botao.style.color = "#e83e8c";
-        } else {
-            botao.innerText = "♡ Curtir";
-            botao.style.color = "";
-        }
-    }
-
-    function gerarLook() {
-
-        const top =
-            document.getElementById("top").value;
-
-        const bottom =
-            document.getElementById("bottom").value;
-
-        const shoes =
-            document.getElementById("shoes").value;
-
-        const resultado =
-            document.getElementById("resultado");
-
-        const texto =
-            document.getElementById("lookResultado");
-
-        texto.innerHTML =
-            `👚 ${top}<br>
-             👖 ${bottom}<br>
-             👠 ${shoes}<br><br>
-             ✨ Combinação criada com sucesso!`;
-
-        resultado.classList.remove("hidden");
-    }
-
-    function salvarLook() {
-
-        alert("⭐ Look salvo nos seus favoritos!");
-    }
-
-    function publicarLook() {
-
-        alert(
-            "💗 Look publicado! Outros usuários poderão se inspirar nele."
-        );
-    }
-
-    function buscar() {
-
-        const termo =
-            document.getElementById("busca")
-            .value
-            .toLowerCase();
-
-        const looks =
-            document.querySelectorAll(".look");
-
-        looks.forEach(look => {
-
-            const texto =
-                look.innerText.toLowerCase();
-
-            if (texto.includes(termo)) {
-                look.style.display = "block";
-            } else {
-                look.style.display = "none";
-            }
-
-        });
-    }
-
-</script>
-
-</body>
-</html>
-```
+</section>
