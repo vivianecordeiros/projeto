@@ -1,16 +1,690 @@
-<!-- EXPLORAR -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PinkCloset 💗</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fff0f7, #ffe0ef);
+            color: #4a1730;
+            min-height: 100vh;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #fff;
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 15px #d96b9630;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            color: #e83e8c;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav button {
+            border: none;
+            background: none;
+            margin-left: 15px;
+            color: #7d3155;
+            cursor: pointer;
+            font-weight: bold;
+            padding: 8px;
+        }
+
+        nav button:hover {
+            color: #e83e8c;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            color: #d92f7b;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            margin-bottom: 30px;
+            color: #70425a;
+            line-height: 1.6;
+        }
+
+        .buttons button,
+        .primary {
+            border: none;
+            padding: 14px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 5px;
+            transition: .3s;
+        }
+
+        .pink {
+            background: #e83e8c;
+            color: white;
+        }
+
+        .pink:hover {
+            background: #c92770;
+            transform: translateY(-2px);
+        }
+
+        .light {
+            background: white;
+            color: #e83e8c;
+        }
+
+        .light:hover {
+            background: #ffe1ed;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 25px #d96b961c;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+            color: #d92f7b;
+        }
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff4f9;
+            border-radius: 20px;
+            padding: 15px;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px #d96b9630;
+        }
+
+        .card .emoji {
+            font-size: 60px;
+            padding: 20px;
+        }
+
+        .card h3 {
+            margin: 10px;
+            color: #7d3155;
+        }
+
+        .card p {
+            color: #70425a;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           ACTIONS
+        ========================= */
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .actions button {
+            border: none;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .actions button:hover {
+            background: #ffd8e9;
+        }
+
+        /* =========================
+           OCASIÕES
+        ========================= */
+
+        .ocasioes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 25px 0;
+        }
+
+        .ocasioes button {
+            border: 2px solid #ffd0e2;
+            background: #fff4f9;
+            color: #a32c62;
+            padding: 12px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .ocasioes button:hover,
+        .ocasioes button.ativo {
+            background: #e83e8c;
+            color: white;
+            border-color: #e83e8c;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           INPUTS
+        ========================= */
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            margin: 8px 0;
+            border: 1px solid #f2b4cf;
+            border-radius: 12px;
+            outline: none;
+            background: white;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #e83e8c;
+            box-shadow: 0 0 5px #e83e8c40;
+        }
+
+        /* =========================
+           PROVADOR
+        ========================= */
+
+        .resultado {
+            margin-top: 25px;
+            background: #fff0f7;
+            border-radius: 20px;
+            padding: 25px;
+        }
+
+        /* =========================
+           PERFIL
+        ========================= */
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            background: #ffb6d5;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 45px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+
+        .tabs button {
+            border: none;
+            background: #ffe1ed;
+            color: #a32c62;
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .tabs button:hover {
+            background: #e83e8c;
+            color: white;
+        }
+
+        /* =========================
+           SOBRE O PROJETO
+        ========================= */
+
+        .projeto-info {
+            background: linear-gradient(135deg, #ffffff, #fff0f7);
+        }
+
+        .projeto-titulo {
+            text-align: center;
+            padding: 20px 10px 35px;
+        }
+
+        .projeto-titulo span {
+            font-size: 55px;
+        }
+
+        .projeto-titulo h1 {
+            color: #d92f7b;
+            font-size: 42px;
+            margin: 10px 0;
+        }
+
+        .projeto-titulo p {
+            color: #8a4a67;
+            font-size: 18px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: #fff;
+            border: 1px solid #ffd2e4;
+            border-radius: 22px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 18px #d96b9618;
+            transition: .3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px #d96b9630;
+        }
+
+        .info-card h2 {
+            color: #d92f7b;
+            margin: 10px 0 15px;
+        }
+
+        .info-card p {
+            color: #70425a;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .info-icon {
+            font-size: 42px;
+        }
+
+        .participantes ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .participantes li {
+            background: #fff0f7;
+            color: #70425a;
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 12px;
+            transition: .3s;
+        }
+
+        .participantes li:hover {
+            background: #ffd8e9;
+            transform: translateX(5px);
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: #4a173088;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 450px;
+            padding: 30px;
+            border-radius: 25px;
+        }
+
+        .modal-content h2 {
+            color: #e83e8c;
+            margin-bottom: 20px;
+        }
+
+        .close {
+            float: right;
+            cursor: pointer;
+            font-size: 25px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #914568;
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media(max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            nav button {
+                margin: 2px;
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .projeto-titulo h1 {
+                font-size: 32px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="logo">
+        💗 PinkCloset
+    </div>
+
+    <nav>
+
+        <button onclick="mostrar('inicio')">
+            Início
+        </button>
+
+        <button onclick="mostrar('explorar')">
+            Explorar
+        </button>
+
+        <button onclick="mostrar('provador')">
+            Provador
+        </button>
+
+        <button onclick="mostrar('perfil')">
+            Perfil
+        </button>
+
+        <button onclick="mostrar('projeto')">
+            Sobre o Projeto
+        </button>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+<!-- =========================
+     INÍCIO
+========================= -->
+
+<section id="inicio">
+
+    <div class="hero">
+
+        <h1>
+            ✨ Seu estilo. Sua inspiração. ✨
+        </h1>
+
+        <p>
+            Monte looks, descubra novas combinações,
+            compartilhe seu estilo e inspire outras pessoas.
+        </p>
+
+        <div class="buttons">
+
+            <button
+                class="pink"
+                onclick="abrirModal('login')">
+                Entrar
+            </button>
+
+            <button
+                class="light"
+                onclick="abrirModal('cadastro')">
+                Criar minha conta
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="section">
+
+        <h2>
+            💕 Inspirações da comunidade
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="emoji">
+                    👗
+                </div>
+
+                <h3>
+                    Look Romântico
+                </h3>
+
+                <p>
+                    ✨ @fashiongirl
+                </p>
+
+                <div class="actions">
+
+                    <button onclick="curtir(this)">
+                        ♡ Curtir
+                    </button>
+
+                    <button onclick="salvarLook()">
+                        ⭐ Salvar
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">
+                    👚
+                </div>
+
+                <h3>
+                    Look Casual
+                </h3>
+
+                <p>
+                    ✨ @stylepink
+                </p>
+
+                <div class="actions">
+
+                    <button onclick="curtir(this)">
+                        ♡ Curtir
+                    </button>
+
+                    <button onclick="salvarLook()">
+                        ⭐ Salvar
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">
+                    👠
+                </div>
+
+                <h3>
+                    Look Festa
+                </h3>
+
+                <p>
+                    ✨ @fashionlove
+                </p>
+
+                <div class="actions">
+
+                    <button onclick="curtir(this)">
+                        ♡ Curtir
+                    </button>
+
+                    <button onclick="salvarLook()">
+                        ⭐ Salvar
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EXPLORAR
+========================= -->
+
 <section id="explorar" class="hidden">
 
     <div class="section">
 
-        <h2>💖 Explorar Looks</h2>
+        <h2>
+            💖 Explorar Looks
+        </h2>
 
         <p>
-            Escolha uma ocasião e encontre inspirações para montar seu look!
+            Escolha uma ocasião e encontre inspirações
+            para montar seu look!
         </p>
 
-        <!-- OCASIÕES -->
+
         <div class="ocasioes">
+
+            <button onclick="filtrarOcasião('todos')">
+                ✨ Todos
+            </button>
 
             <button onclick="filtrarOcasião('praia')">
                 🏖️ Praia
@@ -62,7 +736,6 @@
 
         </div>
 
-        <br>
 
         <input
             type="text"
@@ -71,126 +744,367 @@
             onkeyup="buscar()"
         >
 
+
         <div class="cards" id="feed">
 
-            <div class="card look" data-ocasiao="praia">
-                <div class="emoji">🏖️👗</div>
-                <h3>Look Praia</h3>
-                <p>🌊 Leve e confortável</p>
-                <div class="actions">
-                    <button onclick="curtir(this)">♡ 120</button>
-                    <button>⭐ 45</button>
+
+            <div class="card look"
+                 data-ocasiao="praia">
+
+                <div class="emoji">
+                    🏖️👗
                 </div>
+
+                <h3>
+                    Look Praia
+                </h3>
+
+                <p>
+                    🌊 Leve e confortável
+                </p>
+
+                <div class="actions">
+
+                    <button onclick="curtir(this)">
+                        ♡ 120
+                    </button>
+
+                    <button onclick="salvarLook()">
+                        ⭐ 45
+                    </button>
+
+                </div>
+
             </div>
 
-            <div class="card look" data-ocasiao="familia">
-                <div class="emoji">🍽️👚</div>
-                <h3>Almoço em Família</h3>
-                <p>🌸 Confortável e elegante</p>
-                <div class="actions">
-                    <button onclick="curtir(this)">♡ 98</button>
-                    <button>⭐ 40</button>
+
+            <div class="card look"
+                 data-ocasiao="familia">
+
+                <div class="emoji">
+                    🍽️👚
                 </div>
+
+                <h3>
+                    Almoço em Família
+                </h3>
+
+                <p>
+                    🌸 Confortável e elegante
+                </p>
+
+                <div class="actions">
+
+                    <button onclick="curtir(this)">
+                        ♡ 98
+                    </button>
+
+                    <button onclick="salvarLook()">
+                        ⭐ 40
+                    </button>
+
+                </div>
+
             </div>
 
-            <div class="card look" data-ocasiao="festa">
-                <div class="emoji">🎉👠</div>
-                <h3>Look para Festa</h3>
-                <p>✨ Elegante e moderno</p>
-                <div class="actions">
-                    <button onclick="curtir(this)">♡ 230</button>
-                    <button>⭐ 80</button>
+
+            <div class="card look"
+                 data-ocasiao="festa">
+
+                <div class="emoji">
+                    🎉👠
                 </div>
+
+                <h3>
+                    Look para Festa
+                </h3>
+
+                <p>
+                    ✨ Elegante e moderno
+                </p>
+
+                <div class="actions">
+
+                    <button onclick="curtir(this)">
+                        ♡ 230
+                    </button>
+
+                    <button onclick="salvarLook()">
+                        ⭐ 80
+                    </button>
+
+                </div>
+
             </div>
 
-            <div class="card look" data-ocasiao="aniversario">
-                <div class="emoji">🎂👗</div>
-                <h3>Aniversário</h3>
-                <p>🎀 Charmoso e divertido</p>
-                <div class="actions">
-                    <button onclick="curtir(this)">♡ 175</button>
-                    <button>⭐ 62</button>
+
+            <div class="card look"
+                 data-ocasiao="aniversario">
+
+                <div class="emoji">
+                    🎂👗
                 </div>
+
+                <h3>
+                    Aniversário
+                </h3>
+
+                <p>
+                    🎀 Charmoso e divertido
+                </p>
+
+                <div class="actions">
+
+                    <button onclick="curtir(this)">
+                        ♡ 175
+                    </button>
+
+                    <button onclick="salvarLook()">
+                        ⭐ 62
+                    </button>
+
+                </div>
+
             </div>
 
-            <div class="card look" data-ocasiao="encontro">
-                <div class="emoji">💕🌷</div>
-                <h3>Look para Encontro</h3>
-                <p>🌹 Romântico</p>
-                <div class="actions">
-                    <button onclick="curtir(this)">♡ 210</button>
-                    <button>⭐ 75</button>
+
+            <div class="card look"
+                 data-ocasiao="encontro">
+
+                <div class="emoji">
+                    💕🌷
                 </div>
+
+                <h3>
+                    Look para Encontro
+                </h3>
+
+                <p>
+                    🌹 Romântico
+                </p>
+
+                <div class="actions">
+
+                    <button onclick="curtir(this)">
+                        ♡ 210
+                    </button>
+
+                    <button onclick="salvarLook()">
+                        ⭐ 75
+                    </button>
+
+                </div>
+
             </div>
 
-            <div class="card look" data-ocasiao="escola">
-                <div class="emoji">📚👖</div>
-                <h3>Look para Escola</h3>
-                <p>🎒 Prático e confortável</p>
-                <div class="actions">
-                    <button onclick="curtir(this)">♡ 87</button>
-                    <button>⭐ 30</button>
+
+            <div class="card look"
+                 data-ocasiao="escola">
+
+                <div class="emoji">
+                    📚👖
                 </div>
+
+                <h3>
+                    Look para Escola
+                </h3>
+
+                <p>
+                    🎒 Prático e confortável
+                </p>
+
+                <div class="actions">
+
+                    <button onclick="curtir(this)">
+                        ♡ 87
+                    </button>
+
+                    <button onclick="salvarLook()">
+                        ⭐ 30
+                    </button>
+
+                </div>
+
             </div>
 
-            <div class="card look" data-ocasiao="trabalho">
-                <div class="emoji">💼👔</div>
-                <h3>Look para Trabalho</h3>
-                <p>✨ Profissional e elegante</p>
-                <div class="actions">
-                    <button onclick="curtir(this)">♡ 150</button>
-                    <button>⭐ 55</button>
+
+            <div class="card look"
+                 data-ocasiao="trabalho">
+
+                <div class="emoji">
+                    💼👔
                 </div>
+
+                <h3>
+                    Look para Trabalho
+                </h3>
+
+                <p>
+                    ✨ Profissional e elegante
+                </p>
+
+                <div class="actions">
+
+                    <button onclick="curtir(this)">
+                        ♡ 150
+                    </button>
+
+                    <button onclick="salvarLook()">
+                        ⭐ 55
+                    </button>
+
+                </div>
+
             </div>
 
-            <div class="card look" data-ocasiao="passeio">
-                <div class="emoji">🛍️👚</div>
-                <h3>Look para Passeio</h3>
-                <p>🌷 Casual e estiloso</p>
-                <div class="actions">
-                    <button onclick="curtir(this)">♡ 132</button>
-                    <button>⭐ 47</button>
+
+            <div class="card look"
+                 data-ocasiao="passeio">
+
+                <div class="emoji">
+                    🛍️👚
                 </div>
+
+                <h3>
+                    Look para Passeio
+                </h3>
+
+                <p>
+                    🌷 Casual e estiloso
+                </p>
+
+                <div class="actions">
+
+                    <button onclick="curtir(this)">
+                        ♡ 132
+                    </button>
+
+                    <button onclick="salvarLook()">
+                        ⭐ 47
+                    </button>
+
+                </div>
+
             </div>
 
-            <div class="card look" data-ocasiao="academia">
-                <div class="emoji">🏋️👟</div>
-                <h3>Look Academia</h3>
-                <p>💪 Confortável e esportivo</p>
-                <div class="actions">
-                    <button onclick="curtir(this)">♡ 100</button>
-                    <button>⭐ 35</button>
+
+            <div class="card look"
+                 data-ocasiao="academia">
+
+                <div class="emoji">
+                    🏋️👟
                 </div>
+
+                <h3>
+                    Look Academia
+                </h3>
+
+                <p>
+                    💪 Confortável e esportivo
+                </p>
+
+                <div class="actions">
+
+                    <button onclick="curtir(this)">
+                        ♡ 100
+                    </button>
+
+                    <button onclick="salvarLook()">
+                        ⭐ 35
+                    </button>
+
+                </div>
+
             </div>
 
-            <div class="card look" data-ocasiao="casual">
-                <div class="emoji">👕👖</div>
-                <h3>Look Dia a Dia</h3>
-                <p>🌸 Casual e confortável</p>
-                <div class="actions">
-                    <button onclick="curtir(this)">♡ 89</button>
-                    <button>⭐ 32</button>
+
+            <div class="card look"
+                 data-ocasiao="casual">
+
+                <div class="emoji">
+                    👕👖
                 </div>
+
+                <h3>
+                    Look Dia a Dia
+                </h3>
+
+                <p>
+                    🌸 Casual e confortável
+                </p>
+
+                <div class="actions">
+
+                    <button onclick="curtir(this)">
+                        ♡ 89
+                    </button>
+
+                    <button onclick="salvarLook()">
+                        ⭐ 32
+                    </button>
+
+                </div>
+
             </div>
 
-            <div class="card look" data-ocasiao="viagem">
-                <div class="emoji">✈️🧳</div>
-                <h3>Look para Viagem</h3>
-                <p>🌎 Confortável e prático</p>
-                <div class="actions">
-                    <button onclick="curtir(this)">♡ 145</button>
-                    <button>⭐ 50</button>
+
+            <div class="card look"
+                 data-ocasiao="viagem">
+
+                <div class="emoji">
+                    ✈️🧳
                 </div>
+
+                <h3>
+                    Look para Viagem
+                </h3>
+
+                <p>
+                    🌎 Confortável e prático
+                </p>
+
+                <div class="actions">
+
+                    <button onclick="curtir(this)">
+                        ♡ 145
+                    </button>
+
+                    <button onclick="salvarLook()">
+                        ⭐ 50
+                    </button>
+
+                </div>
+
             </div>
 
-            <div class="card look" data-ocasiao="natal">
-                <div class="emoji">🎄❤️</div>
-                <h3>Look de Natal</h3>
-                <p>🎀 Festivo e elegante</p>
-                <div class="actions">
-                    <button onclick="curtir(this)">♡ 190</button>
-                    <button>⭐ 70</button>
+
+            <div class="card look"
+                 data-ocasiao="natal">
+
+                <div class="emoji">
+                    🎄❤️
                 </div>
+
+                <h3>
+                    Look de Natal
+                </h3>
+
+                <p>
+                    🎀 Festivo e elegante
+                </p>
+
+                <div class="actions">
+
+                    <button onclick="curtir(this)">
+                        ♡ 190
+                    </button>
+
+                    <button onclick="salvarLook()">
+                        ⭐ 70
+                    </button>
+
+                </div>
+
             </div>
 
         </div>
@@ -198,3 +1112,932 @@
     </div>
 
 </section>
+
+
+<!-- =========================
+     PROVADOR
+========================= -->
+
+<section id="provador" class="hidden">
+
+    <div class="section">
+
+        <h2>
+            👗 Meu Provador
+        </h2>
+
+        <p>
+            Escolha suas peças e monte uma combinação.
+        </p>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <div class="emoji">
+                    👚
+                </div>
+
+                <h3>
+                    Parte de cima
+                </h3>
+
+                <select id="top">
+
+                    <option>
+                        Blusa Rosa
+                    </option>
+
+                    <option>
+                        Camiseta Branca
+                    </option>
+
+                    <option>
+                        Camisa Azul
+                    </option>
+
+                    <option>
+                        Cropped Preto
+                    </option>
+
+                    <option>
+                        Blusa Floral
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">
+                    👖
+                </div>
+
+                <h3>
+                    Parte de baixo
+                </h3>
+
+                <select id="bottom">
+
+                    <option>
+                        Calça Jeans
+                    </option>
+
+                    <option>
+                        Saia Rosa
+                    </option>
+
+                    <option>
+                        Short Branco
+                    </option>
+
+                    <option>
+                        Calça Preta
+                    </option>
+
+                    <option>
+                        Saia Jeans
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">
+                    👠
+                </div>
+
+                <h3>
+                    Sapato
+                </h3>
+
+                <select id="shoes">
+
+                    <option>
+                        Salto Rosa
+                    </option>
+
+                    <option>
+                        Tênis Branco
+                    </option>
+
+                    <option>
+                        Sandália
+                    </option>
+
+                    <option>
+                        Tênis Preto
+                    </option>
+
+                    <option>
+                        Rasteirinha
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <br>
+
+
+        <button
+            class="primary pink"
+            onclick="gerarLook()">
+
+            ✨ Montar meu Look
+
+        </button>
+
+
+        <div
+            id="resultado"
+            class="resultado hidden">
+
+            <h2>
+                💗 Seu Look
+            </h2>
+
+            <p id="lookResultado"></p>
+
+            <br>
+
+            <button
+                class="pink"
+                onclick="publicarLook()">
+
+                📸 Publicar Look
+
+            </button>
+
+            <button
+                class="light"
+                onclick="salvarLook()">
+
+                ⭐ Salvar
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PERFIL
+========================= -->
+
+<section id="perfil" class="hidden">
+
+    <div class="section">
+
+        <div class="profile">
+
+            <div class="avatar">
+                👩🏻
+            </div>
+
+            <div>
+
+                <h2>
+                    Meu Perfil
+                </h2>
+
+                <p>
+                    @meuestilo
+                </p>
+
+                <p>
+                    💕 Apaixonada por moda e novas combinações.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tabs">
+
+            <button>
+                👗 Meus Looks
+            </button>
+
+            <button>
+                ⭐ Favoritos
+            </button>
+
+            <button>
+                👚 Meu Guarda-Roupa
+            </button>
+
+            <button>
+                💖 Inspirações
+            </button>
+
+            <button>
+                🔒 Privados
+            </button>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="emoji">
+                    👗
+                </div>
+
+                <h3>
+                    Meu look rosa
+                </h3>
+
+                <p>
+                    🌎 Público
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">
+                    👚
+                </div>
+
+                <h3>
+                    Look casual
+                </h3>
+
+                <p>
+                    🔒 Privado
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SOBRE O PROJETO
+========================= -->
+
+<section id="projeto" class="hidden">
+
+    <div class="section projeto-info">
+
+
+        <div class="projeto-titulo">
+
+            <span>
+                💗
+            </span>
+
+            <h1>
+                Provador de Moda
+            </h1>
+
+            <p>
+                Conheça o nosso projeto
+            </p>
+
+        </div>
+
+
+        <div class="info-grid">
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    👗
+                </div>
+
+                <h2>
+                    Tema do Projeto
+                </h2>
+
+                <p>
+                    Provador de Moda
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    📱
+                </div>
+
+                <h2>
+                    Tipo de Aplicação
+                </h2>
+
+                <p>
+                    Aplicativo
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    👥
+                </div>
+
+                <h2>
+                    Público-Alvo
+                </h2>
+
+                <p>
+                    Homens e mulheres
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="info-card descricao">
+
+            <div class="info-icon">
+                ✨
+            </div>
+
+            <h2>
+                Descrição do Projeto
+            </h2>
+
+            <p>
+                O <strong>Provador de Moda</strong> é um aplicativo que
+                mostra inspirações de roupas, acessórios e calçados,
+                facilitando a combinação de looks para diferentes
+                ocasiões, como <strong>praia, festa, aniversário,
+                almoço em família</strong> e outras situações.
+            </p>
+
+            <p>
+                O usuário poderá tirar fotos de suas próprias peças
+                para criar combinações personalizadas ou utilizar
+                inspirações prontas encontradas na internet.
+            </p>
+
+        </div>
+
+
+        <div class="info-card objetivo">
+
+            <div class="info-icon">
+                🎯
+            </div>
+
+            <h2>
+                Objetivo Principal
+            </h2>
+
+            <p>
+                Ajudar e facilitar a vida das pessoas, melhorando
+                seu estilo para que se sintam mais confiantes com
+                seus looks e consigam economizar tempo na hora de
+                escolher o que vestir.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+                🧩
+            </div>
+
+            <h2>
+                Problema a Resolver
+            </h2>
+
+            <p>
+                Muitas pessoas têm dificuldade para escolher roupas
+                e combinar peças, acessórios e calçados.
+                O aplicativo busca tornar esse processo mais simples,
+                rápido e divertido.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+                ⚙️
+            </div>
+
+            <h2>
+                Escopo e Restrições
+            </h2>
+
+            <p>
+                O projeto está focado na criação de uma experiência
+                digital para inspiração, combinação e organização
+                de looks.
+            </p>
+
+            <p>
+                <strong>Restrições:</strong> o projeto possui caráter
+                demonstrativo e algumas funcionalidades poderão
+                depender de recursos futuros, como armazenamento
+                de fotos, banco de dados e integração com conteúdos
+                externos.
+            </p>
+
+        </div>
+
+
+        <div class="info-card participantes">
+
+            <div class="info-icon">
+                💗
+            </div>
+
+            <h2>
+                Participantes
+            </h2>
+
+            <ul>
+
+                <li>
+                    Dulce Nicoly Pereira
+                </li>
+
+                <li>
+                    Maria Eduarda Duarte da Silva
+                </li>
+
+                <li>
+                    Maria Eduarda Teixeira Neves Gomes
+                </li>
+
+                <li>
+                    Maria Heloyza Nicácio Celestino Domingos
+                </li>
+
+                <li>
+                    Viviane Cordeiro da Silva
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    💗 PinkCloset — Vista sua personalidade.
+
+</footer>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-content">
+
+        <span
+            class="close"
+            onclick="fecharModal()">
+            ×
+        </span>
+
+        <h2 id="modalTitulo">
+            Entrar
+        </h2>
+
+        <input
+            type="text"
+            id="nome"
+            placeholder="Nome"
+            class="hidden"
+        >
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Email"
+        >
+
+        <input
+            type="password"
+            id="senha"
+            placeholder="Senha"
+        >
+
+        <button
+            class="primary pink"
+            onclick="login()">
+
+            Continuar 💗
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* =========================
+       TROCAR PÁGINAS
+    ========================= */
+
+    function mostrar(pagina) {
+
+        const paginas = [
+            "inicio",
+            "explorar",
+            "provador",
+            "perfil",
+            "projeto"
+        ];
+
+        paginas.forEach(id => {
+
+            document
+                .getElementById(id)
+                .classList
+                .add("hidden");
+
+        });
+
+        document
+            .getElementById(pagina)
+            .classList
+            .remove("hidden");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    function abrirModal(tipo) {
+
+        document
+            .getElementById("modal")
+            .style
+            .display = "flex";
+
+
+        if (tipo === "cadastro") {
+
+            document
+                .getElementById("modalTitulo")
+                .innerText =
+                "Criar minha conta 💗";
+
+            document
+                .getElementById("nome")
+                .classList
+                .remove("hidden");
+
+        } else {
+
+            document
+                .getElementById("modalTitulo")
+                .innerText =
+                "Entrar 💗";
+
+            document
+                .getElementById("nome")
+                .classList
+                .add("hidden");
+
+        }
+
+    }
+
+
+    function fecharModal() {
+
+        document
+            .getElementById("modal")
+            .style
+            .display = "none";
+
+    }
+
+
+    /* =========================
+       LOGIN
+    ========================= */
+
+    function login() {
+
+        const email =
+            document
+                .getElementById("email")
+                .value;
+
+        const senha =
+            document
+                .getElementById("senha")
+                .value;
+
+
+        if (email === "" || senha === "") {
+
+            alert(
+                "💗 Preencha seu email e senha!"
+            );
+
+            return;
+
+        }
+
+
+        fecharModal();
+
+        mostrar("perfil");
+
+        alert(
+            "✨ Bem-vindo ao PinkCloset! 💗"
+        );
+
+    }
+
+
+    /* =========================
+       CURTIR
+    ========================= */
+
+    function curtir(botao) {
+
+        if (
+            botao.innerText.includes("♡")
+        ) {
+
+            botao.innerText =
+                "♥ Curtido";
+
+            botao.style.color =
+                "#e83e8c";
+
+        } else {
+
+            botao.innerText =
+                "♡ Curtir";
+
+            botao.style.color =
+                "";
+
+        }
+
+    }
+
+
+    /* =========================
+       FILTRAR OCASIÕES
+    ========================= */
+
+    function filtrarOcasião(ocasiao) {
+
+        const looks =
+            document.querySelectorAll(".look");
+
+        const botoes =
+            document.querySelectorAll(
+                ".ocasioes button"
+            );
+
+
+        botoes.forEach(botao => {
+
+            botao.classList.remove(
+                "ativo"
+            );
+
+        });
+
+
+        const botaoClicado =
+            [...botoes].find(botao =>
+
+                botao
+                    .getAttribute("onclick")
+                    ?.includes(ocasiao)
+
+            );
+
+
+        if (botaoClicado) {
+
+            botaoClicado.classList.add(
+                "ativo"
+            );
+
+        }
+
+
+        looks.forEach(look => {
+
+            if (
+                ocasiao === "todos" ||
+                look.dataset.ocasiao === ocasiao
+            ) {
+
+                look.style.display =
+                    "block";
+
+            } else {
+
+                look.style.display =
+                    "none";
+
+            }
+
+        });
+
+
+        document
+            .getElementById("busca")
+            .value = "";
+
+    }
+
+
+    /* =========================
+       BUSCAR
+    ========================= */
+
+    function buscar() {
+
+        const termo =
+            document
+                .getElementById("busca")
+                .value
+                .toLowerCase();
+
+        const looks =
+            document.querySelectorAll(".look");
+
+
+        looks.forEach(look => {
+
+            const texto =
+                look.innerText
+                    .toLowerCase();
+
+
+            if (
+                texto.includes(termo)
+            ) {
+
+                look.style.display =
+                    "block";
+
+            } else {
+
+                look.style.display =
+                    "none";
+
+            }
+
+        });
+
+    }
+
+
+    /* =========================
+       GERAR LOOK
+    ========================= */
+
+    function gerarLook() {
+
+        const top =
+            document
+                .getElementById("top")
+                .value;
+
+        const bottom =
+            document
+                .getElementById("bottom")
+                .value;
+
+        const shoes =
+            document
+                .getElementById("shoes")
+                .value;
+
+
+        const resultado =
+            document
+                .getElementById("resultado");
+
+        const texto =
+            document
+                .getElementById("lookResultado");
+
+
+        texto.innerHTML =
+
+            `👚 ${top}<br>
+             👖 ${bottom}<br>
+             👠 ${shoes}<br><br>
+             ✨ Combinação criada com sucesso!`;
+
+
+        resultado
+            .classList
+            .remove("hidden");
+
+    }
+
+
+    /* =========================
+       SALVAR LOOK
+    ========================= */
+
+    function salvarLook() {
+
+        alert(
+            "⭐ Look salvo nos seus favoritos!"
+        );
+
+    }
+
+
+    /* =========================
+       PUBLICAR LOOK
+    ========================= */
+
+    function publicarLook() {
+
+        alert(
+            "💗 Look publicado! Outros usuários poderão se inspirar nele."
+        );
+
+    }
+
+
+    /* =========================
+       FECHAR MODAL AO CLICAR FORA
+    ========================= */
+
+    document
+        .getElementById("modal")
+        .addEventListener(
+            "click",
+            function(event) {
+
+                if (
+                    event.target === this
+                ) {
+
+                    fecharModal();
+
+                }
+
+            }
+        );
+
+</script>
+
+</body>
+
+</html>
