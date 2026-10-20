@@ -21,7 +21,7 @@ body {
 }
 
 header {
-    background: #fff;
+    background: white;
     padding: 18px 7%;
     display: flex;
     justify-content: space-between;
@@ -43,7 +43,7 @@ header {
 nav button {
     border: none;
     background: none;
-    margin-left: 15px;
+    margin-left: 10px;
     color: #7d3155;
     cursor: pointer;
     font-weight: bold;
@@ -57,7 +57,7 @@ nav button:hover {
 main {
     max-width: 1200px;
     margin: auto;
-    padding: 40px 20px;
+    padding: 35px 20px;
 }
 
 .hero {
@@ -66,45 +66,15 @@ main {
 }
 
 .hero h1 {
-    font-size: 45px;
+    font-size: 40px;
     color: #d92f7b;
     margin-bottom: 15px;
 }
 
 .hero p {
-    font-size: 19px;
-    margin-bottom: 20px;
+    font-size: 18px;
     color: #70425a;
     line-height: 1.7;
-}
-
-.buttons button, .primary {
-    border: none;
-    padding: 14px 25px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: bold;
-    margin: 5px;
-    transition: .3s;
-}
-
-.pink {
-    background: #e83e8c;
-    color: white;
-}
-
-.pink:hover {
-    background: #c92770;
-    transform: translateY(-2px);
-}
-
-.light {
-    background: white;
-    color: #e83e8c;
-    border: 1px solid #f2b4cf;
-    padding: 12px 20px;
-    border-radius: 25px;
-    cursor: pointer;
 }
 
 .section {
@@ -136,17 +106,6 @@ main {
     border-radius: 20px;
     padding: 15px;
     text-align: center;
-    transition: .3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px #d96b9630;
-}
-
-.card .emoji {
-    font-size: 60px;
-    padding: 20px;
 }
 
 .card h3 {
@@ -154,8 +113,49 @@ main {
     color: #a32c62;
 }
 
-.card p {
-    line-height: 1.5;
+.emoji {
+    font-size: 50px;
+    padding: 15px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.primary, .pink {
+    background: #e83e8c;
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 25px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.primary:hover, .pink:hover {
+    background: #c92770;
+}
+
+.light {
+    background: white;
+    color: #e83e8c;
+    border: 1px solid #f2b4cf;
+    padding: 12px 18px;
+    border-radius: 25px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #f2b4cf;
+    border-radius: 12px;
+    outline: none;
+}
+
+input[type="file"] {
+    background: white;
+    font-size: 13px;
 }
 
 .actions {
@@ -171,11 +171,6 @@ main {
     background: white;
     padding: 8px 12px;
     border-radius: 20px;
-    cursor: pointer;
-}
-
-.actions button:hover {
-    background: #ffd8e9;
 }
 
 .profile {
@@ -208,12 +203,6 @@ main {
     color: #a32c62;
     padding: 10px 18px;
     border-radius: 20px;
-    cursor: pointer;
-}
-
-.tabs button:hover {
-    background: #e83e8c;
-    color: white;
 }
 
 .modal {
@@ -239,19 +228,34 @@ main {
     margin-bottom: 20px;
 }
 
-input, select {
-    width: 100%;
-    padding: 13px;
-    margin: 8px 0;
-    border: 1px solid #f2b4cf;
-    border-radius: 12px;
-    outline: none;
-}
-
 .close {
     float: right;
     cursor: pointer;
     font-size: 25px;
+}
+
+.preview-roupa {
+    width: 100%;
+    max-height: 230px;
+    object-fit: contain;
+    margin-top: 12px;
+    border-radius: 14px;
+    background: white;
+}
+
+.look-preview-item {
+    background: #fff4f9;
+    border-radius: 16px;
+    padding: 12px;
+    text-align: center;
+}
+
+.look-preview-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    background: white;
+    border-radius: 12px;
 }
 
 footer {
@@ -265,13 +269,9 @@ footer {
 }
 
 @media(max-width: 600px) {
-    .hero h1 {
-        font-size: 34px;
-    }
-
     header {
-        padding: 15px;
         justify-content: center;
+        padding: 15px;
     }
 
     nav {
@@ -279,21 +279,21 @@ footer {
     }
 
     nav button {
-        margin-left: 3px;
+        margin: 3px;
         font-size: 12px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .section {
+        padding: 20px;
     }
 
     .profile {
         flex-direction: column;
         text-align: center;
-    }
-
-    main {
-        padding: 20px 12px;
-    }
-
-    .section {
-        padding: 20px;
     }
 }
 </style>
@@ -326,28 +326,21 @@ footer {
         <p>
             O PinkCloset é um projeto criado para ajudar as pessoas
             a descobrir seu estilo e montar looks para diferentes
-            momentos da vida. A ideia é oferecer inspirações de roupas
-            para ocasiões como praia, trabalho, faculdade, festas,
-            passeios e muito mais.
+            momentos da vida, como praia, trabalho, faculdade,
+            festas e passeios.
         </p>
-
-        <p style="margin-top: 14px;">
-            Na aba Explorar, você pode conhecer diferentes combinações
-            de roupas, procurar looks por ocasião e adicionar suas
-            próprias peças. No Provador, é possível combinar roupas
-            para imaginar novos looks. Já no Perfil, você encontra
-            um espaço para acompanhar suas inspirações.
+        <p style="margin-top:14px">
+            Na aba Explorar, você pode conhecer inspirações e
+            adicionar roupas. No Provador, pode escolher fotos das
+            próprias peças para montar combinações. No Perfil,
+            pode acompanhar seus looks e favoritos.
         </p>
-
-        <p style="margin-top: 14px;">
-            Nosso objetivo é tornar a escolha das roupas mais prática,
-            divertida e criativa, ajudando cada pessoa a expressar sua
-            personalidade e encontrar combinações que combinem com
-            seu próprio estilo. 💕
+        <p style="margin-top:14px">
+            Nosso objetivo é tornar a escolha das roupas mais
+            prática, divertida e criativa. 💕
         </p>
     </div>
 
-    <!-- COMPONENTES DO GRUPO -->
     <div class="section">
         <h2>👩‍💻 Componentes do grupo</h2>
         <p>Este projeto foi desenvolvido pelas integrantes:</p>
@@ -375,29 +368,27 @@ footer {
 
             <div class="card">
                 <div class="emoji">🩷</div>
-                <h3>Dulce Nicoly Pereira</h3>
+                <h3>Dulce Nicoly Pereira Martins</h3>
             </div>
         </div>
     </div>
 
-    <div class="section" style="max-width: 520px; margin: 0 auto 30px;">
+    <div class="section">
         <h2>🔐 Entrar na sua conta</h2>
-        <p>Faça login para explorar looks e adicionar novas roupas.</p>
+        <p>Faça login para explorar looks e adicionar roupas.</p>
 
         <input type="email" id="loginEmail"
-               placeholder="Seu e-mail" autocomplete="email">
+               placeholder="Seu e-mail">
 
         <input type="password" id="loginSenha"
-               placeholder="Sua senha" autocomplete="current-password">
+               placeholder="Sua senha">
 
-        <button class="primary pink" onclick="login()">Entrar 💗</button>
+        <button class="primary" onclick="login()">Entrar 💗</button>
 
-        <p style="margin-top: 14px;">
-            Ainda não tem conta?
-            <button class="light" onclick="abrirModal('cadastro')">
-                Criar minha conta
-            </button>
-        </p>
+        <p style="margin-top:12px">Ainda não tem conta?</p>
+        <button class="light" onclick="abrirModal()">
+            Criar minha conta
+        </button>
     </div>
 </section>
 
@@ -405,31 +396,34 @@ footer {
 <section id="explorar" class="hidden">
     <div class="section">
         <h2>💖 Explorar Looks e Roupas</h2>
-        <p>Encontre inspirações para diferentes ocasiões ou adicione suas próprias peças de roupa.</p>
+        <p>Encontre inspirações ou adicione suas próprias peças.</p>
 
-        <h3 style="margin-top: 20px; color: #a32c62;">👚 Adicionar uma roupa</h3>
+        <h3 style="margin-top:20px;color:#a32c62">
+            👚 Adicionar uma roupa
+        </h3>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 15px 0; align-items: center;">
-            <input type="text" id="novaRoupaNome" placeholder="Nome da roupa">
+        <input type="text" id="novaRoupaNome"
+               placeholder="Nome da roupa">
 
-            <select id="novaRoupaCategoria" aria-label="Categoria da roupa">
-                <option value="Blusa">👚 Blusa</option>
-                <option value="Calça">👖 Calça</option>
-                <option value="Saia">👗 Saia</option>
-                <option value="Vestido">👗 Vestido</option>
-                <option value="Sapato">👠 Sapato</option>
-                <option value="Acessório">👜 Acessório</option>
-                <option value="Moda praia">🩱 Moda praia</option>
-                <option value="Casaco">🧥 Casaco</option>
-                <option value="Bolsa">👜 Bolsa</option>
-            </select>
+        <select id="novaRoupaCategoria">
+            <option value="Blusa">👚 Blusa</option>
+            <option value="Calça">👖 Calça</option>
+            <option value="Saia">👗 Saia</option>
+            <option value="Vestido">👗 Vestido</option>
+            <option value="Sapato">👠 Sapato</option>
+            <option value="Acessório">👜 Acessório</option>
+            <option value="Moda praia">🩱 Moda praia</option>
+            <option value="Casaco">🧥 Casaco</option>
+            <option value="Bolsa">👜 Bolsa</option>
+        </select>
 
-            <button class="primary pink" onclick="adicionarRoupa()">＋ Adicionar roupa</button>
-        </div>
+        <button class="primary" onclick="adicionarRoupa()">
+            ＋ Adicionar roupa
+        </button>
 
         <input type="text" id="busca"
                placeholder="🔎 Procurar looks, estilos ou ocasiões..."
-               onkeyup="buscar()">
+               oninput="buscar()">
 
         <div class="cards" id="feed">
 
@@ -466,7 +460,7 @@ footer {
             <div class="card look">
                 <div class="emoji">🏖️</div>
                 <h3>Look para praia</h3>
-                <p>🩱 Biquíni ou maiô, saída de praia e chinelo</p>
+                <p>🩱 Moda praia, saída e chinelo</p>
                 <div class="actions">
                     <button onclick="curtir(this)">♡ Curtir</button>
                     <button onclick="salvarFavorito(this)">⭐ Salvar</button>
@@ -476,7 +470,7 @@ footer {
             <div class="card look">
                 <div class="emoji">💼</div>
                 <h3>Look para trabalho</h3>
-                <p>👔 Camisa, calça de alfaiataria e sapato confortável</p>
+                <p>👔 Camisa, calça e sapato confortável</p>
                 <div class="actions">
                     <button onclick="curtir(this)">♡ Curtir</button>
                     <button onclick="salvarFavorito(this)">⭐ Salvar</button>
@@ -496,7 +490,7 @@ footer {
             <div class="card look">
                 <div class="emoji">🏋️‍♀️</div>
                 <h3>Look para academia</h3>
-                <p>💪 Legging, camiseta ou top e tênis esportivo</p>
+                <p>💪 Roupa esportiva e tênis</p>
                 <div class="actions">
                     <button onclick="curtir(this)">♡ Curtir</button>
                     <button onclick="salvarFavorito(this)">⭐ Salvar</button>
@@ -506,7 +500,7 @@ footer {
             <div class="card look">
                 <div class="emoji">🌳</div>
                 <h3>Look para passeio</h3>
-                <p>🌼 Vestido leve ou short com blusa e tênis</p>
+                <p>🌼 Roupa leve e confortável</p>
                 <div class="actions">
                     <button onclick="curtir(this)">♡ Curtir</button>
                     <button onclick="salvarFavorito(this)">⭐ Salvar</button>
@@ -516,7 +510,7 @@ footer {
             <div class="card look">
                 <div class="emoji">🧥</div>
                 <h3>Look para dias frios</h3>
-                <p>❄️ Casaco, calça comprida e bota ou tênis</p>
+                <p>❄️ Casaco, calça e bota</p>
                 <div class="actions">
                     <button onclick="curtir(this)">♡ Curtir</button>
                     <button onclick="salvarFavorito(this)">⭐ Salvar</button>
@@ -526,7 +520,7 @@ footer {
             <div class="card look">
                 <div class="emoji">💐</div>
                 <h3>Look para casamento</h3>
-                <p>✨ Vestido ou conjunto elegante com acessórios</p>
+                <p>✨ Conjunto elegante e acessórios</p>
                 <div class="actions">
                     <button onclick="curtir(this)">♡ Curtir</button>
                     <button onclick="salvarFavorito(this)">⭐ Salvar</button>
@@ -536,7 +530,7 @@ footer {
             <div class="card look">
                 <div class="emoji">🌞</div>
                 <h3>Look de verão</h3>
-                <p>🍉 Tecidos leves, cores alegres e sandálias</p>
+                <p>🍉 Tecidos leves e sandálias</p>
                 <div class="actions">
                     <button onclick="curtir(this)">♡ Curtir</button>
                     <button onclick="salvarFavorito(this)">⭐ Salvar</button>
@@ -547,53 +541,66 @@ footer {
     </div>
 </section>
 
-<!-- PROVADOR -->
+<!-- MEU PROVADOR -->
 <section id="provador" class="hidden">
     <div class="section">
         <h2>👗 Meu Provador</h2>
-        <p>Escolha suas peças e monte uma combinação.</p>
+        <p>
+            Adicione fotos das suas próprias roupas para montar
+            uma combinação personalizada.
+        </p>
 
         <div class="cards">
+
             <div class="card">
                 <div class="emoji">👚</div>
                 <h3>Parte de cima</h3>
-                <select id="top">
-                    <option>Blusa Rosa</option>
-                    <option>Camiseta Branca</option>
-                    <option>Camisa Azul</option>
-                </select>
+                <label for="topFoto">Foto da blusa ou camisa</label>
+                <input type="file" id="topFoto" accept="image/*"
+                       onchange="preverPeca('topFoto','previewTop')">
+                <img id="previewTop" class="preview-roupa hidden"
+                     alt="Prévia da parte de cima">
             </div>
 
             <div class="card">
                 <div class="emoji">👖</div>
                 <h3>Parte de baixo</h3>
-                <select id="bottom">
-                    <option>Calça Jeans</option>
-                    <option>Saia Rosa</option>
-                    <option>Short Branco</option>
-                </select>
+                <label for="bottomFoto">Foto da calça, saia ou short</label>
+                <input type="file" id="bottomFoto" accept="image/*"
+                       onchange="preverPeca('bottomFoto','previewBottom')">
+                <img id="previewBottom" class="preview-roupa hidden"
+                     alt="Prévia da parte de baixo">
             </div>
 
             <div class="card">
                 <div class="emoji">👠</div>
                 <h3>Sapato</h3>
-                <select id="shoes">
-                    <option>Salto Rosa</option>
-                    <option>Tênis Branco</option>
-                    <option>Sandália</option>
-                </select>
+                <label for="shoesFoto">Foto do sapato</label>
+                <input type="file" id="shoesFoto" accept="image/*"
+                       onchange="preverPeca('shoesFoto','previewShoes')">
+                <img id="previewShoes" class="preview-roupa hidden"
+                     alt="Prévia do sapato">
             </div>
+
         </div>
 
-        <br>
-        <button class="primary pink" onclick="gerarLook()">✨ Montar meu Look</button>
+        <p style="margin-top:15px">
+            💕 Escolha fotos salvas no seu celular ou computador.
+        </p>
+
+        <button class="primary" onclick="gerarLook()">
+            ✨ Montar meu Look
+        </button>
 
         <div id="resultado" class="section hidden">
             <h2>💗 Seu Look</h2>
-            <p id="lookResultado"></p>
-            <br>
-            <button class="pink" onclick="publicarLook()">📸 Publicar Look</button>
-            <button class="light" onclick="salvarLookProvador()">⭐ Salvar</button>
+            <div id="lookResultado" class="cards"></div>
+            <button class="primary" onclick="publicarLook()">
+                📸 Publicar Look
+            </button>
+            <button class="light" onclick="salvarLookProvador()">
+                ⭐ Salvar
+            </button>
         </div>
     </div>
 </section>
@@ -614,7 +621,9 @@ footer {
             <button onclick="mostrarFavoritos()">⭐ Favoritos</button>
             <button onclick="mostrar('explorar')">👚 Meu Guarda-Roupa</button>
             <button onclick="mostrar('explorar')">💖 Inspirações</button>
-            <button onclick="alert('Seus looks privados ficam somente para você nesta demonstração.')">🔒 Privados</button>
+            <button onclick="alert('Área demonstrativa de looks privados.')">
+                🔒 Privados
+            </button>
         </div>
 
         <h2>💕 Meus looks</h2>
@@ -624,7 +633,6 @@ footer {
                 <h3>Meu look rosa</h3>
                 <p>🌎 Público</p>
             </div>
-
             <div class="card">
                 <div class="emoji">👚</div>
                 <h3>Look casual</h3>
@@ -640,20 +648,21 @@ footer {
     💗 PinkCloset — Vista sua personalidade.
 </footer>
 
-<!-- MODAL DE CADASTRO -->
+<!-- CADASTRO -->
 <div class="modal" id="modal">
     <div class="modal-content">
         <span class="close" onclick="fecharModal()">×</span>
-        <h2 id="modalTitulo">Criar minha conta 💗</h2>
+        <h2>Criar minha conta 💗</h2>
         <input type="text" id="nome" placeholder="Seu nome">
         <input type="email" id="cadastroEmail" placeholder="Seu e-mail">
         <input type="password" id="cadastroSenha" placeholder="Crie uma senha">
-        <button class="primary pink" onclick="cadastrar()">Continuar 💗</button>
+        <button class="primary" onclick="cadastrar()">Continuar 💗</button>
     </div>
 </div>
 
 <script>
 let favoritos = [];
+let fotosDoLook = [];
 
 function mostrar(pagina) {
     const paginas = ["inicio", "explorar", "provador", "perfil"];
@@ -663,20 +672,11 @@ function mostrar(pagina) {
     });
 
     document.getElementById(pagina).classList.remove("hidden");
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function abrirModal(tipo) {
+function abrirModal() {
     document.getElementById("modal").style.display = "flex";
-
-    if (tipo === "cadastro") {
-        document.getElementById("modalTitulo").innerText =
-            "Criar minha conta 💗";
-    }
 }
 
 function fecharModal() {
@@ -688,7 +688,7 @@ function login() {
     const senha = document.getElementById("loginSenha").value.trim();
 
     if (!email || !senha) {
-        alert("Preencha seu e-mail e sua senha para continuar 💗");
+        alert("Preencha seu e-mail e sua senha. 💗");
         return;
     }
 
@@ -702,7 +702,7 @@ function cadastrar() {
     const senha = document.getElementById("cadastroSenha").value.trim();
 
     if (!nome || !email || !senha) {
-        alert("Preencha todos os campos para continuar 💗");
+        alert("Preencha todos os campos para continuar. 💗");
         return;
     }
 
@@ -713,13 +713,11 @@ function cadastrar() {
 
 function adicionarRoupa() {
     const campoNome = document.getElementById("novaRoupaNome");
-    const campoCategoria = document.getElementById("novaRoupaCategoria");
-
+    const categoria = document.getElementById("novaRoupaCategoria").value;
     const nome = campoNome.value.trim();
-    const categoria = campoCategoria.value;
 
     if (!nome) {
-        alert("Digite o nome da roupa antes de adicionar 💗");
+        alert("Digite o nome da roupa antes de adicionar. 💗");
         campoNome.focus();
         return;
     }
@@ -752,31 +750,19 @@ function adicionarRoupa() {
     const acoes = document.createElement("div");
     acoes.className = "actions";
 
-    const botaoCurtir = document.createElement("button");
-    botaoCurtir.textContent = "♡ Curtir";
-    botaoCurtir.onclick = function() {
-        curtir(this);
-    };
+    const curtirBtn = document.createElement("button");
+    curtirBtn.textContent = "♡ Curtir";
+    curtirBtn.onclick = function() { curtir(this); };
 
-    const botaoSalvar = document.createElement("button");
-    botaoSalvar.textContent = "⭐ Salvar";
-    botaoSalvar.onclick = function() {
-        salvarFavorito(this);
-    };
+    const salvarBtn = document.createElement("button");
+    salvarBtn.textContent = "⭐ Salvar";
+    salvarBtn.onclick = function() { salvarFavorito(this); };
 
-    acoes.appendChild(botaoCurtir);
-    acoes.appendChild(botaoSalvar);
-
-    card.appendChild(emoji);
-    card.appendChild(titulo);
-    card.appendChild(descricao);
-    card.appendChild(acoes);
-
+    acoes.append(curtirBtn, salvarBtn);
+    card.append(emoji, titulo, descricao, acoes);
     document.getElementById("feed").appendChild(card);
 
     campoNome.value = "";
-    campoCategoria.selectedIndex = 0;
-
     alert("Roupa adicionada ao Explorar! 💗");
 }
 
@@ -812,7 +798,6 @@ function salvarFavorito(botao) {
 
 function mostrarFavoritos() {
     mostrar("perfil");
-
     const area = document.getElementById("meusLooks");
     area.innerHTML = "";
 
@@ -835,56 +820,108 @@ function mostrarFavoritos() {
         const descricao = document.createElement("p");
         descricao.textContent = item.descricao;
 
-        card.appendChild(emoji);
-        card.appendChild(titulo);
-        card.appendChild(descricao);
+        card.append(emoji, titulo, descricao);
         area.appendChild(card);
     });
 }
 
+function obterArquivoImagem(id) {
+    const campo = document.getElementById(id);
+    return campo.files && campo.files[0] ? campo.files[0] : null;
+}
+
+function preverPeca(campoId, previewId) {
+    const arquivo = obterArquivoImagem(campoId);
+    const preview = document.getElementById(previewId);
+
+    if (!arquivo) {
+        preview.src = "";
+        preview.classList.add("hidden");
+        return;
+    }
+
+    if (!arquivo.type.startsWith("image/")) {
+        alert("Escolha um arquivo de imagem. 💗");
+        document.getElementById(campoId).value = "";
+        preview.classList.add("hidden");
+        return;
+    }
+
+    preview.src = URL.createObjectURL(arquivo);
+    preview.classList.remove("hidden");
+}
+
 function gerarLook() {
-    const top = document.getElementById("top").value;
-    const bottom = document.getElementById("bottom").value;
-    const shoes = document.getElementById("shoes").value;
+    const pecas = [
+        { id: "topFoto", nome: "Parte de cima", emoji: "👚" },
+        { id: "bottomFoto", nome: "Parte de baixo", emoji: "👖" },
+        { id: "shoesFoto", nome: "Sapato", emoji: "👠" }
+    ];
 
-    const texto = document.getElementById("lookResultado");
+    const escolhidas = pecas.map(peca => ({
+        ...peca,
+        arquivo: obterArquivoImagem(peca.id)
+    }));
 
-    texto.innerHTML =
-        "👚 " + top + "<br>" +
-        "👖 " + bottom + "<br>" +
-        "👠 " + shoes + "<br><br>" +
-        "✨ Combinação criada com sucesso!";
+    if (escolhidas.some(peca => !peca.arquivo)) {
+        alert("Adicione uma foto para cada peça antes de montar seu look. 💗");
+        return;
+    }
 
+    fotosDoLook = escolhidas;
+    const area = document.getElementById("lookResultado");
+    area.innerHTML = "";
+
+    escolhidas.forEach(peca => {
+        const item = document.createElement("div");
+        item.className = "look-preview-item";
+
+        const imagem = document.createElement("img");
+        imagem.alt = peca.nome;
+        imagem.src = URL.createObjectURL(peca.arquivo);
+
+        const titulo = document.createElement("h3");
+        titulo.textContent = peca.emoji + " " + peca.nome;
+
+        item.append(imagem, titulo);
+        area.appendChild(item);
+    });
+
+    const mensagem = document.createElement("p");
+    mensagem.style.gridColumn = "1 / -1";
+    mensagem.textContent =
+        "✨ Combinação criada com as fotos das suas próprias roupas!";
+
+    area.appendChild(mensagem);
     document.getElementById("resultado").classList.remove("hidden");
 }
 
 function salvarLookProvador() {
-    const top = document.getElementById("top").value;
-    const bottom = document.getElementById("bottom").value;
-    const shoes = document.getElementById("shoes").value;
+    if (fotosDoLook.length !== 3) {
+        alert("Monte seu look antes de salvar. 💗");
+        return;
+    }
 
     favoritos.push({
-        titulo: "Look do provador",
+        titulo: "Look do meu provador",
         emoji: "👗",
-        descricao: top + ", " + bottom + " e " + shoes
+        descricao: "Combinação criada com fotos das minhas próprias roupas."
     });
 
     alert("⭐ Seu look foi salvo nos favoritos!");
 }
 
 function publicarLook() {
-    alert("💗 Look publicado nesta demonstração!");
+    alert("💗 Esta é uma demonstração. A publicação online poderá ser implementada em uma próxima etapa.");
 }
 
 function buscar() {
-    const campo = document.getElementById("busca");
-    const termo = campo.value.toLowerCase();
-
+    const termo = document.getElementById("busca").value.toLowerCase();
     const looks = document.querySelectorAll("#feed .look");
 
     looks.forEach(look => {
-        const texto = look.innerText.toLowerCase();
-        look.style.display = texto.includes(termo) ? "" : "none";
+        look.style.display =
+            look.innerText.toLowerCase().includes(termo) ? "" : "none";
     });
 }
 </script>
