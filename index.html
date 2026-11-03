@@ -1,49 +1,253 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PinkCloset 💗</title>
-<style>
-:root{--pink:#e83e8c;--deep:#a32c62;--pale:#fff0f7;--line:#f4bfd7;--ink:#4a1730}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#fff0f7,#ffe0ef);font-family:Arial,sans-serif;color:var(--ink)}
-header{background:#fff;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;box-shadow:0 3px 15px #d96b9630;position:sticky;top:0;z-index:5}
-.logo{font-size:27px;font-weight:bold;color:var(--pink)}nav{display:flex;gap:5px;flex-wrap:wrap}button{cursor:pointer;font-weight:bold}
-nav button{background:none;border:0;color:#7d3155;padding:10px}.primary,.pink{background:var(--pink);color:#fff;border:0;padding:11px 18px;border-radius:24px;margin:4px}.light{background:#fff;color:var(--pink);border:1px solid var(--line);padding:10px 16px;border-radius:22px;margin:4px}
-main{max-width:1200px;margin:auto;padding:22px 15px}.section{background:#fff;border-radius:22px;padding:22px;margin-bottom:20px;box-shadow:0 5px 25px #d96b961c}.hero{text-align:center;padding:30px 10px}.hero h1,h2{color:#d92f7b}.hero h1{font-size:36px}
-p{line-height:1.55}.hidden{display:none!important}input,select,textarea{width:100%;padding:12px;margin:7px 0;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}input[type=file]{font-size:12px}label{display:block;font-size:13px;margin-top:8px}.muted{color:#95647a;font-size:13px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px;margin-top:16px}.card{background:#fff5fa;border:1px solid #f9d8e7;border-radius:17px;padding:13px;min-width:0}.card h3{color:var(--deep);margin:9px 0}.photo{width:100%;height:220px;object-fit:cover;border-radius:12px;background:#fff}.tag{display:inline-block;background:#ffe0ef;padding:5px 9px;border-radius:15px;margin:3px;font-size:12px}
-.profile-head{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.avatar{width:90px;height:90px;border-radius:50%;object-fit:cover;background:#ffd5e8;border:4px solid #ffc0dc}
-footer{text-align:center;padding:25px;color:#914568}.feed-actions{display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap}
 
-.feed-toolbar{display:flex;gap:8px;overflow-x:auto;padding:8px 0 14px;margin-top:10px;scrollbar-width:thin}
-.filter-chip{flex:0 0 auto;border:0;border-radius:20px;padding:9px 16px;background:#fff0f7;color:#8f315b;font-weight:700}
+<style>
+:root {
+  --pink:#e83e8c;
+  --deep:#a32c62;
+  --pale:#fff0f7;
+  --line:#f4bfd7;
+  --ink:#4a1730;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:linear-gradient(135deg,#fff0f7,#ffe0ef);
+  font-family:Arial,sans-serif;
+  color:var(--ink);
+}
+header{
+  background:#fff;
+  padding:16px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  box-shadow:0 3px 15px #d96b9630;
+  position:sticky;
+  top:0;
+  z-index:5;
+}
+.logo{font-size:27px;font-weight:bold;color:var(--pink)}
+nav{display:flex;gap:5px;flex-wrap:wrap}
+button{cursor:pointer;font-weight:bold}
+nav button{background:none;border:0;color:#7d3155;padding:10px}
+.primary,.pink{
+  background:var(--pink);
+  color:#fff;
+  border:0;
+  padding:11px 18px;
+  border-radius:24px;
+  margin:4px;
+}
+.light{
+  background:#fff;
+  color:var(--pink);
+  border:1px solid var(--line);
+  padding:10px 16px;
+  border-radius:22px;
+  margin:4px;
+}
+main{max-width:1200px;margin:auto;padding:22px 15px}
+.section{
+  background:#fff;
+  border-radius:22px;
+  padding:22px;
+  margin-bottom:20px;
+  box-shadow:0 5px 25px #d96b961c;
+}
+.hero{text-align:center;padding:30px 10px}
+.hero h1,h2{color:#d92f7b}
+.hero h1{font-size:36px}
+p{line-height:1.55}
+.hidden{display:none!important}
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  margin:7px 0;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#fff;
+  color:var(--ink);
+}
+input[type=file]{font-size:12px}
+label{display:block;font-size:13px;margin-top:8px}
+.muted{color:#95647a;font-size:13px}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:15px;
+  margin-top:16px;
+}
+.card{
+  background:#fff5fa;
+  border:1px solid #f9d8e7;
+  border-radius:17px;
+  padding:13px;
+  min-width:0;
+}
+.card h3{color:var(--deep);margin:9px 0}
+.photo{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+  background:#fff;
+}
+.tag{
+  display:inline-block;
+  background:#ffe0ef;
+  padding:5px 9px;
+  border-radius:15px;
+  margin:3px;
+  font-size:12px;
+}
+.profile-head{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.avatar{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  object-fit:cover;
+  background:#ffd5e8;
+  border:4px solid #ffc0dc;
+}
+footer{text-align:center;padding:25px;color:#914568}
+
+.feed-toolbar{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:8px 0 14px;
+  margin-top:10px;
+}
+.filter-chip{
+  flex:0 0 auto;
+  border:0;
+  border-radius:20px;
+  padding:9px 16px;
+  background:#fff0f7;
+  color:#8f315b;
+  font-weight:700;
+}
 .filter-chip.active{background:#e83e8c;color:#fff}
-.feed-masonry{columns:4 210px;column-gap:16px;margin-top:8px}
-.feed-pin{display:inline-block;width:100%;break-inside:avoid;margin:0 0 16px;background:#fff;border-radius:17px;overflow:hidden;box-shadow:0 3px 15px #d96b961c;border:1px solid #f8d9e7;vertical-align:top}
-.feed-pin-image{display:block;width:100%;height:auto;object-fit:cover;background:#fff0f7}
+.feed-masonry{
+  columns:4 210px;
+  column-gap:16px;
+  margin-top:8px;
+}
+.feed-pin{
+  display:inline-block;
+  width:100%;
+  break-inside:avoid;
+  margin:0 0 16px;
+  background:#fff;
+  border-radius:17px;
+  overflow:hidden;
+  box-shadow:0 3px 15px #d96b961c;
+  border:1px solid #f8d9e7;
+}
+.feed-pin-image{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  background:#fff0f7;
+}
 .feed-pin-image.ratio-tall{aspect-ratio:3/4}
 .feed-pin-image.ratio-medium{aspect-ratio:4/5}
 .feed-pin-image.ratio-square{aspect-ratio:1/1}
-.feed-pin-image.image-unavailable{min-height:190px;object-fit:contain;padding:24px;background:#fff0f7}
+.feed-pin-image.image-unavailable{
+  min-height:190px;
+  object-fit:contain;
+  padding:24px;
+  background:#fff0f7;
+}
 .feed-pin-body{padding:11px 12px 13px}
-.feed-pin-title{margin:0 0 5px;color:#a32c62;font-size:15px;line-height:1.3}
-.feed-pin-description{margin:0 0 8px;font-size:13px;line-height:1.4;color:#70435a}
-.feed-pin-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:11px;color:#95647a}
-.feed-pin-meta a{color:#a32c62;text-decoration:none}
-.feed-pin-meta a:hover{text-decoration:underline}
-.feed-pin-actions{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;margin-top:9px}
-.feed-pin-actions .light,.feed-pin-actions .primary{font-size:12px;padding:8px 12px;margin:0}
-.feed-user-photo{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:#fff0f7}
+.feed-pin-title{
+  margin:0 0 5px;
+  color:#a32c62;
+  font-size:15px;
+  line-height:1.3;
+}
+.feed-pin-description{
+  margin:0 0 8px;
+  font-size:13px;
+  line-height:1.4;
+  color:#70435a;
+}
+.feed-pin-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  flex-wrap:wrap;
+  font-size:11px;
+  color:#95647a;
+}
+.feed-pin-actions{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:6px;
+  flex-wrap:wrap;
+  margin-top:9px;
+}
+.feed-pin-actions .light,
+.feed-pin-actions .primary{
+  font-size:12px;
+  padding:8px 12px;
+  margin:0;
+}
+.feed-user-photo{
+  display:block;
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  background:#fff0f7;
+}
 .feed-user-pieces{font-size:12px;color:#80506a;margin:6px 0 0}
-@media(max-width:900px){.feed-masonry{columns:3 190px}}
-@media(max-width:600px){.feed-masonry{columns:2 135px;column-gap:10px}.feed-pin{margin-bottom:10px;border-radius:14px}.feed-pin-body{padding:9px}.feed-pin-title{font-size:14px}.feed-pin-description{font-size:12px}.feed-pin-actions .light,.feed-pin-actions .primary{font-size:11px;padding:7px 9px}}
-.model-stage{background:linear-gradient(145deg,#fff,#fff4f9);border:1px solid #f6c5dc;border-radius:20px;padding:14px;min-height:490px;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden}
-.mannequin-wrap{position:relative;width:min(100%,300px);aspect-ratio:412/732;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px #9c56751c}
-.mannequin-photo{width:100%;height:100%;display:block;object-fit:contain}
+
+.model-stage{
+  background:linear-gradient(145deg,#fff,#fff4f9);
+  border:1px solid #f6c5dc;
+  border-radius:20px;
+  padding:14px;
+  min-height:490px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+.mannequin-wrap{
+  position:relative;
+  width:min(100%,300px);
+  aspect-ratio:412/732;
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 8px 24px #9c56751c;
+}
+.mannequin-photo{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:contain;
+}
 #modelItems{position:absolute;inset:0;pointer-events:none}
-.model-item{position:absolute;object-fit:contain;z-index:2;filter:drop-shadow(0 2px 2px #0002)}
+.model-item{
+  position:absolute;
+  object-fit:contain;
+  z-index:2;
+  filter:drop-shadow(0 2px 2px #0002);
+}
 .model-item.top{width:49%;height:29%;top:22%;left:25.5%}
 .model-item.bottom{width:50%;height:37%;top:43%;left:25%}
 .model-item.shoes{width:48%;height:13%;top:84%;left:26%}
@@ -52,200 +256,1545 @@ footer{text-align:center;padding:25px;color:#914568}.feed-actions{display:flex;j
 .model-item.earrings{width:31%;height:13%;top:12%;left:34.5%}
 .model-item.bag{width:36%;height:31%;top:42%;left:53%}
 .model-item.other{width:28%;height:20%;top:33%;left:54%}
+
 .team-cards .card h3{font-size:15px;line-height:1.4;margin:4px 0}
-.forgot-link{display:inline-block;background:none;border:0;color:#a32c62;text-decoration:underline;padding:9px 5px;font-weight:bold}
-.recovery-panel{margin-top:12px;padding:12px;border-radius:14px;background:#fff5fa;border:1px solid #f4bfd7}
+.forgot-link{
+  display:inline-block;
+  background:none;
+  border:0;
+  color:#a32c62;
+  text-decoration:underline;
+  padding:9px 5px;
+  font-weight:bold;
+}
+.recovery-panel{
+  margin-top:12px;
+  padding:12px;
+  border-radius:14px;
+  background:#fff5fa;
+  border:1px solid #f4bfd7;
+}
 hr{border:0;border-top:1px solid #f6d4e3;margin:20px 0}
-@media(max-width:600px){header{justify-content:center}.hero h1{font-size:29px}.section{padding:16px}nav{justify-content:center}}
+
+@media(max-width:900px){
+  .feed-masonry{columns:3 190px}
+}
+@media(max-width:600px){
+  .feed-masonry{columns:2 135px;column-gap:10px}
+  .feed-pin{margin-bottom:10px;border-radius:14px}
+  .feed-pin-body{padding:9px}
+  .feed-pin-title{font-size:14px}
+  .feed-pin-description{font-size:12px}
+  .feed-pin-actions .light,.feed-pin-actions .primary{
+    font-size:11px;
+    padding:7px 9px;
+  }
+  header{justify-content:center}
+  .hero h1{font-size:29px}
+  .section{padding:16px}
+  nav{justify-content:center}
+}
 </style>
 </head>
+
 <body>
-<header><div class="logo">💗 PinkCloset</div><nav>
-<button onclick="mostrar('inicio')">Início</button><button onclick="mostrar('explorar')">Explorar</button><button onclick="mostrar('provador')">Meu Provador</button><button onclick="mostrar('perfil')">Meu Perfil</button>
-</nav></header>
+<header>
+  <div class="logo">💗 PinkCloset</div>
+  <nav>
+    <button onclick="mostrar('inicio')">Início</button>
+    <button onclick="mostrar('explorar')">Explorar</button>
+    <button onclick="mostrar('provador')">Meu Provador</button>
+    <button onclick="mostrar('perfil')">Meu Perfil</button>
+  </nav>
+</header>
+
 <main>
 <section id="inicio">
- <div class="hero"><h1>💗 Bem-vinda ao PinkCloset!</h1><p>Descubra inspirações, compartilhe seus looks e experimente combinações.</p></div>
- <div class="section"><h2>🌸 Sobre o projeto</h2><p>O PinkCloset é um espaço para descobrir looks, organizar roupas, compartilhar combinações e experimentar peças no provador virtual.</p><p>Entre na sua conta para acessar seus looks e suas roupas em diferentes dispositivos.</p></div>
- <div class="section"><h2>👩‍💻 Componentes do grupo</h2><div class="cards team-cards">
-  <div class="card"><h3>Maria Eduarda Duarte da Silva</h3></div>
-  <div class="card"><h3>Maria Eduarda Teixeira Neves Gomes</h3></div>
-  <div class="card"><h3>Maria Heloyza Nicácio Celestino Domingos</h3></div>
-  <div class="card"><h3>Viviane Cordeiro da Silva</h3></div>
-  <div class="card"><h3>Dulce Nicoly Pereira Martins</h3></div>
- </div></div>
- <div class="section"><h2>🔐 Entrar na sua conta</h2>
-  <label for="email">E-mail</label><input id="email" type="email" placeholder="Seu e-mail" autocomplete="email">
-  <label for="senha">Senha</label><input id="senha" type="password" placeholder="Sua senha" autocomplete="current-password">
-  <button class="primary" onclick="entrar()">Entrar 💗</button><button class="light" onclick="mostrarCadastro()">Criar minha conta</button>
-  <button class="forgot-link" onclick="esqueciSenha()">Esqueci minha senha</button>
-  <div id="redefinirSenha" class="recovery-panel hidden"><hr><h3>🔑 Criar uma nova senha</h3><p class="muted">Digite uma senha nova com pelo menos 6 caracteres.</p><input id="senhaNova" type="password" placeholder="Nova senha" autocomplete="new-password"><button class="primary" onclick="atualizarSenha()">Salvar nova senha</button></div>
-  <div id="cadastro" class="hidden"><hr><h2>Criar conta</h2><input id="nome" placeholder="Nome de usuário"><input id="novoEmail" type="email" placeholder="E-mail"><input id="novaSenha" type="password" placeholder="Crie uma senha (mínimo 6 caracteres)"><label>Foto de perfil (opcional)</label><input id="avatar" type="file" accept="image/*"><button class="primary" onclick="cadastrar()">Cadastrar</button></div>
-  <p class="muted">Seus dados são sincronizados pela sua conta online. Para acessar em outro aparelho, entre com o mesmo e-mail e senha.</p>
-  <p id="authMsg" class="muted" aria-live="polite"></p>
- </div>
-</section>
-<section id="explorar" class="hidden">
- <div class="section"><h2>✨ Feed de looks</h2><p>Inspire-se em fotos de looks completos, filtre por estilo e veja também as publicações da comunidade. Os looks publicados pelas usuárias podem ser experimentados no provador.</p>
-  <div class="feed-toolbar" aria-label="Filtrar inspirações por estilo">
-   <button class="filter-chip active" onclick="filtrarFeed('Tudo')">Tudo</button>
-   <button class="filter-chip" onclick="filtrarFeed('Casual')">Casual</button>
-   <button class="filter-chip" onclick="filtrarFeed('Trabalho')">Trabalho</button>
-   <button class="filter-chip" onclick="filtrarFeed('Praia')">Praia</button>
-   <button class="filter-chip" onclick="filtrarFeed('Elegante')">Elegante</button>
-   <button class="filter-chip" onclick="filtrarFeed('Street style')">Street style</button>
+  <div class="hero">
+    <h1>💗 Bem-vinda ao PinkCloset!</h1>
+    <p>Descubra inspirações, compartilhe seus looks e experimente combinações.</p>
   </div>
-  <div id="feedGrid" class="feed-masonry"><p>Carregando inspirações...</p></div>
- </div>
- <div class="section"><h2>👚 Meu guarda-roupa</h2><p>Adicione suas peças para usar no provador. No celular, você também pode abrir a câmera.</p>
-  <input id="pecaNome" placeholder="Nome da peça (ex.: camisa branca)">
-  <select id="pecaTipo"><option value="top">Blusa / camisa</option><option value="bottom">Calça / saia / short</option><option value="shoes">Calçado</option><option value="hat">Chapéu / boné</option><option value="earrings">Brinco</option><option value="necklace">Colar</option><option value="other">Relógio / bracelete / acessório</option><option value="bag">Bolsa</option></select>
-  <label>Foto da peça</label><input id="pecaFoto" type="file" accept="image/*" capture="environment">
-  <button class="primary" onclick="adicionarPeca()">＋ Salvar peça</button><div id="minhasPecas" class="cards"></div>
- </div>
+
+  <div class="section">
+    <h2>🌸 Sobre o projeto</h2>
+    <p>O PinkCloset é um espaço para descobrir looks, organizar roupas, compartilhar combinações e experimentar peças no provador virtual.</p>
+    <p>Entre na sua conta para acessar seus looks e suas roupas em diferentes dispositivos.</p>
+  </div>
+
+  <div class="section">
+    <h2>👩‍💻 Componentes do grupo</h2>
+    <div class="cards team-cards">
+      <div class="card"><h3>Maria Eduarda Duarte da Silva</h3></div>
+      <div class="card"><h3>Maria Eduarda Teixeira Neves Gomes</h3></div>
+      <div class="card"><h3>Maria Heloyza Nicácio Celestino Domingos</h3></div>
+      <div class="card"><h3>Viviane Cordeiro da Silva</h3></div>
+      <div class="card"><h3>Dulce Nicoly Pereira Martins</h3></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔐 Entrar na sua conta</h2>
+    <label for="email">E-mail</label>
+    <input id="email" type="email" placeholder="Seu e-mail" autocomplete="email">
+
+    <label for="senha">Senha</label>
+    <input id="senha" type="password" placeholder="Sua senha" autocomplete="current-password">
+
+    <button class="primary" onclick="entrar()">Entrar 💗</button>
+    <button class="light" onclick="mostrarCadastro()">Criar minha conta</button>
+    <button class="forgot-link" onclick="esqueciSenha()">Esqueci minha senha</button>
+
+    <div id="redefinirSenha" class="recovery-panel hidden">
+      <hr>
+      <h3>🔑 Criar uma nova senha</h3>
+      <p class="muted">Digite uma senha nova com pelo menos 6 caracteres.</p>
+      <input id="senhaNova" type="password" placeholder="Nova senha" autocomplete="new-password">
+      <button class="primary" onclick="atualizarSenha()">Salvar nova senha</button>
+    </div>
+
+    <div id="cadastro" class="hidden">
+      <hr>
+      <h2>Criar conta</h2>
+      <input id="nome" placeholder="Nome de usuário">
+      <input id="novoEmail" type="email" placeholder="E-mail">
+      <input id="novaSenha" type="password" placeholder="Crie uma senha (mínimo 6 caracteres)">
+      <label>Foto de perfil (opcional)</label>
+      <input id="avatar" type="file" accept="image/*">
+      <button class="primary" onclick="cadastrar()">Cadastrar</button>
+    </div>
+
+    <p class="muted">Para acessar suas contas locais, use o mesmo navegador e endereço do site. Para sincronizar entre aparelhos, configure o Supabase.</p>
+    <p id="authMsg" class="muted" aria-live="polite"></p>
+  </div>
 </section>
+
+<section id="explorar" class="hidden">
+  <div class="section">
+    <h2>✨ Feed de looks</h2>
+    <p>Inspire-se em fotos de looks completos, filtre por estilo e veja também as publicações da comunidade.</p>
+
+    <div class="feed-toolbar" aria-label="Filtrar inspirações por estilo">
+      <button class="filter-chip active" onclick="filtrarFeed('Tudo')">Tudo</button>
+      <button class="filter-chip" onclick="filtrarFeed('Casual')">Casual</button>
+      <button class="filter-chip" onclick="filtrarFeed('Trabalho')">Trabalho</button>
+      <button class="filter-chip" onclick="filtrarFeed('Praia')">Praia</button>
+      <button class="filter-chip" onclick="filtrarFeed('Elegante')">Elegante</button>
+      <button class="filter-chip" onclick="filtrarFeed('Street style')">Street style</button>
+    </div>
+
+    <div id="feedGrid" class="feed-masonry">
+      <p>Carregando inspirações...</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👚 Meu guarda-roupa</h2>
+    <p>Adicione suas peças para usar no provador. No celular, você também pode abrir a câmera.</p>
+
+    <input id="pecaNome" placeholder="Nome da peça (ex.: camisa branca)">
+    <select id="pecaTipo">
+      <option value="top">Blusa / camisa</option>
+      <option value="bottom">Calça / saia / short</option>
+      <option value="shoes">Calçado</option>
+      <option value="hat">Chapéu / boné</option>
+      <option value="earrings">Brinco</option>
+      <option value="necklace">Colar</option>
+      <option value="other">Relógio / bracelete / acessório</option>
+      <option value="bag">Bolsa</option>
+    </select>
+    <label>Foto da peça</label>
+    <input id="pecaFoto" type="file" accept="image/*" capture="environment">
+    <button class="primary" onclick="adicionarPeca()">＋ Salvar peça</button>
+    <div id="minhasPecas" class="cards"></div>
+  </div>
+</section>
+
 <section id="provador" class="hidden">
- <div class="section"><h2>👗 Meu Provador</h2><p>Escolha um look do feed ou selecione peças do seu guarda-roupa para visualizar a combinação.</p>
-  <div class="cards"><div><h3>💗 Manequim de corpo inteiro</h3><div class="model-stage"><div class="mannequin-wrap"><img class="mannequin-photo" src="manequim.jpg" alt="Manequim feminino branco de corpo inteiro, em pé, com uma mão apoiada na cintura"><div id="modelItems"></div></div></div><p class="muted">Manequim de corpo inteiro com aparência de vitrine, conforme a referência enviada. As fotos das peças escolhidas aparecem sobre ele como prévia da combinação.</p></div>
-  <div><h3>👚 Suas peças</h3><div id="seletorPecas"></div><button class="primary" onclick="montarLook()">Montar combinação</button><button class="light" onclick="limparModelo()">Limpar</button></div></div>
-  <hr><div id="salvarArea" class="hidden"><h3>Salvar look na galeria</h3><input id="lookNome" placeholder="Nome do look"><select id="lookPrivacidade"><option value="public">🌎 Publicar no feed</option><option value="private">🔒 Manter privado</option></select><button class="primary" onclick="guardarLook()">💾 Salvar look</button></div>
-  <p id="provadorMsg" class="muted"></p>
- </div>
+  <div class="section">
+    <h2>👗 Meu Provador</h2>
+    <p>Escolha um look do feed ou selecione peças do seu guarda-roupa para visualizar a combinação.</p>
+
+    <div class="cards">
+      <div>
+        <h3>💗 Manequim de corpo inteiro</h3>
+        <div class="model-stage">
+          <div class="mannequin-wrap">
+            <img class="mannequin-photo" src="manequim.jpg" alt="Manequim feminino branco de corpo inteiro">
+            <div id="modelItems"></div>
+          </div>
+        </div>
+        <p class="muted">Manequim de corpo inteiro com aparência de vitrine. As fotos das peças escolhidas aparecem sobre ele como prévia da combinação.</p>
+      </div>
+
+      <div>
+        <h3>👚 Suas peças</h3>
+        <div id="seletorPecas"></div>
+        <button class="primary" onclick="montarLook()">Montar combinação</button>
+        <button class="light" onclick="limparModelo()">Limpar</button>
+      </div>
+    </div>
+
+    <hr>
+    <div id="salvarArea" class="hidden">
+      <h3>Salvar look na galeria</h3>
+      <input id="lookNome" placeholder="Nome do look">
+      <select id="lookPrivacidade">
+        <option value="public">🌎 Publicar no feed</option>
+        <option value="private">🔒 Manter privado</option>
+      </select>
+      <button class="primary" onclick="guardarLook()">💾 Salvar look</button>
+    </div>
+    <p id="provadorMsg" class="muted"></p>
+  </div>
 </section>
+
 <section id="perfil" class="hidden">
- <div class="section"><div class="profile-head"><img id="perfilAvatar" class="avatar hidden" alt="Foto de perfil"><div><h2 id="perfilNome">Meu Perfil</h2><p id="perfilEmail"></p></div></div><hr>
-  <h3>Editar perfil</h3><input id="editarNome" placeholder="Nome de usuário"><label>Alterar foto</label><input id="editarAvatar" type="file" accept="image/*"><button class="primary" onclick="salvarPerfil()">Salvar perfil</button><button class="light" onclick="sair()">Sair da conta</button>
- </div>
- <div class="section"><h2>📸 Minha galeria de looks</h2><div id="galeria" class="cards"></div></div>
+  <div class="section">
+    <div class="profile-head">
+      <img id="perfilAvatar" class="avatar hidden" alt="Foto de perfil">
+      <div>
+        <h2 id="perfilNome">Meu Perfil</h2>
+        <p id="perfilEmail"></p>
+      </div>
+    </div>
+
+    <hr>
+    <h3>Editar perfil</h3>
+    <input id="editarNome" placeholder="Nome de usuário">
+    <label>Alterar foto</label>
+    <input id="editarAvatar" type="file" accept="image/*">
+    <button class="primary" onclick="salvarPerfil()">Salvar perfil</button>
+    <button class="light" onclick="sair()">Sair da conta</button>
+  </div>
+
+  <div class="section">
+    <h2>📸 Minha galeria de looks</h2>
+    <div id="galeria" class="cards"></div>
+  </div>
 </section>
-</main><footer>💗 PinkCloset — Vista sua personalidade.</footer>
+</main>
+
+<footer>💗 PinkCloset — Vista sua personalidade.</footer>
 
 <script type="module">
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-
-// 1. Crie um projeto gratuito em https://supabase.com/
-// 2. Em Project Settings > API, copie Project URL e anon/public key para os campos abaixo.
+// CONFIGURAÇÃO OPCIONAL DO SUPABASE.
+// Sem essas credenciais, o login local funciona neste navegador.
 const SUPABASE_URL = 'COLE_AQUI_A_URL_DO_SEU_PROJETO';
 const SUPABASE_ANON_KEY = 'COLE_AQUI_SUA_CHAVE_ANON_PUBLIC';
-const configurado = SUPABASE_URL.startsWith('https://') && !SUPABASE_URL.includes('COLE_AQUI') && !SUPABASE_ANON_KEY.includes('COLE_AQUI');
-const supabase = configurado ? createClient(SUPABASE_URL,SUPABASE_ANON_KEY) : null;
-let usuario=null, pecas=[], selecao=new Set(), lookTemporario=[], feedCache=[];
+const configurado =
+  SUPABASE_URL.startsWith('https://') &&
+  !SUPABASE_URL.includes('COLE_AQUI') &&
+  !SUPABASE_ANON_KEY.includes('COLE_AQUI');
 
-window.mostrar=(id)=>{['inicio','explorar','provador','perfil'].forEach(x=>document.getElementById(x).classList.add('hidden'));document.getElementById(id).classList.remove('hidden');if(id==='explorar')carregarExplorar();if(id==='provador')carregarSeletor();if(id==='perfil')carregarPerfil();window.scrollTo({top:0,behavior:'smooth'});};
-window.mostrarCadastro=()=>document.getElementById('cadastro').classList.toggle('hidden');
-function msg(t){document.getElementById('authMsg').textContent=t;}
-window.esqueciSenha=async()=>{
- if(!supabase){msg('Configure a URL e a chave do Supabase no código antes de usar a recuperação de senha.');return;}
- const email=document.getElementById('email').value.trim();
- if(!email){msg('Digite seu e-mail no campo acima para receber o link de recuperação.');document.getElementById('email').focus();return;}
- try{
-  const redirectTo=window.location.origin&&window.location.origin!=='null'?window.location.origin+window.location.pathname:undefined;
-  const options=redirectTo?{redirectTo}:{};
-  const {error}=await supabase.auth.resetPasswordForEmail(email,options);
-  if(error)throw error;
-  msg('Enviamos um link de recuperação para seu e-mail. Verifique também a caixa de spam.');
- }catch(e){msg('Não foi possível enviar o link: '+e.message);}
-};
-window.atualizarSenha=async()=>{
- if(!supabase){msg('Configure o Supabase antes de alterar a senha.');return;}
- const password=document.getElementById('senhaNova').value;
- if(password.length<6){msg('A nova senha deve ter pelo menos 6 caracteres.');return;}
- try{
-  const {error}=await supabase.auth.updateUser({password});
-  if(error)throw error;
-  document.getElementById('redefinirSenha').classList.add('hidden');
-  document.getElementById('senhaNova').value='';
-  document.getElementById('senha').value='';
-  msg('Senha alterada com sucesso! Entre usando sua nova senha. 💗');
- }catch(e){msg('Não foi possível alterar a senha: '+e.message);}
-};
-function exigirConta(){if(!usuario){alert('Entre na sua conta primeiro.');mostrar('inicio');return false;}return true;}
-function safeName(s){return (s||'arquivo').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9._-]/g,'_').slice(0,50);}
-async function uploadImagem(file){if(!file)return null;if(!file.type.startsWith('image/'))throw Error('Escolha uma imagem válida.');if(file.size>5*1024*1024)throw Error('A imagem deve ter até 5 MB.');const path=`${usuario.id}/${Date.now()}_${safeName(file.name)}`;const {error}=await supabase.storage.from('pinkcloset').upload(path,file,{upsert:false,contentType:file.type});if(error)throw error;return path;}
-async function urlImagem(path){if(!path)return '';const {data,error}=await supabase.storage.from('pinkcloset').createSignedUrl(path,3600);if(error){console.error(error);return '';}return data.signedUrl;}
-window.cadastrar=async()=>{if(!supabase){msg('Configure a URL e a chave do Supabase no código antes de usar.');return;}const nome=document.getElementById('nome').value.trim(),email=document.getElementById('novoEmail').value.trim(),password=document.getElementById('novaSenha').value,file=document.getElementById('avatar').files[0];if(!nome||!email||password.length<6){msg('Preencha nome, e-mail e senha com pelo menos 6 caracteres.');return;}try{const {data,error}=await supabase.auth.signUp({email,password,options:{data:{display_name:nome}}});if(error)throw error;if(!data.user)throw Error('Não foi possível criar a conta.');usuario=data.user;let avatar_path=null;if(file)avatar_path=await uploadImagem(file);const {error:pe}=await supabase.from('profiles').upsert({id:usuario.id,username:nome,avatar_path});if(pe)throw pe;msg(data.session?'Conta criada! Você já está conectada.':'Conta criada! Confira seu e-mail para confirmar o cadastro e depois entre.');if(data.session){await carregarDados();mostrar('perfil');}}catch(e){msg('Erro: '+e.message);}};
-window.entrar=async()=>{if(!supabase){msg('Configure a URL e a chave do Supabase no código antes de usar.');return;}try{const {data,error}=await supabase.auth.signInWithPassword({email:document.getElementById('email').value.trim(),password:document.getElementById('senha').value});if(error)throw error;usuario=data.user;await carregarDados();msg('Login realizado! Seus dados foram sincronizados.');mostrar('explorar');}catch(e){msg('Não foi possível entrar: '+e.message);}};
-window.sair=async()=>{if(supabase)await supabase.auth.signOut();usuario=null;pecas=[];selecao.clear();mostrar('inicio');msg('Você saiu da sua conta.');};
-async function carregarDados(){if(!usuario)return;const {data,error}=await supabase.from('garments').select('*').eq('user_id',usuario.id).order('created_at',{ascending:false});if(error)throw error;pecas=data||[];}
-const INSPIRACOES = [
- {title:'Jeans e blusa branca',description:'Uma combinação casual com jeans, blusa clara e bolsa para o dia a dia.',category:'Casual',author:'Daniel Monteiro',source:'https://unsplash.com/photos/woman-wearing-crop-top-and-denim-pants-standing-near-high-rise-building-EjophR9hrgM',image:'https://images.unsplash.com/photo-1513441863195-bd50bb875298?auto=format&fit=crop&w=1000&q=85',ratio:'ratio-tall'},
- {title:'Street style urbano',description:'Produção moderna com atitude, perfeita para se inspirar na cidade.',category:'Street style',author:'Max Omen',source:'https://unsplash.com/photos/a-woman-walks-towards-the-camera-outdoors-V7oBvq1qsxw',image:'https://images.unsplash.com/photo-1745142640164-74774600af1d?auto=format&fit=crop&w=1000&q=85',ratio:'ratio-tall'},
- {title:'Look confortável com tênis',description:'Camiseta ampla e tênis para um visual descontraído.',category:'Casual',author:'Anton K Wibowo',source:'https://unsplash.com/photos/a-young-woman-in-an-oversized-t-shirt-and-sneakers-Su_IaoGIjBg',image:'https://images.unsplash.com/photo-1780566759977-ff8b5d53731c?auto=format&fit=crop&w=1000&q=85',ratio:'ratio-medium'},
- {title:'Casual com bolsa preta',description:'Uma inspiração simples com acessórios que completam o look.',category:'Casual',author:'Anton K Wibowo',source:'https://unsplash.com/photos/young-woman-posing-in-casual-outfit-with-black-handbag-zEGIgG2aYyQ',image:'https://images.unsplash.com/photo-1780566759959-73ce2af09f7c?auto=format&fit=crop&w=1000&q=85',ratio:'ratio-tall'},
- {title:'Alfaiataria moderna',description:'Um conjunto de blazer e calça para trabalhar com estilo.',category:'Trabalho',author:'Alekon pictures',source:'https://unsplash.com/photos/woman-in-a-suit-walks-down-a-city-street-srGmVb9y6i4',image:'https://images.unsplash.com/photo-1751399566443-a07d07344bdf?auto=format&fit=crop&w=1000&q=85',ratio:'ratio-tall'},
- {title:'Praia em amarelo',description:'Um look leve e colorido com chapéu para aproveitar os dias de sol.',category:'Praia',author:'Graca Assane',source:'https://unsplash.com/photos/woman-in-yellow-dress-sitting-on-sand-during-daytime-TKrBPpFoY_E',image:'https://images.unsplash.com/photo-1583262289555-fba30df10a6c?auto=format&fit=crop&w=1000&q=85',ratio:'ratio-medium'},
- {title:'Look preto elegante',description:'Uma proposta de alfaiataria preta para ocasiões especiais.',category:'Elegante',author:'Maksat Zhumanov',source:'https://unsplash.com/photos/a-woman-in-a-black-suit-posing-for-a-picture-GaoekHHc2i0',image:'https://images.unsplash.com/photo-1634885078257-edbc76b356f4?auto=format&fit=crop&w=1000&q=85',ratio:'ratio-tall'},
- {title:'Editorial em tons de roxo',description:'Uma produção marcante para quem gosta de cores e personalidade.',category:'Elegante',author:'Lena Ruffinatto',source:'https://unsplash.com/photos/woman-adjusting-clothing-on-a-street-MEY2MdMUUyw',image:'https://images.unsplash.com/photo-1768825136230-34fb80291f19?auto=format&fit=crop&w=1000&q=85',ratio:'ratio-medium'}
-];
-let categoriaFeed='Tudo';
-window.filtrarFeed=(categoria)=>{categoriaFeed=categoria;document.querySelectorAll('.filter-chip').forEach(b=>b.classList.toggle('active',b.textContent.trim()===categoria));desenharFeed();};
-const tipos={top:'Blusa / camisa',bottom:'Parte de baixo',shoes:'Calçado',hat:'Chapéu / boné',earrings:'Brinco',necklace:'Colar',other:'Acessório',bag:'Bolsa'};
-window.adicionarPeca=async()=>{if(!exigirConta())return;const nome=document.getElementById('pecaNome').value.trim(),tipo=document.getElementById('pecaTipo').value,file=document.getElementById('pecaFoto').files[0];if(!nome||!file){alert('Informe o nome e a foto da peça.');return;}try{const image_path=await uploadImagem(file);const {error}=await supabase.from('garments').insert({user_id:usuario.id,name:nome,category:tipo,image_path});if(error)throw error;document.getElementById('pecaNome').value='';document.getElementById('pecaFoto').value='';await carregarDados();carregarExplorar();carregarSeletor();}catch(e){alert('Erro ao salvar: '+e.message);}};
-async function renderPecas(){const area=document.getElementById('minhasPecas');area.innerHTML='';if(!usuario){area.innerHTML='<p>Entre para ver seu guarda-roupa.</p>';return;}if(!pecas.length){area.innerHTML='<p>Você ainda não adicionou roupas.</p>';return;}for(const p of pecas){const url=await urlImagem(p.image_path);const card=document.createElement('div');card.className='card';card.innerHTML=`<img class="photo" src="${url}" alt=""><h3></h3><span class="tag"></span><button class="light">Apagar</button>`;card.querySelector('h3').textContent=p.name;card.querySelector('.tag').textContent=tipos[p.category]||'Acessório';card.querySelector('button').onclick=async()=>{if(!confirm('Apagar esta peça?'))return;await supabase.from('garments').delete().eq('id',p.id).eq('user_id',usuario.id);await carregarDados();renderPecas();carregarSeletor();};area.append(card);}}
-async function carregarExplorar(){await carregarFeed();await renderPecas();}
-async function carregarFeed(){
- const {data,error}=supabase?await supabase.from('looks').select('id,user_id,name,created_at,profiles(username),look_items(id,garment_id,garments(name,category,image_path))').eq('visibility','public').order('created_at',{ascending:false}).limit(40):{data:[],error:null};
- if(error){console.error('Erro ao carregar looks da comunidade:',error);feedCache=[];}else{feedCache=data||[];}
- desenharFeed();
-}
-function criarCartaoInspiracao(item){
- const card=document.createElement('article');card.className='feed-pin';
- const img=document.createElement('img');img.className='feed-pin-image '+(item.ratio||'ratio-tall');img.src=item.image;img.alt=item.title;img.loading='lazy';img.referrerPolicy='no-referrer';
- img.onerror=()=>{img.alt='Imagem temporariamente indisponível: '+item.title;img.classList.add('image-unavailable');};
- const body=document.createElement('div');body.className='feed-pin-body';
- const title=document.createElement('h3');title.className='feed-pin-title';title.textContent=item.title;
- const desc=document.createElement('p');desc.className='feed-pin-description';desc.textContent=item.description;
- const meta=document.createElement('div');meta.className='feed-pin-meta';
- const tag=document.createElement('span');tag.className='tag';tag.textContent=item.category;
- const credit=document.createElement('span');credit.textContent='Foto: '+item.author+' · Unsplash';
- meta.append(tag,credit);body.append(title,desc,meta);card.append(img,body);return card;
-}
-async function desenharFeed(){
- const grid=document.getElementById('feedGrid');if(!grid)return;grid.innerHTML='';
- // Publicações reais da comunidade aparecem primeiro.
- if(categoriaFeed==='Tudo'){
-  for(const look of (feedCache||[])){
-   const items=(look.look_items||[]).map(i=>i.garments).filter(Boolean);if(!items.length)continue;
-   const first=items.find(g=>g.image_path);if(!first)continue;
-   const url=await urlImagem(first.image_path);if(!url)continue;
-   const card=document.createElement('article');card.className='feed-pin';
-   const img=document.createElement('img');img.className='feed-user-photo';img.src=url;img.alt=look.name;img.loading='lazy';
-   const body=document.createElement('div');body.className='feed-pin-body';
-   const title=document.createElement('h3');title.className='feed-pin-title';title.textContent=look.name;
-   const author=document.createElement('p');author.className='feed-pin-description';author.textContent='Por '+(look.profiles?.username||'Usuária PinkCloset');
-   const pieces=document.createElement('p');pieces.className='feed-user-pieces';pieces.textContent=items.map(g=>g.name).join(' · ');
-   const actions=document.createElement('div');actions.className='feed-pin-actions';
-   const count=document.createElement('span');count.className='muted';
-   const {count:n}=supabase?await supabase.from('look_likes').select('*',{count:'exact',head:true}).eq('look_id',look.id):{count:0};count.textContent=`♡ ${n||0} curtidas`;
-   const like=document.createElement('button');like.className='light';like.textContent='♡ Curtir';
-   like.onclick=async()=>{if(!exigirConta())return;const {data:exists}=await supabase.from('look_likes').select('id').eq('look_id',look.id).eq('user_id',usuario.id).maybeSingle();if(exists)await supabase.from('look_likes').delete().eq('id',exists.id);else await supabase.from('look_likes').insert({look_id:look.id,user_id:usuario.id});carregarFeed();};
-   const tryBtn=document.createElement('button');tryBtn.className='primary';tryBtn.textContent='Experimentar';tryBtn.onclick=()=>experimentarLook(look);
-   actions.append(count,like,tryBtn);body.append(title,author,pieces,actions);card.append(img,body);grid.append(card);
+let supabase = null;
+
+if (configurado) {
+  try {
+    const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+    supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  } catch (erro) {
+    console.error('Não foi possível carregar o Supabase.', erro);
   }
- }
- const inspo=INSPIRACOES.filter(i=>categoriaFeed==='Tudo'||i.category===categoriaFeed);
- for(const item of inspo)grid.append(criarCartaoInspiracao(item));
- if(!grid.children.length)grid.innerHTML='<p>Nenhuma inspiração encontrada nesta categoria.</p>';
 }
-async function carregarSeletor(){const area=document.getElementById('seletorPecas');area.innerHTML='';if(!usuario){area.innerHTML='<p>Entre para usar seu guarda-roupa.</p>';return;}if(!pecas.length)await carregarDados();if(!pecas.length){area.innerHTML='<p>Adicione peças na aba Explorar.</p>';return;}for(const p of pecas){const label=document.createElement('label');label.className='tag';const cb=document.createElement('input');cb.type='checkbox';cb.style.width='auto';cb.checked=selecao.has(p.id);cb.onchange=()=>cb.checked?selecao.add(p.id):selecao.delete(p.id);label.append(cb,document.createTextNode(' '+p.name));area.append(label);}}
-async function mostrarNoBoneco(lista){const layer=document.getElementById('modelItems');layer.innerHTML='';const order={top:1,bottom:2,shoes:3,hat:4,necklace:5,earrings:6,bag:7,other:8};for(const p of lista.slice().sort((a,b)=>(order[a.category]||8)-(order[b.category]||8))){const src=p.image_path?await urlImagem(p.image_path):p.url;if(!src)continue;const im=document.createElement('img');im.src=src;im.alt=p.name;im.title=p.name;im.className='model-item '+(p.category||'other');layer.append(im);}}
-window.montarLook=async()=>{if(!exigirConta())return;lookTemporario=pecas.filter(p=>selecao.has(p.id));if(!lookTemporario.length){alert('Selecione pelo menos uma peça.');return;}await mostrarNoBoneco(lookTemporario);document.getElementById('salvarArea').classList.remove('hidden');document.getElementById('lookNome').value='Meu look '+(Date.now().toString().slice(-4));};
-window.limparModelo=()=>{selecao.clear();lookTemporario=[];document.getElementById('modelItems').innerHTML='';document.getElementById('salvarArea').classList.add('hidden');carregarSeletor();};
-async function experimentarLook(look){if(!exigirConta())return;const list=(look.look_items||[]).map(i=>i.garments).filter(Boolean).map(g=>({...g,category:g.category}));await mostrarNoBoneco(list);lookTemporario=[];document.getElementById('salvarArea').classList.remove('hidden');document.getElementById('lookNome').value=look.name+' (minha versão)';document.getElementById('provadorMsg').textContent='Você está experimentando um look do feed. Salve para guardar uma cópia na sua galeria.';mostrar('provador');}
-window.guardarLook=async()=>{if(!exigirConta())return;const nome=document.getElementById('lookNome').value.trim(),visibility=document.getElementById('lookPrivacidade').value;if(!nome){alert('Dê um nome ao look.');return;}try{let garmentIds=lookTemporario.map(p=>p.id);if(!garmentIds.length){alert('Para salvar uma cópia de um look do feed, primeiro adicione as peças ao seu guarda-roupa ou monte uma combinação com suas peças.');return;}const {data,error}=await supabase.from('looks').insert({user_id:usuario.id,name:nome,visibility}).select().single();if(error)throw error;const rows=garmentIds.map(garment_id=>({look_id:data.id,garment_id}));const {error:ie}=await supabase.from('look_items').insert(rows);if(ie)throw ie;alert(visibility==='public'?'Look publicado no feed e salvo na galeria! 💗':'Look salvo na sua galeria! 💗');lookTemporario=[];mostrar('perfil');}catch(e){alert('Erro ao salvar look: '+e.message);}};
-window.salvarPerfil=async()=>{if(!exigirConta())return;try{const username=document.getElementById('editarNome').value.trim(),file=document.getElementById('editarAvatar').files[0];if(!username)throw Error('Digite um nome de usuário.');let avatar_path; if(file)avatar_path=await uploadImagem(file);const update={id:usuario.id,username};if(avatar_path)update.avatar_path=avatar_path;const {error}=await supabase.from('profiles').upsert(update);if(error)throw error;await carregarPerfil();alert('Perfil atualizado!');}catch(e){alert(e.message);}};
-async function carregarPerfil(){const gal=document.getElementById('galeria');if(!usuario){document.getElementById('perfilNome').textContent='Meu Perfil';document.getElementById('perfilEmail').textContent='Entre na sua conta para ver seu perfil.';gal.innerHTML='<p>Faça login para acessar sua galeria.</p>';return;}const {data:p}=await supabase.from('profiles').select('*').eq('id',usuario.id).single();document.getElementById('perfilNome').textContent=p?.username||usuario.email;document.getElementById('perfilEmail').textContent=usuario.email;document.getElementById('editarNome').value=p?.username||'';const av=document.getElementById('perfilAvatar');if(p?.avatar_path){av.src=await urlImagem(p.avatar_path);av.classList.remove('hidden');}else av.classList.add('hidden');const {data:looks,error}=await supabase.from('looks').select('id,name,visibility,created_at,look_items(garments(name,category,image_path))').eq('user_id',usuario.id).order('created_at',{ascending:false});gal.innerHTML='';if(error){gal.textContent='Erro ao carregar galeria: '+error.message;return;}if(!looks?.length){gal.innerHTML='<p>Você ainda não salvou looks. Experimente peças no provador!</p>';return;}for(const l of looks){const card=document.createElement('div');card.className='card';const h=document.createElement('h3');h.textContent=l.name;const vis=document.createElement('select');vis.innerHTML='<option value="private">🔒 Privado</option><option value="public">🌎 Público (feed)</option>';vis.value=l.visibility;vis.onchange=async()=>{const {error}=await supabase.from('looks').update({visibility:vis.value}).eq('id',l.id).eq('user_id',usuario.id);if(error)alert(error.message);else carregarFeed();};const pics=document.createElement('div');pics.className='cards';for(const it of l.look_items||[]){if(!it.garments)continue;const im=document.createElement('img');im.className='photo';im.src=await urlImagem(it.garments.image_path);im.alt=it.garments.name;pics.append(im);}const del=document.createElement('button');del.className='light';del.textContent='Apagar look';del.onclick=async()=>{if(confirm('Apagar este look?')){await supabase.from('looks').delete().eq('id',l.id).eq('user_id',usuario.id);carregarPerfil();}};card.append(h,vis,pics,del);gal.append(card);}}
-supabase?.auth.onAuthStateChange(async(event,session)=>{
- usuario=session?.user||null;
- if(event==='PASSWORD_RECOVERY'){
-  document.getElementById('redefinirSenha').classList.remove('hidden');
-  msg('Link confirmado! Agora escolha sua nova senha.');
+
+// CONTAS LOCAIS
+const LOCAL_KEY = 'pinkcloset_contas_v1';
+const LOCAL_USER_KEY = 'pinkcloset_usuario_atual';
+
+let contasLocais = {};
+
+try {
+  contasLocais = JSON.parse(localStorage.getItem(LOCAL_KEY) || '{}') || {};
+} catch (e) {
+  contasLocais = {};
+}
+
+let usuarioLocalEmail = localStorage.getItem(LOCAL_USER_KEY) || '';
+let usarArmazenamentoLocal = !supabase;
+let usuario = null;
+let pecas = [];
+let selecao = new Set();
+let lookTemporario = [];
+let feedCache = [];
+let categoriaFeed = 'Tudo';
+
+const contaLocal = () => contasLocais[usuarioLocalEmail] || null;
+
+function salvarContasLocais() {
+  try {
+    localStorage.setItem(LOCAL_KEY, JSON.stringify(contasLocais));
+    return true;
+  } catch (e) {
+    alert('O armazenamento deste navegador ficou cheio. Tente usar fotos menores ou apagar peças antigas.');
+    return false;
+  }
+}
+
+function informar(texto) {
+  const el = document.getElementById('authMsg');
+  if (el) el.textContent = texto;
+}
+
+function exigirConta() {
+  if (usarArmazenamentoLocal ? !contaLocal() : !usuario) {
+    alert('Entre na sua conta primeiro.');
+    mostrar('inicio');
+    return false;
+  }
+  return true;
+}
+
+function nomePeca(p) {
+  return p.name || p.nome || 'Peça';
+}
+
+function categoriaPeca(p) {
+  return p.category || p.tipo || 'other';
+}
+
+function imagemPeca(p) {
+  return p.data || '';
+}
+
+window.mostrar = (id) => {
+  ['inicio', 'explorar', 'provador', 'perfil'].forEach(x => {
+    document.getElementById(x).classList.add('hidden');
+  });
+
+  document.getElementById(id).classList.remove('hidden');
+
+  if (id === 'explorar') carregarExplorar();
+  if (id === 'provador') carregarSeletor();
+  if (id === 'perfil') carregarPerfil();
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+window.mostrarCadastro = () => {
+  document.getElementById('cadastro').classList.toggle('hidden');
+};
+
+function comprimirImagemLocal(file) {
+  return new Promise((resolve, reject) => {
+    if (!file) return resolve('');
+    if (!file.type.startsWith('image/')) {
+      return reject(new Error('Escolha uma imagem válida.'));
+    }
+
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error('Não foi possível ler a imagem.'));
+
+    reader.onload = () => {
+      const image = new Image();
+      image.onerror = () => reject(new Error('Não foi possível abrir a imagem.'));
+
+      image.onload = () => {
+        const max = 1000;
+        const scale = Math.min(1, max / Math.max(image.width, image.height));
+        const canvas = document.createElement('canvas');
+
+        canvas.width = Math.max(1, Math.round(image.width * scale));
+        canvas.height = Math.max(1, Math.round(image.height * scale));
+
+        canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL('image/jpeg', 0.78));
+      };
+
+      image.src = reader.result;
+    };
+
+    reader.readAsDataURL(file);
+  });
+}
+
+// RECUPERAÇÃO DE SENHA
+window.esqueciSenha = async () => {
+  if (!supabase) {
+    informar('A recuperação por e-mail precisa do Supabase configurado. No modo local, entre na conta primeiro para alterar a senha.');
+    return;
+  }
+
+  const email = document.getElementById('email').value.trim();
+
+  if (!email) {
+    informar('Digite seu e-mail no campo de login.');
+    document.getElementById('email').focus();
+    return;
+  }
+
+  try {
+    const redirectTo = window.location.origin + window.location.pathname;
+    const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo });
+
+    if (error) throw error;
+
+    informar('Enviamos um link de recuperação para seu e-mail. Confira também a caixa de spam.');
+  } catch (e) {
+    informar('Não foi possível enviar o link: ' + e.message);
+  }
+};
+
+window.atualizarSenha = async () => {
+  const nova = document.getElementById('senhaNova').value;
+
+  if (nova.length < 6) {
+    informar('A nova senha precisa ter pelo menos 6 caracteres.');
+    return;
+  }
+
+  if (usarArmazenamentoLocal) {
+    const c = contaLocal();
+
+    if (!c) {
+      informar('Entre na conta antes de alterar a senha no modo local.');
+      return;
+    }
+
+    c.senha = nova;
+
+    if (salvarContasLocais()) {
+      document.getElementById('redefinirSenha').classList.add('hidden');
+      document.getElementById('senhaNova').value = '';
+      informar('Senha alterada neste navegador.');
+    }
+    return;
+  }
+
+  try {
+    const { error } = await supabase.auth.updateUser({ password: nova });
+    if (error) throw error;
+
+    document.getElementById('redefinirSenha').classList.add('hidden');
+    document.getElementById('senhaNova').value = '';
+    informar('Senha alterada com sucesso! 💗');
+  } catch (e) {
+    informar('Não foi possível alterar a senha: ' + e.message);
+  }
+};
+
+// CADASTRO
+window.cadastrar = async () => {
+  const nome = document.getElementById('nome').value.trim();
+  const email = document.getElementById('novoEmail').value.trim().toLowerCase();
+  const senha = document.getElementById('novaSenha').value;
+  const file = document.getElementById('avatar').files[0];
+
+  if (!nome || !email || senha.length < 6) {
+    informar('Preencha nome, e-mail e senha com pelo menos 6 caracteres.');
+    return;
+  }
+
+  if (usarArmazenamentoLocal) {
+    if (contasLocais[email]) {
+      informar('Já existe uma conta com este e-mail neste navegador. Entre na conta.');
+      return;
+    }
+
+    try {
+      const avatar = await comprimirImagemLocal(file);
+
+      contasLocais[email] = {
+        nome,
+        email,
+        senha,
+        avatar,
+        privacidade:'privado',
+        pecas:[],
+        looks:[]
+      };
+
+      usuarioLocalEmail = email;
+      localStorage.setItem(LOCAL_USER_KEY, email);
+
+      if (!salvarContasLocais()) return;
+
+      document.getElementById('cadastro').classList.add('hidden');
+      atualizarTudoLocal();
+      informar('Conta criada e login realizado! Bem-vinda ao PinkCloset, ' + nome + ' 💗');
+      mostrar('perfil');
+    } catch (e) {
+      informar('Não foi possível criar a conta: ' + e.message);
+    }
+    return;
+  }
+
+  try {
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password:senha,
+      options:{
+        data:{display_name:nome},
+        emailRedirectTo:window.location.origin + window.location.pathname
+      }
+    });
+
+    if (error) throw error;
+    if (!data.user) throw new Error('Não foi possível criar a conta.');
+
+    if (!data.session) {
+      informar('Conta criada! Confirme o cadastro pelo link enviado ao e-mail. Depois volte e entre.');
+      return;
+    }
+
+    usuario = data.user;
+
+    let avatar_path = null;
+    if (file) avatar_path = await uploadImagem(file);
+
+    const { error:profileError } = await supabase
+      .from('profiles')
+      .upsert({id:usuario.id,username:nome,avatar_path});
+
+    if (profileError) throw profileError;
+
+    await carregarDados();
+    informar('Conta criada! Você já está conectada.');
+    mostrar('perfil');
+  } catch (e) {
+    informar('Erro ao criar conta: ' + e.message);
+  }
+};
+
+// LOGIN
+window.entrar = async () => {
+  const email = document.getElementById('email').value.trim().toLowerCase();
+  const senha = document.getElementById('senha').value;
+
+  if (!email || !senha) {
+    informar('Digite seu e-mail e sua senha.');
+    return;
+  }
+
+  if (usarArmazenamentoLocal) {
+    const c = contasLocais[email];
+
+    if (!c) {
+      informar('Conta não encontrada neste navegador. Verifique o e-mail ou crie uma conta.');
+      return;
+    }
+
+    if (c.senha !== senha) {
+      informar('Senha incorreta. Confira e tente novamente.');
+      return;
+    }
+
+    usuarioLocalEmail = email;
+    localStorage.setItem(LOCAL_USER_KEY, email);
+
+    atualizarTudoLocal();
+    informar('Login realizado! Bem-vinda de volta, ' + (c.nome || email) + ' 💗');
+    mostrar('perfil');
+    return;
+  }
+
+  try {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password:senha
+    });
+
+    if (error) throw error;
+
+    usuario = data.user;
+    usarArmazenamentoLocal = false;
+
+    await carregarDados();
+
+    informar('Login realizado! Seus dados foram sincronizados.');
+    mostrar('explorar');
+  } catch (e) {
+    const antiga = contasLocais[email];
+
+    if (antiga && antiga.senha === senha) {
+      usarArmazenamentoLocal = true;
+      usuarioLocalEmail = email;
+      localStorage.setItem(LOCAL_USER_KEY, email);
+
+      atualizarTudoLocal();
+
+      informar('Login realizado com a conta salva neste navegador. Para sincronizar entre aparelhos, configure o Supabase.');
+      mostrar('perfil');
+    } else {
+      informar('Não foi possível entrar: ' + e.message);
+    }
+  }
+};
+
+window.sair = async () => {
+  if (!usarArmazenamentoLocal && supabase) {
+    await supabase.auth.signOut();
+  }
+
+  usuario = null;
+  usuarioLocalEmail = '';
+  pecas = [];
+  selecao.clear();
+
+  localStorage.removeItem(LOCAL_USER_KEY);
+  usarArmazenamentoLocal = !supabase;
+
+  informar('Você saiu da sua conta.');
   mostrar('inicio');
-  return;
+};
+
+function atualizarTudoLocal() {
+  const c = contaLocal();
+  pecas = c ? (c.pecas || []) : [];
+
+  renderPecas();
+  carregarSeletor();
+  carregarPerfil();
+}
+
+async function carregarDados() {
+  if (!usuario) return;
+
+  const { data, error } = await supabase
+    .from('garments')
+    .select('*')
+    .eq('user_id',usuario.id)
+    .order('created_at',{ascending:false});
+
+  if (error) throw error;
+  pecas = data || [];
+}
+
+async function uploadImagem(file) {
+  if (!file) return null;
+
+  if (!file.type.startsWith('image/')) {
+    throw new Error('Escolha uma imagem válida.');
+  }
+
+  if (file.size > 5 * 1024 * 1024) {
+    throw new Error('A imagem deve ter até 5 MB.');
+  }
+
+  const path = `${usuario.id}/${Date.now()}_${file.name.replace(/[^a-zA-Z0-9._-]/g,'_').slice(0,50)}`;
+
+  const { error } = await supabase.storage
+    .from('pinkcloset')
+    .upload(path,file,{upsert:false,contentType:file.type});
+
+  if (error) throw error;
+  return path;
+}
+
+async function urlImagem(path) {
+  if (!path) return '';
+
+  const { data,error } = await supabase.storage
+    .from('pinkcloset')
+    .createSignedUrl(path,3600);
+
+  if (error) {
+    console.error(error);
+    return '';
+  }
+
+  return data.signedUrl;
+}
+
+const tipos = {
+  top:'Blusa / camisa',
+  bottom:'Parte de baixo',
+  shoes:'Calçado',
+  hat:'Chapéu / boné',
+  earrings:'Brinco',
+  necklace:'Colar',
+  other:'Acessório',
+  bag:'Bolsa'
+};
+
+const INSPIRACOES = [
+ {
+  title:'Jeans e blusa branca',
+  description:'Uma combinação casual com jeans, blusa clara e bolsa para o dia a dia.',
+  category:'Casual',
+  author:'Daniel Monteiro',
+  image:'https://images.unsplash.com/photo-1513441863195-bd50bb875298?auto=format&fit=crop&w=1000&q=85',
+  ratio:'ratio-tall'
+ },
+ {
+  title:'Street style urbano',
+  description:'Produção moderna com atitude, perfeita para se inspirar na cidade.',
+  category:'Street style',
+  author:'Max Omen',
+  image:'https://images.unsplash.com/photo-1745142640164-74774600af1d?auto=format&fit=crop&w=1000&q=85',
+  ratio:'ratio-tall'
+ },
+ {
+  title:'Look confortável com tênis',
+  description:'Camiseta ampla e tênis para um visual descontraído.',
+  category:'Casual',
+  author:'Anton K Wibowo',
+  image:'https://images.unsplash.com/photo-1780566759977-ff8b5d53731c?auto=format&fit=crop&w=1000&q=85',
+  ratio:'ratio-medium'
+ },
+ {
+  title:'Casual com bolsa preta',
+  description:'Uma inspiração simples com acessórios que completam o look.',
+  category:'Casual',
+  author:'Anton K Wibowo',
+  image:'https://images.unsplash.com/photo-1780566759959-73ce2af09f7c?auto=format&fit=crop&w=1000&q=85',
+  ratio:'ratio-tall'
+ },
+ {
+  title:'Alfaiataria moderna',
+  description:'Um conjunto de blazer e calça para trabalhar com estilo.',
+  category:'Trabalho',
+  author:'Alekon pictures',
+  image:'https://images.unsplash.com/photo-1751399566443-a07d07344bdf?auto=format&fit=crop&w=1000&q=85',
+  ratio:'ratio-tall'
+ },
+ {
+  title:'Praia em amarelo',
+  description:'Um look leve e colorido com chapéu para aproveitar os dias de sol.',
+  category:'Praia',
+  author:'Graca Assane',
+  image:'https://images.unsplash.com/photo-1583262289555-fba30df10a6c?auto=format&fit=crop&w=1000&q=85',
+  ratio:'ratio-medium'
+ },
+ {
+  title:'Look preto elegante',
+  description:'Uma proposta de alfaiataria preta para ocasiões especiais.',
+  category:'Elegante',
+  author:'Maksat Zhumanov',
+  image:'https://images.unsplash.com/photo-1634885078257-edbc76b356f4?auto=format&fit=crop&w=1000&q=85',
+  ratio:'ratio-tall'
+ },
+ {
+  title:'Editorial em tons de roxo',
+  description:'Uma produção marcante para quem gosta de cores e personalidade.',
+  category:'Elegante',
+  author:'Lena Ruffinatto',
+  image:'https://images.unsplash.com/photo-1768825136230-34fb80291f19?auto=format&fit=crop&w=1000&q=85',
+  ratio:'ratio-medium'
  }
- if(usuario){try{await carregarDados();}catch(e){console.error(e);}}
-});
-if(!configurado){msg('Para ativar o armazenamento entre dispositivos, configure o Supabase neste arquivo e execute o arquivo supabase_setup.sql.');}
-else{const {data}=await supabase.auth.getSession();usuario=data.session?.user||null;if(usuario){try{await carregarDados();}catch(e){console.error(e);}msg('Conta conectada. Seus dados estão sincronizados.');}}
+];
+
+window.filtrarFeed = (categoria) => {
+  categoriaFeed = categoria;
+
+  document.querySelectorAll('.filter-chip').forEach(b => {
+    b.classList.toggle('active',b.textContent.trim() === categoria);
+  });
+
+  desenharFeed();
+};
+
+window.adicionarPeca = async () => {
+  if (!exigirConta()) return;
+
+  const nome = document.getElementById('pecaNome').value.trim();
+  const tipo = document.getElementById('pecaTipo').value;
+  const file = document.getElementById('pecaFoto').files[0];
+
+  if (!nome || !file) {
+    alert('Informe o nome e a foto da peça.');
+    return;
+  }
+
+  try {
+    if (usarArmazenamentoLocal) {
+      const data = await comprimirImagemLocal(file);
+      const c = contaLocal();
+
+      c.pecas = c.pecas || [];
+      c.pecas.push({
+        id:Date.now() + Math.random(),
+        nome,
+        tipo,
+        data
+      });
+
+      if (!salvarContasLocais()) return;
+      pecas = c.pecas;
+    } else {
+      const image_path = await uploadImagem(file);
+
+      const { error } = await supabase
+        .from('garments')
+        .insert({
+          user_id:usuario.id,
+          name:nome,
+          category:tipo,
+          image_path
+        });
+
+      if (error) throw error;
+      await carregarDados();
+    }
+
+    document.getElementById('pecaNome').value = '';
+    document.getElementById('pecaFoto').value = '';
+
+    renderPecas();
+    carregarSeletor();
+  } catch (e) {
+    alert('Erro ao salvar peça: ' + e.message);
+  }
+};
+
+async function renderPecas() {
+  const area = document.getElementById('minhasPecas');
+  if (!area) return;
+
+  area.innerHTML = '';
+
+  if (usarArmazenamentoLocal) {
+    const c = contaLocal();
+
+    if (!c) {
+      area.innerHTML = '<p>Entre para ver seu guarda-roupa.</p>';
+      return;
+    }
+
+    c.pecas = c.pecas || [];
+    pecas = c.pecas;
+
+    if (!pecas.length) {
+      area.innerHTML = '<p>Você ainda não adicionou roupas.</p>';
+      return;
+    }
+
+    pecas.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const im = document.createElement('img');
+      im.className = 'photo';
+      im.src = p.data || '';
+      im.alt = p.nome || 'Peça';
+
+      const h = document.createElement('h3');
+      h.textContent = p.nome || 'Peça';
+
+      const tag = document.createElement('span');
+      tag.className = 'tag';
+      tag.textContent = tipos[p.tipo] || 'Acessório';
+
+      const del = document.createElement('button');
+      del.className = 'light';
+      del.textContent = 'Apagar';
+
+      del.onclick = () => {
+        if (confirm('Apagar esta peça?')) {
+          c.pecas = c.pecas.filter(x => x.id !== p.id);
+          salvarContasLocais();
+          pecas = c.pecas;
+          renderPecas();
+          carregarSeletor();
+        }
+      };
+
+      card.append(im,h,tag,del);
+      area.append(card);
+    });
+    return;
+  }
+
+  if (!usuario) {
+    area.innerHTML = '<p>Entre para ver seu guarda-roupa.</p>';
+    return;
+  }
+
+  if (!pecas.length) {
+    area.innerHTML = '<p>Você ainda não adicionou roupas.</p>';
+    return;
+  }
+
+  for (const p of pecas) {
+    const url = await urlImagem(p.image_path);
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const im = document.createElement('img');
+    im.className = 'photo';
+    im.src = url;
+    im.alt = p.name;
+
+    const h = document.createElement('h3');
+    h.textContent = p.name;
+
+    const tag = document.createElement('span');
+    tag.className = 'tag';
+    tag.textContent = tipos[p.category] || 'Acessório';
+
+    const del = document.createElement('button');
+    del.className = 'light';
+    del.textContent = 'Apagar';
+
+    del.onclick = async () => {
+      if (confirm('Apagar esta peça?')) {
+        await supabase.from('garments').delete().eq('id',p.id).eq('user_id',usuario.id);
+        await carregarDados();
+        renderPecas();
+        carregarSeletor();
+      }
+    };
+
+    card.append(im,h,tag,del);
+    area.append(card);
+  }
+}
+
+async function carregarExplorar() {
+  if (!usarArmazenamentoLocal && usuario) {
+    await carregarFeed();
+  } else {
+    feedCache = [];
+    desenharFeed();
+  }
+
+  await renderPecas();
+}
+
+function criarCartaoInspiracao(item) {
+  const card = document.createElement('article');
+  card.className = 'feed-pin';
+
+  const img = document.createElement('img');
+  img.className = 'feed-pin-image ' + (item.ratio || 'ratio-tall');
+  img.src = item.image;
+  img.alt = item.title;
+  img.loading = 'lazy';
+  img.referrerPolicy = 'no-referrer';
+
+  img.onerror = () => {
+    img.alt = 'Imagem temporariamente indisponível: ' + item.title;
+    img.classList.add('image-unavailable');
+  };
+
+  const body = document.createElement('div');
+  body.className = 'feed-pin-body';
+
+  const title = document.createElement('h3');
+  title.className = 'feed-pin-title';
+  title.textContent = item.title;
+
+  const desc = document.createElement('p');
+  desc.className = 'feed-pin-description';
+  desc.textContent = item.description;
+
+  const meta = document.createElement('div');
+  meta.className = 'feed-pin-meta';
+
+  const tag = document.createElement('span');
+  tag.className = 'tag';
+  tag.textContent = item.category;
+
+  const credit = document.createElement('span');
+  credit.textContent = 'Foto: ' + item.author + ' · Unsplash';
+
+  meta.append(tag,credit);
+  body.append(title,desc,meta);
+  card.append(img,body);
+
+  return card;
+}
+
+async function carregarFeed() {
+  const { data,error } = await supabase
+    .from('looks')
+    .select('id,user_id,name,created_at,profiles(username),look_items(id,garment_id,garments(name,category,image_path))')
+    .eq('visibility','public')
+    .order('created_at',{ascending:false})
+    .limit(40);
+
+  if (error) {
+    console.error('Erro ao carregar looks da comunidade:',error);
+    feedCache = [];
+  } else {
+    feedCache = data || [];
+  }
+
+  desenharFeed();
+}
+
+async function desenharFeed() {
+  const grid = document.getElementById('feedGrid');
+  if (!grid) return;
+
+  grid.innerHTML = '';
+
+  if (categoriaFeed === 'Tudo' && !usarArmazenamentoLocal) {
+    for (const look of feedCache) {
+      const items = (look.look_items || []).map(i => i.garments).filter(Boolean);
+      if (!items.length) continue;
+
+      const first = items.find(g => g.image_path);
+      if (!first) continue;
+
+      const url = await urlImagem(first.image_path);
+      if (!url) continue;
+
+      const card = document.createElement('article');
+      card.className = 'feed-pin';
+
+      const img = document.createElement('img');
+      img.className = 'feed-user-photo';
+      img.src = url;
+      img.alt = look.name;
+      img.loading = 'lazy';
+
+      const body = document.createElement('div');
+      body.className = 'feed-pin-body';
+
+      const title = document.createElement('h3');
+      title.className = 'feed-pin-title';
+      title.textContent = look.name;
+
+      const author = document.createElement('p');
+      author.className = 'feed-pin-description';
+      author.textContent = 'Por ' + (look.profiles?.username || 'Usuária PinkCloset');
+
+      const pieces = document.createElement('p');
+      pieces.className = 'feed-user-pieces';
+      pieces.textContent = items.map(g => g.name).join(' · ');
+
+      const actions = document.createElement('div');
+      actions.className = 'feed-pin-actions';
+
+      const count = document.createElement('span');
+      count.className = 'muted';
+
+      const { count:n } = await supabase
+        .from('look_likes')
+        .select('*',{count:'exact',head:true})
+        .eq('look_id',look.id);
+
+      count.textContent = `♡ ${n || 0} curtidas`;
+
+      const like = document.createElement('button');
+      like.className = 'light';
+      like.textContent = '♡ Curtir';
+
+      like.onclick = async () => {
+        if (!exigirConta()) return;
+
+        const { data:exists } = await supabase
+          .from('look_likes')
+          .select('id')
+          .eq('look_id',look.id)
+          .eq('user_id',usuario.id)
+          .maybeSingle();
+
+        if (exists) {
+          await supabase.from('look_likes').delete().eq('id',exists.id);
+        } else {
+          await supabase.from('look_likes').insert({
+            look_id:look.id,
+            user_id:usuario.id
+          });
+        }
+
+        carregarFeed();
+      };
+
+      const tryBtn = document.createElement('button');
+      tryBtn.className = 'primary';
+      tryBtn.textContent = 'Experimentar';
+      tryBtn.onclick = () => experimentarLook(look);
+
+      actions.append(count,like,tryBtn);
+      body.append(title,author,pieces,actions);
+      card.append(img,body);
+      grid.append(card);
+    }
+  }
+
+  INSPIRACOES
+    .filter(i => categoriaFeed === 'Tudo' || i.category === categoriaFeed)
+    .forEach(item => grid.append(criarCartaoInspiracao(item)));
+
+  if (!grid.children.length) {
+    grid.innerHTML = '<p>Nenhuma inspiração encontrada nesta categoria.</p>';
+  }
+}
+
+async function carregarSeletor() {
+  const area = document.getElementById('seletorPecas');
+  if (!area) return;
+
+  area.innerHTML = '';
+
+  if (usarArmazenamentoLocal) {
+    const c = contaLocal();
+
+    if (!c) {
+      area.innerHTML = '<p>Entre para usar seu guarda-roupa.</p>';
+      return;
+    }
+
+    pecas = c.pecas || [];
+
+    if (!pecas.length) {
+      area.innerHTML = '<p>Adicione peças na aba Explorar.</p>';
+      return;
+    }
+
+    pecas.forEach(p => {
+      const label = document.createElement('label');
+      label.className = 'tag';
+
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.style.width = 'auto';
+      cb.checked = selecao.has(p.id);
+      cb.onchange = () => cb.checked ? selecao.add(p.id) : selecao.delete(p.id);
+
+      label.append(cb,document.createTextNode(' ' + (p.nome || 'Peça')));
+      area.append(label);
+    });
+    return;
+  }
+
+  if (!usuario) {
+    area.innerHTML = '<p>Entre para usar seu guarda-roupa.</p>';
+    return;
+  }
+
+  if (!pecas.length) await carregarDados();
+
+  if (!pecas.length) {
+    area.innerHTML = '<p>Adicione peças na aba Explorar.</p>';
+    return;
+  }
+
+  pecas.forEach(p => {
+    const label = document.createElement('label');
+    label.className = 'tag';
+
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.style.width = 'auto';
+    cb.checked = selecao.has(p.id);
+    cb.onchange = () => cb.checked ? selecao.add(p.id) : selecao.delete(p.id);
+
+    label.append(cb,document.createTextNode(' ' + p.name));
+    area.append(label);
+  });
+}
+
+async function mostrarNoBoneco(lista) {
+  const layer = document.getElementById('modelItems');
+  layer.innerHTML = '';
+
+  const order = {
+    top:1,bottom:2,shoes:3,hat:4,
+    necklace:5,earrings:6,bag:7,other:8
+  };
+
+  for (const p of lista.slice().sort((a,b) =>
+    (order[categoriaPeca(a)] || 8) - (order[categoriaPeca(b)] || 8)
+  )) {
+    const src = imagemPeca(p) || (p.image_path ? await urlImagem(p.image_path) : p.url);
+    if (!src) continue;
+
+    const im = document.createElement('img');
+    im.src = src;
+    im.alt = nomePeca(p);
+    im.title = nomePeca(p);
+    im.className = 'model-item ' + categoriaPeca(p);
+
+    layer.append(im);
+  }
+}
+
+window.montarLook = async () => {
+  if (!exigirConta()) return;
+
+  if (usarArmazenamentoLocal) {
+    pecas = contaLocal().pecas || [];
+  }
+
+  lookTemporario = pecas.filter(p => selecao.has(p.id));
+
+  if (!lookTemporario.length) {
+    alert('Selecione pelo menos uma peça.');
+    return;
+  }
+
+  await mostrarNoBoneco(lookTemporario);
+
+  document.getElementById('salvarArea').classList.remove('hidden');
+  document.getElementById('lookNome').value = 'Meu look ' + Date.now().toString().slice(-4);
+};
+
+window.limparModelo = () => {
+  selecao.clear();
+  lookTemporario = [];
+  document.getElementById('modelItems').innerHTML = '';
+  document.getElementById('salvarArea').classList.add('hidden');
+  carregarSeletor();
+};
+
+async function experimentarLook(look) {
+  if (!exigirConta()) return;
+
+  const list = (look.look_items || []).map(i => i.garments).filter(Boolean);
+  await mostrarNoBoneco(list);
+
+  lookTemporario = [];
+  document.getElementById('salvarArea').classList.remove('hidden');
+  document.getElementById('lookNome').value = look.name + ' (minha versão)';
+  document.getElementById('provadorMsg').textContent =
+    'Você está experimentando um look do feed. Para salvar uma cópia, adicione as peças ao seu guarda-roupa ou monte com suas próprias peças.';
+
+  mostrar('provador');
+}
+
+window.guardarLook = async () => {
+  if (!exigirConta()) return;
+
+  const nome = document.getElementById('lookNome').value.trim();
+  const visibility = document.getElementById('lookPrivacidade').value;
+
+  if (!nome) {
+    alert('Dê um nome ao look.');
+    return;
+  }
+
+  if (usarArmazenamentoLocal) {
+    if (!lookTemporario.length) {
+      alert('Monte uma combinação com suas peças antes de salvar.');
+      return;
+    }
+
+    const c = contaLocal();
+    c.looks = c.looks || [];
+
+    const fotos = lookTemporario.map(p => ({
+      nome:nomePeca(p),
+      data:imagemPeca(p),
+      tipo:categoriaPeca(p)
+    }));
+
+    c.looks.push({
+      id:Date.now() + Math.random(),
+      nome,
+      privacidade:visibility === 'public' ? 'publico' : 'privado',
+      fotos
+    });
+
+    if (!salvarContasLocais()) return;
+
+    alert(visibility === 'public'
+      ? 'Look salvo neste navegador como público. Para aparecer no feed de outras pessoas, configure o Supabase.'
+      : 'Look salvo na sua galeria neste navegador! 💗');
+
+    lookTemporario = [];
+    mostrar('perfil');
+    return;
+  }
+
+  try {
+    const garmentIds = lookTemporario.map(p => p.id);
+
+    if (!garmentIds.length) {
+      alert('Para salvar uma cópia do feed, monte uma combinação com suas peças.');
+      return;
+    }
+
+    const { data,error } = await supabase
+      .from('looks')
+      .insert({user_id:usuario.id,name:nome,visibility})
+      .select()
+      .single();
+
+    if (error) throw error;
+
+    const rows = garmentIds.map(garment_id => ({
+      look_id:data.id,
+      garment_id
+    }));
+
+    const { error:ie } = await supabase.from('look_items').insert(rows);
+    if (ie) throw ie;
+
+    alert(visibility === 'public'
+      ? 'Look publicado no feed e salvo na galeria! 💗'
+      : 'Look salvo na sua galeria! 💗');
+
+    lookTemporario = [];
+    mostrar('perfil');
+  } catch (e) {
+    alert('Erro ao salvar look: ' + e.message);
+  }
+};
+
+window.salvarPerfil = async () => {
+  if (!exigirConta()) return;
+
+  const nome = document.getElementById('editarNome').value.trim();
+  const file = document.getElementById('editarAvatar').files[0];
+
+  if (!nome) {
+    alert('Digite um nome de usuário.');
+    return;
+  }
+
+  try {
+    if (usarArmazenamentoLocal) {
+      const c = contaLocal();
+      c.nome = nome;
+
+      if (file) c.avatar = await comprimirImagemLocal(file);
+
+      if (salvarContasLocais()) {
+        carregarPerfil();
+        alert('Perfil atualizado!');
+      }
+      return;
+    }
+
+    let avatar_path;
+    if (file) avatar_path = await uploadImagem(file);
+
+    const update = {id:usuario.id,username:nome};
+    if (avatar_path) update.avatar_path = avatar_path;
+
+    const { error } = await supabase.from('profiles').upsert(update);
+    if (error) throw error;
+
+    await carregarPerfil();
+    alert('Perfil atualizado!');
+  } catch (e) {
+    alert('Não foi possível salvar o perfil: ' + e.message);
+  }
+};
+
+async function carregarPerfil() {
+  const gal = document.getElementById('galeria');
+  if (!gal) return;
+
+  gal.innerHTML = '';
+
+  if (usarArmazenamentoLocal) {
+    const c = contaLocal();
+
+    if (!c) {
+      document.getElementById('perfilNome').textContent = 'Meu Perfil';
+      document.getElementById('perfilEmail').textContent = 'Entre na sua conta para ver seu perfil.';
+      document.getElementById('perfilAvatar').classList.add('hidden');
+      gal.innerHTML = '<p>Faça login para acessar sua galeria.</p>';
+      return;
+    }
+
+    document.getElementById('perfilNome').textContent = c.nome || c.email;
+    document.getElementById('perfilEmail').textContent = c.email;
+    document.getElementById('editarNome').value = c.nome || '';
+
+    const av = document.getElementById('perfilAvatar');
+
+    if (c.avatar) {
+      av.src = c.avatar;
+      av.classList.remove('hidden');
+    } else {
+      av.classList.add('hidden');
+    }
+
+    const looks = c.looks || [];
+
+    if (!looks.length) {
+      gal.innerHTML = '<p>Você ainda não salvou looks. Experimente peças no provador!</p>';
+      return;
+    }
+
+    for (const l of looks.slice().reverse()) {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const h = document.createElement('h3');
+      h.textContent = l.nome;
+
+      const vis = document.createElement('select');
+      vis.innerHTML = '<option value="privado">🔒 Privado</option><option value="publico">🌎 Público</option>';
+      vis.value = l.privacidade || 'privado';
+      vis.onchange = () => {
+        l.privacidade = vis.value;
+        salvarContasLocais();
+      };
+
+      const pics = document.createElement('div');
+      pics.className = 'cards';
+
+      (l.fotos || []).forEach(f => {
+        const im = document.createElement('img');
+        im.className = 'photo';
+        im.src = f.data;
+        im.alt = f.nome || 'Peça do look';
+        pics.append(im);
+      });
+
+      const del = document.createElement('button');
+      del.className = 'light';
+      del.textContent = 'Apagar look';
+
+      del.onclick = () => {
+        if (confirm('Apagar este look?')) {
+          c.looks = c.looks.filter(x => x.id !== l.id);
+          salvarContasLocais();
+          carregarPerfil();
+        }
+      };
+
+      card.append(h,vis,pics,del);
+      gal.append(card);
+    }
+    return;
+  }
+
+  if (!usuario) {
+    document.getElementById('perfilNome').textContent = 'Meu Perfil';
+    document.getElementById('perfilEmail').textContent = 'Entre na sua conta para ver seu perfil.';
+    gal.innerHTML = '<p>Faça login para acessar sua galeria.</p>';
+    return;
+  }
+
+  const { data:p,error:pe } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id',usuario.id)
+    .maybeSingle();
+
+  if (pe) {
+    gal.textContent = 'Não foi possível carregar o perfil: ' + pe.message;
+    return;
+  }
+
+  document.getElementById('perfilNome').textContent = p?.username || usuario.email;
+  document.getElementById('perfilEmail').textContent = usuario.email;
+  document.getElementById('editarNome').value = p?.username || '';
+
+  const av = document.getElementById('perfilAvatar');
+
+  if (p?.avatar_path) {
+    av.src = await urlImagem(p.avatar_path);
+    av.classList.remove('hidden');
+  } else {
+    av.classList.add('hidden');
+  }
+
+  const { data:looks,error } = await supabase
+    .from('looks')
+    .select('id,name,visibility,created_at,look_items(garments(name,category,image_path))')
+    .eq('user_id',usuario.id)
+    .order('created_at',{ascending:false});
+
+  if (error) {
+    gal.textContent = 'Erro ao carregar galeria: ' + error.message;
+    return;
+  }
+
+  if (!looks?.length) {
+    gal.innerHTML = '<p>Você ainda não salvou looks. Experimente peças no provador!</p>';
+    return;
+  }
+
+  for (const l of looks) {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const h = document.createElement('h3');
+    h.textContent = l.name;
+
+    const vis = document.createElement('select');
+    vis.innerHTML = '<option value="private">🔒 Privado</option><option value="public">🌎 Público (feed)</option>';
+    vis.value = l.visibility;
+
+    vis.onchange = async () => {
+      const { error:ue } = await supabase
+        .from('looks')
+        .update({visibility:vis.value})
+        .eq('id',l.id)
+        .eq('user_id',usuario.id);
+
+      if (ue) alert(ue.message);
+      else carregarFeed();
+    };
+
+    const pics = document.createElement('div');
+    pics.className = 'cards';
+
+    for (const it of l.look_items || []) {
+      if (!it.garments) continue;
+
+      const im = document.createElement('img');
+      im.className = 'photo';
+      im.src = await urlImagem(it.garments.image_path);
+      im.alt = it.garments.name;
+      pics.append(im);
+    }
+
+    const del = document.createElement('button');
+    del.className = 'light';
+    del.textContent = 'Apagar look';
+
+    del.onclick = async () => {
+      if (confirm('Apagar este look?')) {
+        await supabase.from('looks').delete().eq('id',l.id).eq('user_id',usuario.id);
+        carregarPerfil();
+      }
+    };
+
+    card.append(h,vis,pics,del);
+    gal.append(card);
+  }
+}
+
+// INICIALIZAÇÃO DA CONTA
+if (supabase) {
+  supabase.auth.onAuthStateChange(async (event,session) => {
+    if (event === 'PASSWORD_RECOVERY') {
+      usuario = session?.user || null;
+      usarArmazenamentoLocal = false;
+
+      document.getElementById('redefinirSenha').classList.remove('hidden');
+      informar('Link confirmado! Agora escolha sua nova senha.');
+      mostrar('inicio');
+      return;
+    }
+
+    usuario = session?.user || null;
+
+    if (usuario) {
+      usarArmazenamentoLocal = false;
+      try {
+        await carregarDados();
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  });
+
+  const { data:sessionData } = await supabase.auth.getSession();
+
+  if (sessionData.session?.user) {
+    usuario = sessionData.session.user;
+    usarArmazenamentoLocal = false;
+
+    try {
+      await carregarDados();
+    } catch (e) {
+      informar('Erro ao carregar roupas: ' + e.message);
+    }
+
+    informar('Conta conectada. Seus dados estão sincronizados.');
+  }
+} else {
+  usarArmazenamentoLocal = true;
+
+  if (usuarioLocalEmail && !contasLocais[usuarioLocalEmail]) {
+    usuarioLocalEmail = '';
+    localStorage.removeItem(LOCAL_USER_KEY);
+  }
+
+  if (contaLocal()) atualizarTudoLocal();
+
+  informar('Login local ativado. Suas contas antigas neste navegador continuam disponíveis. Para sincronizar entre aparelhos, configure o Supabase.');
+}
 </script>
-</body></html>
+</body>
+</html>
