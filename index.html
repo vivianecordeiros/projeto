@@ -3,563 +3,872 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PinkCloset 💗</title>
+<title>PinkCloset</title>
 
 <style>
-:root{
-    --pink:#e83e8c;
-    --deep:#a32c62;
-    --pale:#fff0f7;
-    --line:#f4bfd7;
-    --ink:#4a1730
-}
-
 *{
-    box-sizing:border-box
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
 }
 
 body{
-    margin:0;
     background:linear-gradient(135deg,#fff0f7,#ffe0ef);
-    font-family:Arial,sans-serif;
-    color:var(--ink)
-}
-
-header{
-    background:#fff;
-    padding:16px 5%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:12px;
-    flex-wrap:wrap;
-    box-shadow:0 3px 15px #d96b9630;
-    position:sticky;
-    top:0;
-    z-index:5
-}
-
-.logo{
-    font-size:27px;
-    font-weight:bold;
-    color:var(--pink)
-}
-
-nav{
-    display:flex;
-    gap:5px;
-    flex-wrap:wrap
+    color:#5d3150;
+    min-height:100vh;
 }
 
 button{
     cursor:pointer;
-    font-weight:bold
+    border:none;
 }
 
-nav button{
-    background:none;
-    border:0;
-    color:#7d3155;
-    padding:10px
-}
-
-.primary,
-.pink{
-    background:var(--pink);
-    color:#fff;
-    border:0;
-    padding:11px 18px;
-    border-radius:24px;
-    margin:4px
-}
-
-.light{
-    background:#fff;
-    color:var(--pink);
-    border:1px solid var(--line);
-    padding:10px 16px;
-    border-radius:22px;
-    margin:4px
-}
-
-main{
+.app{
+    width:100%;
     max-width:1200px;
     margin:auto;
-    padding:22px 15px
+    min-height:100vh;
+    background:#fff8fc;
 }
 
-.section{
-    background:#fff;
-    border-radius:22px;
-    padding:22px;
-    margin-bottom:20px;
-    box-shadow:0 5px 25px #d96b961c
+/* CABEÇALHO */
+
+header{
+    background:linear-gradient(135deg,#ff75b5,#d94d91);
+    color:white;
+    padding:20px 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    box-shadow:0 5px 20px #d94d9140;
 }
 
-.hero{
-    text-align:center;
-    padding:30px 10px
+.logo{
+    font-size:30px;
+    font-weight:bold;
 }
 
-.hero h1,
-h2{
-    color:#d92f7b
+.logo span{
+    color:#ffe4f2;
 }
 
-.hero h1{
-    font-size:36px
-}
-
-p{
-    line-height:1.55
-}
-
-.hidden{
-    display:none!important
-}
-
-input,
-select,
-textarea{
-    width:100%;
-    padding:12px;
-    margin:7px 0;
-    border:1px solid var(--line);
-    border-radius:12px;
-    background:#fff;
-    color:var(--ink)
-}
-
-input[type=file]{
-    font-size:12px
-}
-
-label{
-    display:block;
+header p{
     font-size:13px;
-    margin-top:8px
+    opacity:.95;
 }
 
-.muted{
-    color:#95647a;
-    font-size:13px
+/* ABAS */
+
+nav{
+    display:flex;
+    gap:8px;
+    padding:12px;
+    background:white;
+    border-bottom:1px solid #f3c7dc;
+    overflow-x:auto;
 }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-    gap:15px;
-    margin-top:16px
+.nav-btn{
+    flex:1;
+    min-width:120px;
+    padding:13px 18px;
+    border-radius:20px;
+    background:#fff0f7;
+    color:#a53d70;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.nav-btn:hover,
+.nav-btn.active{
+    background:#e9579d;
+    color:white;
+}
+
+/* CONTEÚDO */
+
+.page{
+    display:none;
+    padding:25px;
+}
+
+.page.active{
+    display:block;
 }
 
 .card{
-    background:#fff5fa;
-    border:1px solid #f9d8e7;
-    border-radius:17px;
-    padding:13px;
-    min-width:0
+    background:white;
+    border-radius:22px;
+    padding:25px;
+    margin-bottom:20px;
+    box-shadow:0 8px 30px #d94d9118;
+    border:1px solid #f6d5e5;
 }
 
-.card h3{
-    color:var(--deep);
-    margin:9px 0
+h1,h2,h3{
+    color:#a5366d;
 }
 
-.photo{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:12px;
-    background:#fff
+h1{
+    margin-bottom:10px;
 }
 
-.tag{
-    display:inline-block;
-    background:#ffe0ef;
-    padding:5px 9px;
+h2{
+    margin-bottom:15px;
+}
+
+h3{
+    margin-bottom:8px;
+}
+
+/* BOTÕES */
+
+.btn{
+    background:linear-gradient(135deg,#ed5ca0,#c93d7d);
+    color:white;
+    padding:12px 20px;
     border-radius:15px;
-    margin:3px;
-    font-size:12px
+    font-weight:bold;
+    margin:5px;
+    box-shadow:0 5px 15px #d94d9130;
 }
 
-.profile-head{
+.btn:hover{
+    transform:translateY(-1px);
+}
+
+.btn-light{
+    background:#ffe7f2;
+    color:#a5366d;
+}
+
+/* INÍCIO */
+
+.hero{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+    align-items:center;
+}
+
+.hero-text{
+    padding:10px;
+}
+
+.hero-text h1{
+    font-size:42px;
+}
+
+.hero-text p{
+    line-height:1.7;
+    margin:15px 0;
+}
+
+.hero-box{
+    background:linear-gradient(145deg,#ffd8e9,#fff);
+    border-radius:30px;
+    padding:35px;
+    text-align:center;
+}
+
+.hero-box .dress-icon{
+    font-size:100px;
+}
+
+/* FORMULÁRIOS */
+
+input,
+select{
+    width:100%;
+    padding:13px;
+    border:1px solid #efc4d9;
+    border-radius:12px;
+    outline:none;
+    margin:7px 0;
+    background:#fffafd;
+}
+
+input:focus,
+select:focus{
+    border-color:#e9579d;
+}
+
+.form-box{
+    max-width:450px;
+    margin:auto;
+}
+
+.form-box h2{
+    text-align:center;
+}
+
+.form-actions{
+    text-align:center;
+    margin-top:10px;
+}
+
+.link{
+    color:#d4478a;
+    cursor:pointer;
+    font-size:14px;
+    margin-top:10px;
+    display:inline-block;
+}
+
+/* EXPLORAR */
+
+.explore-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.categories{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin:15px 0;
+}
+
+.category{
+    background:#ffe8f2;
+    color:#a5366d;
+    border-radius:20px;
+    padding:9px 15px;
+    cursor:pointer;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.category.active{
+    background:#e9579d;
+    color:white;
+}
+
+.feed{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+    gap:18px;
+}
+
+.look-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid #f3d2e2;
+    box-shadow:0 7px 20px #d94d9115;
+}
+
+.look-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    display:block;
+}
+
+.look-info{
+    padding:14px;
+}
+
+.look-info h3{
+    font-size:17px;
+}
+
+.look-info p{
+    font-size:13px;
+    color:#886276;
+    margin:6px 0 10px;
+}
+
+/* ADICIONAR PEÇA */
+
+.upload-box{
+    border:2px dashed #e85a9c;
+    background:#fff5fa;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    margin-top:15px;
+}
+
+.upload-box input{
+    border:none;
+    background:transparent;
+}
+
+/* PROVADOR */
+
+.tryon{
+    display:grid;
+    grid-template-columns:330px 1fr;
+    gap:25px;
+}
+
+.items-panel{
+    background:white;
+    border-radius:22px;
+    padding:20px;
+    border:1px solid #f3d2e2;
+}
+
+.item-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    max-height:600px;
+    overflow:auto;
+}
+
+.clothing-item{
     display:flex;
     align-items:center;
-    gap:16px;
-    flex-wrap:wrap
+    gap:12px;
+    background:#fff1f7;
+    border:1px solid #f3d1e1;
+    padding:10px;
+    border-radius:15px;
+    cursor:pointer;
+}
+
+.clothing-item:hover{
+    border-color:#e9579d;
+    background:#ffe5f0;
+}
+
+.clothing-item img{
+    width:55px;
+    height:55px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+.clothing-item span{
+    font-weight:bold;
+    font-size:13px;
+}
+
+/* ÁREA DO MANEQUIM */
+
+.model-stage{
+    min-height:700px;
+    background:
+        radial-gradient(circle at center,#fff 0%,#fff4fa 65%,#ffe4f0 100%);
+    border:1px solid #f2cddd;
+    border-radius:30px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.model-title{
+    position:absolute;
+    top:18px;
+    left:0;
+    width:100%;
+    text-align:center;
+    color:#a5366d;
+    font-weight:bold;
+    z-index:10;
+}
+
+/*
+   MANEQUIM
+   Corpo mais proporcional:
+   - cabeça proporcional
+   - pescoço definido
+   - ombros naturais
+   - cintura marcada
+   - quadril arredondado
+   - pernas proporcionais
+   - braços naturais
+*/
+
+.mannequin-wrap{
+    width:410px;
+    height:680px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.mannequin{
+    position:absolute;
+    width:300px;
+    height:630px;
+    left:55px;
+    top:35px;
+}
+
+/* CABEÇA */
+
+.head{
+    position:absolute;
+    width:66px;
+    height:82px;
+    left:117px;
+    top:5px;
+    background:linear-gradient(145deg,#f8d8c9,#eab9a8);
+    border-radius:48% 48% 45% 45%;
+    box-shadow:
+        inset -8px -6px 12px #c98f7e55,
+        inset 5px 4px 10px #fff7f055;
+}
+
+/* PESCOÇO */
+
+.neck{
+    position:absolute;
+    width:40px;
+    height:52px;
+    left:130px;
+    top:72px;
+    background:linear-gradient(90deg,#eab9a8,#f7d7c8,#dfaa98);
+    border-radius:15px;
+    z-index:2;
+}
+
+/* TRONCO */
+
+.torso{
+    position:absolute;
+    width:156px;
+    height:255px;
+    left:72px;
+    top:105px;
+    background:linear-gradient(
+        90deg,
+        #dba99a 0%,
+        #f4cdbd 18%,
+        #f8d8c9 50%,
+        #edc0b1 82%,
+        #d49c8d 100%
+    );
+    border-radius:
+        45px 45px 32px 32px /
+        38px 38px 75px 75px;
+    box-shadow:
+        inset 10px 0 15px #c9908050,
+        inset -12px 0 16px #b97e7040;
+    z-index:2;
+}
+
+/* PEITO / TRANSIÇÃO NATURAL */
+
+.chest-left,
+.chest-right{
+    position:absolute;
+    width:58px;
+    height:47px;
+    top:126px;
+    background:#f5cdbd;
+    border-radius:50%;
+    opacity:.75;
+    z-index:3;
+}
+
+.chest-left{
+    left:84px;
+}
+
+.chest-right{
+    left:158px;
+}
+
+/* CINTURA */
+
+.waist{
+    position:absolute;
+    width:110px;
+    height:115px;
+    left:95px;
+    top:220px;
+    background:linear-gradient(
+        90deg,
+        #dca99a,
+        #f6d1c1 25%,
+        #f8d8c9 50%,
+        #efc1b2 75%,
+        #d69f90
+    );
+    border-radius:28px 28px 42px 42px;
+    z-index:1;
+}
+
+/* QUADRIL */
+
+.hips{
+    position:absolute;
+    width:185px;
+    height:145px;
+    left:57px;
+    top:280px;
+    background:linear-gradient(
+        90deg,
+        #d49e90,
+        #edc0b1 20%,
+        #f6d0c0 45%,
+        #f4c9b9 70%,
+        #d29a8c
+    );
+    border-radius:48% 48% 42% 42%;
+    box-shadow:
+        inset 8px -5px 12px #c48c7d45;
+    z-index:0;
+}
+
+/* BRAÇOS */
+
+.arm-left,
+.arm-right{
+    position:absolute;
+    top:122px;
+    width:42px;
+    height:250px;
+    background:linear-gradient(
+        90deg,
+        #d49d8e,
+        #f2c7b8 40%,
+        #e9b8a9
+    );
+    border-radius:25px;
+    z-index:1;
+}
+
+.arm-left{
+    left:38px;
+    transform:rotate(4deg);
+}
+
+.arm-right{
+    left:220px;
+    transform:rotate(-4deg);
+}
+
+/* MÃOS */
+
+.hand-left,
+.hand-right{
+    position:absolute;
+    width:38px;
+    height:55px;
+    background:#eab9a9;
+    border-radius:45%;
+    top:350px;
+    z-index:2;
+}
+
+.hand-left{
+    left:35px;
+    transform:rotate(5deg);
+}
+
+.hand-right{
+    left:225px;
+    transform:rotate(-5deg);
+}
+
+/* PERNAS */
+
+.leg-left,
+.leg-right{
+    position:absolute;
+    top:385px;
+    width:70px;
+    height:205px;
+    background:linear-gradient(
+        90deg,
+        #d39d8e,
+        #f1c5b5 35%,
+        #eab7a8 75%,
+        #c99081
+    );
+    border-radius:25px 25px 35px 35px;
+    z-index:1;
+}
+
+.leg-left{
+    left:78px;
+}
+
+.leg-right{
+    left:152px;
+}
+
+/* JOELHOS */
+
+.knee-left,
+.knee-right{
+    position:absolute;
+    width:55px;
+    height:65px;
+    top:470px;
+    background:#e8b6a7;
+    border-radius:50%;
+    opacity:.45;
+    z-index:2;
+}
+
+.knee-left{
+    left:86px;
+}
+
+.knee-right{
+    left:159px;
+}
+
+/* PÉS */
+
+.foot-left,
+.foot-right{
+    position:absolute;
+    width:78px;
+    height:38px;
+    top:575px;
+    background:linear-gradient(90deg,#d29a8b,#eab8a9);
+    border-radius:45% 50% 25% 25%;
+}
+
+.foot-left{
+    left:70px;
+}
+
+.foot-right{
+    left:150px;
+}
+
+/* ROUPAS SOBRE O MANEQUIM */
+
+#modelItems{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:20;
+}
+
+.wear-item{
+    position:absolute;
+    object-fit:contain;
+    filter:drop-shadow(0 5px 6px #7d3c5a35);
+}
+
+/* posições das peças */
+
+.wear-top{
+    width:180px;
+    height:190px;
+    left:115px;
+    top:120px;
+}
+
+.wear-bottom{
+    width:205px;
+    height:190px;
+    left:100px;
+    top:275px;
+}
+
+.wear-dress{
+    width:220px;
+    height:350px;
+    left:90px;
+    top:115px;
+}
+
+.wear-shoe{
+    width:90px;
+    height:60px;
+    top:565px;
+}
+
+.wear-shoe.left{
+    left:95px;
+}
+
+.wear-shoe.right{
+    left:175px;
+}
+
+.wear-accessory{
+    width:85px;
+    height:85px;
+    left:158px;
+    top:80px;
+}
+
+.stage-buttons{
+    position:absolute;
+    bottom:15px;
+    width:100%;
+    text-align:center;
+    z-index:30;
+}
+
+/* PERFIL */
+
+.profile-header{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    background:linear-gradient(135deg,#ffe0ee,#fff);
+    border-radius:25px;
+    padding:25px;
+    margin-bottom:20px;
 }
 
 .avatar{
     width:90px;
     height:90px;
     border-radius:50%;
-    object-fit:cover;
-    background:#ffd5e8;
-    border:4px solid #ffc0dc
-}
-
-footer{
-    text-align:center;
-    padding:25px;
-    color:#914568
-}
-
-.feed-actions{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:6px;
-    flex-wrap:wrap
-}
-
-.feed-toolbar{
-    display:flex;
-    gap:8px;
-    overflow-x:auto;
-    padding:8px 0 14px;
-    margin-top:10px;
-    scrollbar-width:thin
-}
-
-.filter-chip{
-    flex:0 0 auto;
-    border:0;
-    border-radius:20px;
-    padding:9px 16px;
-    background:#fff0f7;
-    color:#8f315b;
-    font-weight:700
-}
-
-.filter-chip.active{
-    background:#e83e8c;
-    color:#fff
-}
-
-.feed-masonry{
-    columns:4 210px;
-    column-gap:16px;
-    margin-top:8px
-}
-
-.feed-pin{
-    display:inline-block;
-    width:100%;
-    break-inside:avoid;
-    margin:0 0 16px;
-    background:#fff;
-    border-radius:17px;
-    overflow:hidden;
-    box-shadow:0 3px 15px #d96b961c;
-    border:1px solid #f8d9e7;
-    vertical-align:top
-}
-
-.feed-pin-image{
-    display:block;
-    width:100%;
-    height:auto;
-    object-fit:cover;
-    background:#fff0f7
-}
-
-.feed-pin-image.ratio-tall{
-    aspect-ratio:3/4
-}
-
-.feed-pin-image.ratio-medium{
-    aspect-ratio:4/5
-}
-
-.feed-pin-image.ratio-square{
-    aspect-ratio:1/1
-}
-
-.feed-pin-image.image-unavailable{
-    min-height:190px;
-    object-fit:contain;
-    padding:24px;
-    background:#fff0f7
-}
-
-.feed-pin-body{
-    padding:11px 12px 13px
-}
-
-.feed-pin-title{
-    margin:0 0 5px;
-    color:#a32c62;
-    font-size:15px;
-    line-height:1.3
-}
-
-.feed-pin-description{
-    margin:0 0 8px;
-    font-size:13px;
-    line-height:1.4;
-    color:#70435a
-}
-
-.feed-pin-meta{
+    background:linear-gradient(135deg,#e9579d,#a9366d);
+    color:white;
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    gap:8px;
-    flex-wrap:wrap;
-    font-size:11px;
-    color:#95647a
-}
-
-.feed-pin-meta a{
-    color:#a32c62;
-    text-decoration:none
-}
-
-.feed-pin-meta a:hover{
-    text-decoration:underline
-}
-
-.feed-pin-actions{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:6px;
-    flex-wrap:wrap;
-    margin-top:9px
-}
-
-.feed-pin-actions .light,
-.feed-pin-actions .primary{
-    font-size:12px;
-    padding:8px 12px;
-    margin:0
-}
-
-.feed-user-photo{
-    display:block;
-    width:100%;
-    aspect-ratio:4/5;
-    object-fit:cover;
-    background:#fff0f7
-}
-
-.feed-user-pieces{
-    font-size:12px;
-    color:#80506a;
-    margin:6px 0 0
-}
-
-/* ============================= */
-/* PROVADOR / MANEQUIM */
-/* ============================= */
-
-.model-stage{
-    background:linear-gradient(145deg,#fff,#fff4f9);
-    border:1px solid #f6c5dc;
-    border-radius:20px;
-    padding:14px;
-    min-height:490px;
-    display:flex;
     justify-content:center;
+    font-size:32px;
+    font-weight:bold;
+    flex-shrink:0;
+}
+
+.profile-info h2{
+    margin-bottom:4px;
+}
+
+.profile-info p{
+    color:#8c6075;
+}
+
+.privacy{
+    display:flex;
     align-items:center;
-    position:relative;
-    overflow:hidden
+    gap:10px;
+    margin-top:10px;
 }
 
-.mannequin-wrap{
-    position:relative;
-    width:min(100%,300px);
-    aspect-ratio:412/732;
-    background:#fff;
-    border-radius:14px;
+.privacy select{
+    width:auto;
+    min-width:150px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+    gap:15px;
+}
+
+.gallery-item{
+    background:#fff1f7;
+    border-radius:18px;
     overflow:hidden;
-    box-shadow:0 8px 24px #9c56751c;
-    border:1px solid #f1d4e1
+    border:1px solid #f3d1e1;
 }
 
-/* MANEQUIM FEITO DENTRO DO HTML */
-.mannequin-svg{
+.gallery-item img{
     width:100%;
-    height:100%;
-    display:block;
-    position:absolute;
-    inset:0;
-    z-index:1
+    height:220px;
+    object-fit:cover;
 }
 
-#modelItems{
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    z-index:3
+.gallery-item div{
+    padding:10px;
 }
 
-.model-item{
-    position:absolute;
-    object-fit:contain;
-    z-index:4;
-    filter:drop-shadow(0 2px 2px #0002)
+/* GRUPO */
+
+.group-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:10px;
 }
 
-.model-item.top{
-    width:49%;
-    height:29%;
-    top:22%;
-    left:25.5%
+.group-person{
+    background:#fff0f7;
+    padding:15px;
+    border-radius:15px;
+    border:1px solid #f2d0df;
 }
 
-.model-item.bottom{
-    width:50%;
-    height:37%;
-    top:43%;
-    left:25%
-}
+/* MENSAGENS */
 
-.model-item.shoes{
-    width:48%;
-    height:13%;
-    top:84%;
-    left:26%
-}
-
-.model-item.hat{
-    width:42%;
-    height:13%;
-    top:3%;
-    left:29%
-}
-
-.model-item.necklace{
-    width:27%;
-    height:14%;
-    top:20%;
-    left:36.5%
-}
-
-.model-item.earrings{
-    width:31%;
-    height:13%;
-    top:12%;
-    left:34.5%
-}
-
-.model-item.bag{
-    width:36%;
-    height:31%;
-    top:42%;
-    left:53%
-}
-
-.model-item.other{
-    width:28%;
-    height:20%;
-    top:33%;
-    left:54%
-}
-
-.team-cards .card h3{
-    font-size:15px;
-    line-height:1.4;
-    margin:4px 0
-}
-
-.forgot-link{
-    display:inline-block;
-    background:none;
-    border:0;
-    color:#a32c62;
-    text-decoration:underline;
-    padding:9px 5px;
-    font-weight:bold
-}
-
-.recovery-panel{
-    margin-top:12px;
+.message{
     padding:12px;
-    border-radius:14px;
-    background:#fff5fa;
-    border:1px solid #f4bfd7
+    border-radius:12px;
+    margin:10px 0;
+    display:none;
 }
 
-hr{
-    border:0;
-    border-top:1px solid #f6d4e3;
-    margin:20px 0
+.success{
+    background:#e6f8ed;
+    color:#267044;
 }
 
-@media(max-width:900px){
-    .feed-masonry{
-        columns:3 190px
-    }
+.error{
+    background:#ffe6eb;
+    color:#a52e4c;
 }
 
-@media(max-width:600px){
+/* RESPONSIVO */
 
-    header{
-        justify-content:center
+@media(max-width:800px){
+
+    .hero{
+        grid-template-columns:1fr;
     }
 
-    .hero h1{
-        font-size:29px
+    .tryon{
+        grid-template-columns:1fr;
     }
 
-    .section{
-        padding:16px
-    }
-
-    nav{
-        justify-content:center
-    }
-
-    nav button{
-        margin-left:3px;
-        font-size:12px
-    }
-
-    main{
-        padding:20px 12px
-    }
-
-    .profile-head{
-        justify-content:center;
-        text-align:center
-    }
-
-    .feed-masonry{
-        columns:2 135px;
-        column-gap:10px
-    }
-
-    .feed-pin{
-        margin-bottom:10px;
-        border-radius:14px
-    }
-
-    .feed-pin-body{
-        padding:9px
-    }
-
-    .feed-pin-title{
-        font-size:14px
-    }
-
-    .feed-pin-description{
-        font-size:12px
-    }
-
-    .feed-pin-actions .light,
-    .feed-pin-actions .primary{
-        font-size:11px;
-        padding:7px 9px
+    .items-panel{
+        order:2;
     }
 
     .model-stage{
-        min-height:450px;
-        padding:8px
+        min-height:680px;
+    }
+
+    header{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-text h1{
+        font-size:32px;
+    }
+}
+
+@media(max-width:500px){
+
+    .page{
+        padding:15px;
+    }
+
+    .feed{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .look-card img{
+        height:210px;
     }
 
     .mannequin-wrap{
-        width:min(100%,260px)
+        transform:scale(.82);
+        transform-origin:center;
+    }
+
+    .model-stage{
+        min-height:620px;
+    }
+
+    .profile-header{
+        flex-direction:column;
+        text-align:center;
     }
 }
 </style>
@@ -567,773 +876,418 @@ hr{
 
 <body>
 
+<div class="app">
+
 <header>
-
-<div class="logo">💗 PinkCloset</div>
-
-<nav>
-<button onclick="mostrar('inicio')">Início</button>
-<button onclick="mostrar('explorar')">Explorar</button>
-<button onclick="mostrar('provador')">Meu Provador</button>
-<button onclick="mostrar('perfil')">Meu Perfil</button>
-</nav>
-
+    <div>
+        <div class="logo">Pink<span>Closet</span> 💗</div>
+        <p>Seu guarda-roupa digital e seu provador virtual</p>
+    </div>
 </header>
 
-<main>
+<nav>
+    <button class="nav-btn active" onclick="abrirPagina('inicio',this)">Início</button>
+    <button class="nav-btn" onclick="abrirPagina('explorar',this)">Explorar</button>
+    <button class="nav-btn" onclick="abrirPagina('provador',this)">Meu Provador</button>
+    <button class="nav-btn" onclick="abrirPagina('perfil',this)">Meu Perfil</button>
+</nav>
 
-<!-- ============================= -->
 <!-- INÍCIO -->
-<!-- ============================= -->
 
-<section id="inicio">
+<section id="inicio" class="page active">
 
 <div class="hero">
-<h1>💗 Bem-vinda ao PinkCloset!</h1>
-<p>Descubra inspirações, compartilhe seus looks e experimente combinações.</p>
-</div>
 
-<div class="section">
+<div class="hero-text">
 
-<h2>🌸 Sobre o projeto</h2>
+<h1>Bem-vinda ao PinkCloset 💗</h1>
 
 <p>
-O PinkCloset é um espaço para descobrir looks, organizar roupas,
-compartilhar combinações e experimentar peças no provador virtual.
+Organize suas roupas, monte combinações, descubra novos looks
+e experimente suas peças em um provador virtual.
 </p>
 
-<p>
-Entre na sua conta para acessar seus looks e suas roupas em diferentes dispositivos.
-</p>
-
-</div>
-
-<div class="section">
-
-<h2>👩‍💻 Componentes do grupo</h2>
-
-<div class="cards team-cards">
-
 <div class="card">
-<h3>Maria Eduarda Duarte da Silva</h3>
-</div>
 
-<div class="card">
-<h3>Maria Eduarda Teixeira Neves Gomes</h3>
-</div>
+<h2>Entrar na conta</h2>
 
-<div class="card">
-<h3>Maria Heloyza Nicácio Celestino Domingos</h3>
-</div>
+<div id="loginMessage" class="message"></div>
 
-<div class="card">
-<h3>Viviane Cordeiro da Silva</h3>
-</div>
-
-<div class="card">
-<h3>Dulce Nicoly Pereira Martins</h3>
-</div>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<h2>🔐 Entrar na sua conta</h2>
-
-<label for="email">E-mail</label>
+<div class="form-box">
 
 <input
-id="email"
 type="email"
+id="loginEmail"
 placeholder="Seu e-mail"
-autocomplete="email"
 >
 
-<label for="senha">Senha</label>
-
 <input
-id="senha"
 type="password"
+id="loginPassword"
 placeholder="Sua senha"
-autocomplete="current-password"
 >
 
-<button class="primary" onclick="entrar()">
-Entrar 💗
+<div class="form-actions">
+
+<button class="btn" onclick="login()">
+Entrar
 </button>
 
-<button class="light" onclick="mostrarCadastro()">
-Criar minha conta
-</button>
-
-<button class="forgot-link" onclick="esqueciSenha()">
-Esqueci minha senha
-</button>
-
-<div id="redefinirSenha" class="recovery-panel hidden">
-
-<hr>
-
-<h3>🔑 Criar uma nova senha</h3>
-
-<p class="muted">
-Digite uma senha nova com pelo menos 6 caracteres.
-</p>
-
-<input
-id="senhaNova"
-type="password"
-placeholder="Nova senha"
-autocomplete="new-password"
->
-
-<button class="primary" onclick="atualizarSenha()">
-Salvar nova senha
+<button class="btn btn-light" onclick="mostrarCadastro()">
+Criar conta
 </button>
 
 </div>
 
-<div id="cadastro" class="hidden">
+<span class="link" onclick="recuperarSenha()">
+Esqueci minha senha
+</span>
 
-<hr>
+</div>
 
-<h2>Criar conta</h2>
+</div>
+
+</div>
+
+<div class="hero-box">
+
+<div class="dress-icon">👗</div>
+
+<h2>Seu estilo começa aqui</h2>
+
+<p>
+Guarde suas peças e monte looks de forma fácil e divertida.
+</p>
+
+</div>
+
+</div>
+
+<!-- CADASTRO -->
+
+<div id="cadastroBox" class="card" style="display:none">
+
+<h2>Criar minha conta</h2>
+
+<div id="cadastroMessage" class="message"></div>
+
+<div class="form-box">
 
 <input
-id="nome"
-placeholder="Nome de usuário"
+type="text"
+id="cadastroNome"
+placeholder="Seu nome"
 >
 
 <input
-id="novoEmail"
 type="email"
-placeholder="E-mail"
+id="cadastroEmail"
+placeholder="Seu e-mail"
 >
 
 <input
-id="novaSenha"
 type="password"
-placeholder="Crie uma senha (mínimo 6 caracteres)"
+id="cadastroSenha"
+placeholder="Crie uma senha"
 >
 
-<label>
-Foto de perfil (opcional)
-</label>
-
-<input
-id="avatar"
-type="file"
-accept="image/*"
->
-
-<button class="primary" onclick="cadastrar()">
+<button class="btn" onclick="cadastrar()">
 Cadastrar
 </button>
 
+<button
+class="btn btn-light"
+onclick="fecharCadastro()">
+Cancelar
+</button>
+
 </div>
 
-<p class="muted">
-Seus dados são sincronizados pela sua conta online.
-Para acessar em outro aparelho, entre com o mesmo e-mail e senha.
+</div>
+
+<div class="card">
+
+<h2>Sobre o projeto</h2>
+
+<p>
+O PinkCloset é um aplicativo criado para facilitar a organização
+das roupas e ajudar na criação de looks. A pessoa pode adicionar
+suas próprias peças, visualizar inspirações, guardar roupas e
+experimentar combinações no provador virtual.
 </p>
 
-<p id="authMsg" class="muted" aria-live="polite"></p>
+</div>
+
+<div class="card">
+
+<h2>componentes do grupo</h2>
+
+<div class="group-list">
+
+<div class="group-person">
+Maria Eduarda Duarte da Silva
+</div>
+
+<div class="group-person">
+Maria Eduarda Teixeira Neves Gomes
+</div>
+
+<div class="group-person">
+Maria Heloyza Nicácio Celestino Domingos
+</div>
+
+<div class="group-person">
+Viviane Cordeiro da Silva
+</div>
+
+<div class="group-person">
+Dulce Nicoly Pereira
+</div>
+
+</div>
 
 </div>
 
 </section>
 
-
-<!-- ============================= -->
 <!-- EXPLORAR -->
-<!-- ============================= -->
 
-<section id="explorar" class="hidden">
+<section id="explorar" class="page">
 
-<div class="section">
-
-<h2>✨ Feed de looks</h2>
-
-<p>
-Inspire-se em fotos de looks completos, filtre por estilo e veja também
-as publicações da comunidade. Os looks publicados pelas usuárias podem
-ser experimentados no provador.
-</p>
-
-<div class="feed-toolbar">
-
-<button class="filter-chip active"
-onclick="filtrarFeed('Tudo')">
-Tudo
-</button>
-
-<button class="filter-chip"
-onclick="filtrarFeed('Casual')">
-Casual
-</button>
-
-<button class="filter-chip"
-onclick="filtrarFeed('Trabalho')">
-Trabalho
-</button>
-
-<button class="filter-chip"
-onclick="filtrarFeed('Praia')">
-Praia
-</button>
-
-<button class="filter-chip"
-onclick="filtrarFeed('Elegante')">
-Elegante
-</button>
-
-<button class="filter-chip"
-onclick="filtrarFeed('Street style')">
-Street style
-</button>
-
-</div>
-
-<div id="feedGrid" class="feed-masonry">
-<p>Carregando inspirações...</p>
-</div>
-
-</div>
-
-
-<div class="section">
-
-<h2>👚 Meu guarda-roupa</h2>
-
-<p>
-Adicione suas peças para usar no provador.
-No celular, você também pode abrir a câmera.
-</p>
-
-<input
-id="pecaNome"
-placeholder="Nome da peça (ex.: camisa branca)"
->
-
-<select id="pecaTipo">
-
-<option value="top">
-Blusa / camisa
-</option>
-
-<option value="bottom">
-Calça / saia / short
-</option>
-
-<option value="shoes">
-Calçado
-</option>
-
-<option value="hat">
-Chapéu / boné
-</option>
-
-<option value="earrings">
-Brinco
-</option>
-
-<option value="necklace">
-Colar
-</option>
-
-<option value="other">
-Relógio / bracelete / acessório
-</option>
-
-<option value="bag">
-Bolsa
-</option>
-
-</select>
-
-<label>
-Foto da peça
-</label>
-
-<input
-id="pecaFoto"
-type="file"
-accept="image/*"
-capture="environment"
->
-
-<button class="primary" onclick="adicionarPeca()">
-＋ Salvar peça
-</button>
-
-<div id="minhasPecas" class="cards"></div>
-
-</div>
-
-</section>
-
-
-<!-- ============================= -->
-<!-- PROVADOR -->
-<!-- ============================= -->
-
-<section id="provador" class="hidden">
-
-<div class="section">
-
-<h2>👗 Meu Provador</h2>
-
-<p>
-Escolha um look do feed ou selecione peças do seu guarda-roupa
-para visualizar a combinação.
-</p>
-
-<div class="cards">
+<div class="explore-top">
 
 <div>
+<h1>Explorar ✨</h1>
+<p>Descubra looks e adicione suas próprias peças.</p>
+</div>
 
-<h3>💗 Manequim de corpo inteiro</h3>
+<button class="btn" onclick="document.getElementById('roupaInput').click()">
+➕ Adicionar peça
+</button>
+
+</div>
+
+<div class="categories">
+
+<button class="category active" onclick="filtrarCategoria('todos',this)">
+Todos
+</button>
+
+<button class="category" onclick="filtrarCategoria('praia',this)">
+🏖️ Praia
+</button>
+
+<button class="category" onclick="filtrarCategoria('trabalho',this)">
+💼 Trabalho
+</button>
+
+<button class="category" onclick="filtrarCategoria('casual',this)">
+👕 Casual
+</button>
+
+<button class="category" onclick="filtrarCategoria('festa',this)">
+✨ Festa
+</button>
+
+</div>
+
+<div class="upload-box">
+
+<h3>Adicionar roupa ao seu closet</h3>
+
+<p>
+Você pode escolher uma foto da galeria ou usar a câmera do celular.
+</p>
+
+<input
+type="file"
+id="roupaInput"
+accept="image/*"
+capture="environment"
+onchange="adicionarRoupa(event)"
+>
+
+</div>
+
+<div id="exploreMessage" class="message"></div>
+
+<div class="feed" id="feed"></div>
+
+</section>
+
+<!-- PROVADOR -->
+
+<section id="provador" class="page">
+
+<h1>Meu Provador 👗</h1>
+
+<p style="margin-bottom:20px;">
+Monte seu look usando as peças que você adicionou.
+</p>
+
+<div class="tryon">
+
+<div class="items-panel">
+
+<h2>Minhas peças</h2>
+
+<div class="item-list" id="itemList">
+
+<p>
+Faça login e adicione suas roupas para elas aparecerem aqui.
+</p>
+
+</div>
+
+</div>
 
 <div class="model-stage">
 
+<div class="model-title">
+Provador Virtual 💗
+</div>
+
 <div class="mannequin-wrap">
 
-<!-- MANEQUIM EMBUTIDO NO HTML -->
-<svg
-class="mannequin-svg"
-viewBox="0 0 412 732"
-xmlns="http://www.w3.org/2000/svg"
-aria-label="Manequim feminino de corpo inteiro"
->
+<div class="mannequin">
 
-<defs>
+<div class="head"></div>
 
-<linearGradient
-id="manequimCorpo"
-x1="0"
-y1="0"
-x2="1"
-y2="1"
->
+<div class="neck"></div>
 
-<stop offset="0%" stop-color="#fff8fb"/>
-<stop offset="100%" stop-color="#f3dce6"/>
+<div class="torso"></div>
 
-</linearGradient>
+<div class="chest-left"></div>
+<div class="chest-right"></div>
 
-<linearGradient
-id="manequimBraco"
-x1="0"
-y1="0"
-x2="1"
-y2="0"
->
+<div class="waist"></div>
 
-<stop offset="0%" stop-color="#f8eaf0"/>
-<stop offset="100%" stop-color="#e9cbd7"/>
+<div class="hips"></div>
 
-</linearGradient>
+<div class="arm-left"></div>
+<div class="arm-right"></div>
 
-</defs>
+<div class="hand-left"></div>
+<div class="hand-right"></div>
 
-<!-- sombra no chão -->
-<ellipse
-cx="206"
-cy="706"
-rx="105"
-ry="15"
-fill="#d9a7bb"
-opacity="0.35"
-/>
+<div class="leg-left"></div>
+<div class="leg-right"></div>
 
-<!-- cabeça -->
-<ellipse
-cx="206"
-cy="82"
-rx="49"
-ry="58"
-fill="url(#manequimCorpo)"
-stroke="#dfc2cf"
-stroke-width="3"
-/>
+<div class="knee-left"></div>
+<div class="knee-right"></div>
 
-<!-- pescoço -->
-<rect
-x="180"
-y="128"
-width="52"
-height="45"
-rx="20"
-fill="url(#manequimCorpo)"
-stroke="#dfc2cf"
-stroke-width="3"
-/>
+<div class="foot-left"></div>
+<div class="foot-right"></div>
 
-<!-- ombros e tronco -->
-<path
-d="
-M155 154
-C137 160 118 176 106 198
-C95 220 94 270 99 318
-L113 425
-C117 454 137 473 163 478
-L163 500
-L249 500
-L249 478
-C275 473 295 454 299 425
-L313 318
-C318 270 317 220 306 198
-C294 176 275 160 257 154
-L232 145
-L180 145
-Z
-"
-fill="url(#manequimCorpo)"
-stroke="#dfc2cf"
-stroke-width="3"
-/>
+</div>
 
-<!-- braço esquerdo -->
-<path
-d="
-M112 192
-C91 205 80 232 76 263
-L62 377
-C59 398 70 416 88 421
-C103 425 116 414 119 397
-L132 293
-C136 263 135 226 112 192
-Z
-"
-fill="url(#manequimBraco)"
-stroke="#dfc2cf"
-stroke-width="3"
-/>
-
-<!-- mão esquerda -->
-<ellipse
-cx="81"
-cy="411"
-rx="22"
-ry="30"
-fill="#f3dce6"
-stroke="#dfc2cf"
-stroke-width="3"
-/>
-
-<!-- braço direito -->
-<path
-d="
-M300 192
-C321 205 332 232 336 263
-L350 377
-C353 398 342 416 324 421
-C309 425 296 414 293 397
-L280 293
-C276 263 277 226 300 192
-Z
-"
-fill="url(#manequimBraco)"
-stroke="#dfc2cf"
-stroke-width="3"
-/>
-
-<!-- mão direita na cintura -->
-<ellipse
-cx="323"
-cy="411"
-rx="22"
-ry="30"
-fill="#f3dce6"
-stroke="#dfc2cf"
-stroke-width="3"
-/>
-
-<!-- cintura -->
-<path
-d="
-M163 452
-C176 462 190 468 206 468
-C222 468 236 462 249 452
-L257 501
-L155 501
-Z
-"
-fill="#f7e7ed"
-stroke="#dfc2cf"
-stroke-width="3"
-/>
-
-<!-- perna esquerda -->
-<path
-d="
-M155 493
-C151 533 150 585 151 632
-L151 681
-C151 696 163 705 179 705
-C194 705 204 695 204 681
-L204 566
-C204 539 205 515 206 501
-L155 493
-Z
-"
-fill="url(#manequimCorpo)"
-stroke="#dfc2cf"
-stroke-width="3"
-/>
-
-<!-- perna direita -->
-<path
-d="
-M206 501
-C207 515 208 539 208 566
-L208 681
-C208 695 218 705 233 705
-C249 705 261 696 261 681
-L261 632
-C262 585 261 533 257 493
-L206 501
-Z
-"
-fill="url(#manequimCorpo)"
-stroke="#dfc2cf"
-stroke-width="3"
-/>
-
-<!-- pés -->
-<path
-d="
-M151 675
-C137 680 128 692 128 704
-C128 713 137 718 154 718
-L194 718
-C202 718 207 712 204 702
-L200 685
-Z
-"
-fill="#ead0da"
-stroke="#dcb8c6"
-stroke-width="3"
-/>
-
-<path
-d="
-M212 685
-L208 702
-C205 712 210 718 218 718
-L258 718
-C275 718 284 713 284 704
-C284 692 275 680 261 675
-Z
-"
-fill="#ead0da"
-stroke="#dcb8c6"
-stroke-width="3"
-/>
-
-<!-- detalhes do rosto -->
-<circle
-cx="188"
-cy="82"
-r="3"
-fill="#b78498"
-/>
-
-<circle
-cx="224"
-cy="82"
-r="3"
-fill="#b78498"
-/>
-
-<path
-d="M195 104 Q206 111 217 104"
-fill="none"
-stroke="#c18fa2"
-stroke-width="3"
-stroke-linecap="round"
-/>
-
-</svg>
-
-<!-- peças aparecem por cima do manequim -->
 <div id="modelItems"></div>
 
 </div>
 
-</div>
+<div class="stage-buttons">
 
-<p class="muted">
-O manequim já está incorporado ao aplicativo.
-As fotos das peças escolhidas aparecem por cima dele como
-prévia da combinação.
-</p>
-
-</div>
-
-
-<div>
-
-<h3>👚 Suas peças</h3>
-
-<div id="seletorPecas"></div>
-
-<button
-class="primary"
-onclick="montarLook()"
->
-Montar combinação
+<button class="btn" onclick="limparProvador()">
+🗑️ Limpar
 </button>
 
-<button
-class="light"
-onclick="limparModelo()"
->
-Limpar
+<button class="btn" onclick="guardarLook()">
+💗 Salvar look
 </button>
 
 </div>
 
 </div>
-
-<hr>
-
-<div id="salvarArea" class="hidden">
-
-<h3>
-Salvar look na galeria
-</h3>
-
-<input
-id="lookNome"
-placeholder="Nome do look"
->
-
-<select id="lookPrivacidade">
-
-<option value="public">
-🌎 Publicar no feed
-</option>
-
-<option value="private">
-🔒 Manter privado
-</option>
-
-</select>
-
-<button
-class="primary"
-onclick="guardarLook()"
->
-💾 Salvar look
-</button>
-
-</div>
-
-<p id="provadorMsg" class="muted"></p>
 
 </div>
 
 </section>
 
-
-<!-- ============================= -->
 <!-- PERFIL -->
-<!-- ============================= -->
 
-<section id="perfil" class="hidden">
+<section id="perfil" class="page">
 
-<div class="section">
+<div class="profile-header">
 
-<div class="profile-head">
+<div class="avatar" id="avatar">
+P
+</div>
 
-<img
-id="perfilAvatar"
-class="avatar hidden"
-alt="Foto de perfil"
->
+<div class="profile-info">
 
-<div>
-
-<h2 id="perfilNome">
+<h2 id="profileName">
 Meu Perfil
 </h2>
 
-<p id="perfilEmail"></p>
+<p id="profileEmail">
+Faça login para acessar seu perfil.
+</p>
+
+<div class="privacy">
+
+<label>Privacidade:</label>
+
+<select id="privacySelect" onchange="alterarPrivacidade()">
+
+<option value="publico">
+Público
+</option>
+
+<option value="privado">
+Privado
+</option>
+
+</select>
 
 </div>
 
 </div>
 
-<hr>
+</div>
 
-<h3>
-Editar perfil
-</h3>
+<div class="card">
 
-<input
-id="editarNome"
-placeholder="Nome de usuário"
->
-
-<label>
-Alterar foto
-</label>
+<h2>Editar perfil</h2>
 
 <input
-id="editarAvatar"
-type="file"
-accept="image/*"
+type="text"
+id="editName"
+placeholder="Seu nome"
 >
 
-<button
-class="primary"
-onclick="salvarPerfil()"
->
-Salvar perfil
+<button class="btn" onclick="salvarPerfil()">
+Salvar alterações
 </button>
 
-<button
-class="light"
-onclick="sair()"
->
+<button class="btn btn-light" onclick="logout()">
 Sair da conta
 </button>
 
 </div>
 
+<div class="card">
 
-<div class="section">
+<h2>Meus looks 💗</h2>
 
-<h2>
-📸 Minha galeria de looks
-</h2>
+<div class="gallery" id="lookGallery">
 
-<div id="galeria" class="cards"></div>
+<p>
+Seus looks salvos aparecerão aqui.
+</p>
+
+</div>
 
 </div>
 
 </section>
 
-</main>
+</div>
 
-<footer>
-💗 PinkCloset — Vista sua personalidade.
-</footer>
+<script>
 
-
-<script type="module">
-
-import {
-    createClient
-} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-
-
-// ======================================================
-// SUPABASE
-// ======================================================
+/* =====================================================
+   CONFIGURAÇÃO SUPABASE
+===================================================== */
 
 const SUPABASE_URL =
 'COLE_AQUI_A_URL_DO_SEU_PROJETO';
@@ -1341,2437 +1295,1174 @@ const SUPABASE_URL =
 const SUPABASE_ANON_KEY =
 'COLE_AQUI_SUA_CHAVE_ANON_PUBLIC';
 
-const configurado =
-SUPABASE_URL.startsWith('https://') &&
-!SUPABASE_URL.includes('COLE_AQUI') &&
-!SUPABASE_ANON_KEY.includes('COLE_AQUI');
 
-const supabase =
-configurado
-? createClient(SUPABASE_URL,SUPABASE_ANON_KEY)
-: null;
+/*
+Para funcionar com o Supabase, mantenha o script oficial
+do Supabase antes deste código ou adicione:
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+*/
 
 
-let usuario = null;
+let supabaseClient = null;
 
-let pecas = [];
+if(
+    typeof supabase !== "undefined" &&
+    SUPABASE_URL !== "COLE_AQUI_A_URL_DO_SEU_PROJETO"
+){
 
-let selecao = new Set();
+    supabaseClient =
+        supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_ANON_KEY
+        );
+}
 
+
+/* =====================================================
+   ESTADO DO APLICATIVO
+===================================================== */
+
+let usuarioAtual = null;
+let minhasRoupas = [];
 let lookTemporario = [];
 
-let feedCache = [];
 
+/* =====================================================
+   ABRIR ABAS
+===================================================== */
 
-// ======================================================
-// NAVEGAÇÃO
-// ======================================================
+function abrirPagina(id, botao){
 
-window.mostrar = (id) => {
+    document.querySelectorAll('.page')
+        .forEach(p => p.classList.remove('active'));
 
-    [
-        'inicio',
-        'explorar',
-        'provador',
-        'perfil'
-    ].forEach(x => {
+    document.getElementById(id)
+        .classList.add('active');
 
-        document
-        .getElementById(x)
-        .classList
-        .add('hidden');
+    document.querySelectorAll('.nav-btn')
+        .forEach(b => b.classList.remove('active'));
 
-    });
-
-    document
-    .getElementById(id)
-    .classList
-    .remove('hidden');
-
-
-    if(id === 'explorar'){
-        carregarExplorar();
+    if(botao){
+        botao.classList.add('active');
     }
-
-    if(id === 'provador'){
-        carregarSeletor();
-    }
-
-    if(id === 'perfil'){
-        carregarPerfil();
-    }
-
-
-    window.scrollTo({
-        top:0,
-        behavior:'smooth'
-    });
-
-};
-
-
-// ======================================================
-// CADASTRO
-// ======================================================
-
-window.mostrarCadastro = () => {
-
-    document
-    .getElementById('cadastro')
-    .classList
-    .toggle('hidden');
-
-};
-
-
-// ======================================================
-// MENSAGEM
-// ======================================================
-
-function msg(t){
-
-    document
-    .getElementById('authMsg')
-    .textContent = t;
 
 }
 
 
-// ======================================================
-// RECUPERAÇÃO DE SENHA
-// ======================================================
+/* =====================================================
+   CADASTRO
+===================================================== */
 
-window.esqueciSenha = async () => {
+function mostrarCadastro(){
 
-    if(!supabase){
+    document.getElementById('cadastroBox')
+        .style.display = 'block';
 
-        msg(
-            'Configure a URL e a chave do Supabase no código antes de usar a recuperação de senha.'
+    document.getElementById('cadastroBox')
+        .scrollIntoView({
+            behavior:'smooth'
+        });
+
+}
+
+
+function fecharCadastro(){
+
+    document.getElementById('cadastroBox')
+        .style.display = 'none';
+
+}
+
+
+async function cadastrar(){
+
+    if(!supabaseClient){
+
+        mostrarMensagem(
+            'cadastroMessage',
+            'Configure primeiro a URL e a chave do Supabase.',
+            'error'
         );
 
         return;
     }
 
+    const nome =
+        document.getElementById('cadastroNome').value.trim();
 
     const email =
-    document
-    .getElementById('email')
-    .value
-    .trim();
+        document.getElementById('cadastroEmail').value.trim();
 
+    const senha =
+        document.getElementById('cadastroSenha').value;
+
+    if(!nome || !email || !senha){
+
+        mostrarMensagem(
+            'cadastroMessage',
+            'Preencha todos os campos.',
+            'error'
+        );
+
+        return;
+    }
+
+    const {data,error} =
+        await supabaseClient.auth.signUp({
+            email:email,
+            password:senha,
+            options:{
+                data:{
+                    nome:nome
+                }
+            }
+        });
+
+    if(error){
+
+        mostrarMensagem(
+            'cadastroMessage',
+            error.message,
+            'error'
+        );
+
+        return;
+    }
+
+    if(data.user){
+
+        await supabaseClient
+            .from('profiles')
+            .upsert({
+                id:data.user.id,
+                username:nome,
+                privacy:'publico'
+            });
+
+    }
+
+    mostrarMensagem(
+        'cadastroMessage',
+        'Conta criada! Verifique seu e-mail se o Supabase solicitar confirmação.',
+        'success'
+    );
+
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+async function login(){
+
+    if(!supabaseClient){
+
+        mostrarMensagem(
+            'loginMessage',
+            'Configure primeiro a URL e a chave do Supabase.',
+            'error'
+        );
+
+        return;
+    }
+
+    const email =
+        document.getElementById('loginEmail').value.trim();
+
+    const password =
+        document.getElementById('loginPassword').value;
+
+    if(!email || !password){
+
+        mostrarMensagem(
+            'loginMessage',
+            'Digite seu e-mail e sua senha.',
+            'error'
+        );
+
+        return;
+    }
+
+    const {data,error} =
+        await supabaseClient.auth.signInWithPassword({
+            email:email,
+            password:password
+        });
+
+    if(error){
+
+        mostrarMensagem(
+            'loginMessage',
+            'Não foi possível entrar: '+error.message,
+            'error'
+        );
+
+        return;
+    }
+
+    usuarioAtual = data.user;
+
+    await carregarPerfil();
+
+    await carregarRoupas();
+
+    await carregarLooks();
+
+    mostrarMensagem(
+        'loginMessage',
+        'Login realizado com sucesso!',
+        'success'
+    );
+
+}
+
+
+/* =====================================================
+   RECUPERAÇÃO DE SENHA
+===================================================== */
+
+async function recuperarSenha(){
+
+    if(!supabaseClient){
+
+        alert('Configure o Supabase primeiro.');
+
+        return;
+    }
+
+    const email =
+        document.getElementById('loginEmail').value.trim();
 
     if(!email){
 
-        msg(
-            'Digite seu e-mail no campo acima para receber o link de recuperação.'
-        );
-
-        document
-        .getElementById('email')
-        .focus();
+        alert('Digite seu e-mail no campo de login.');
 
         return;
     }
-
-
-    try{
-
-        const redirectTo =
-        window.location.origin &&
-        window.location.origin !== 'null'
-        ? window.location.origin +
-          window.location.pathname
-        : undefined;
-
-
-        const options =
-        redirectTo
-        ? {redirectTo}
-        : {};
-
-
-        const {error} =
-        await supabase.auth.resetPasswordForEmail(
-            email,
-            options
-        );
-
-
-        if(error) throw error;
-
-
-        msg(
-            'Enviamos um link de recuperação para seu e-mail. Verifique também a caixa de spam.'
-        );
-
-    }
-
-    catch(e){
-
-        msg(
-            'Não foi possível enviar o link: ' +
-            e.message
-        );
-
-    }
-
-};
-
-
-// ======================================================
-// ALTERAR SENHA
-// ======================================================
-
-window.atualizarSenha = async () => {
-
-    if(!supabase){
-
-        msg(
-            'Configure o Supabase antes de alterar a senha.'
-        );
-
-        return;
-    }
-
-
-    const password =
-    document
-    .getElementById('senhaNova')
-    .value;
-
-
-    if(password.length < 6){
-
-        msg(
-            'A nova senha deve ter pelo menos 6 caracteres.'
-        );
-
-        return;
-    }
-
-
-    try{
-
-        const {error} =
-        await supabase.auth.updateUser({
-            password
-        });
-
-
-        if(error) throw error;
-
-
-        document
-        .getElementById('redefinirSenha')
-        .classList
-        .add('hidden');
-
-
-        document
-        .getElementById('senhaNova')
-        .value = '';
-
-
-        document
-        .getElementById('senha')
-        .value = '';
-
-
-        msg(
-            'Senha alterada com sucesso! Entre usando sua nova senha. 💗'
-        );
-
-    }
-
-    catch(e){
-
-        msg(
-            'Não foi possível alterar a senha: ' +
-            e.message
-        );
-
-    }
-
-};
-
-
-// ======================================================
-// EXIGIR LOGIN
-// ======================================================
-
-function exigirConta(){
-
-    if(!usuario){
-
-        alert(
-            'Entre na sua conta primeiro.'
-        );
-
-        mostrar('inicio');
-
-        return false;
-    }
-
-    return true;
-}
-
-
-// ======================================================
-// NOME DE ARQUIVO
-// ======================================================
-
-function safeName(s){
-
-    return (
-        s || 'arquivo'
-    )
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g,'')
-    .replace(/[^a-zA-Z0-9._-]/g,'_')
-    .slice(0,50);
-
-}
-
-
-// ======================================================
-// UPLOAD
-// ======================================================
-
-async function uploadImagem(file){
-
-    if(!file) return null;
-
-
-    if(!file.type.startsWith('image/')){
-
-        throw Error(
-            'Escolha uma imagem válida.'
-        );
-
-    }
-
-
-    if(file.size > 5 * 1024 * 1024){
-
-        throw Error(
-            'A imagem deve ter até 5 MB.'
-        );
-
-    }
-
-
-    const path =
-    `${usuario.id}/${Date.now()}_${safeName(file.name)}`;
-
 
     const {error} =
-    await supabase
-    .storage
-    .from('pinkcloset')
-    .upload(
-        path,
-        file,
-        {
-            upsert:false,
-            contentType:file.type
-        }
+        await supabaseClient.auth
+            .resetPasswordForEmail(
+                email,
+                {
+                    redirectTo:
+                    window.location.origin +
+                    window.location.pathname
+                }
+            );
+
+    if(error){
+
+        alert(error.message);
+
+        return;
+    }
+
+    alert(
+        'Enviamos o link de recuperação para seu e-mail.'
     );
-
-
-    if(error) throw error;
-
-
-    return path;
 
 }
 
 
-// ======================================================
-// URL DA IMAGEM
-// ======================================================
+/* =====================================================
+   PERFIL
+===================================================== */
 
-async function urlImagem(path){
+async function carregarPerfil(){
 
-    if(!path) return '';
+    if(!usuarioAtual) return;
+
+    let perfil = null;
+
+    const resultado =
+        await supabaseClient
+            .from('profiles')
+            .select('*')
+            .eq('id',usuarioAtual.id)
+            .maybeSingle();
+
+    perfil = resultado.data;
+
+    const nome =
+        perfil?.username ||
+        usuarioAtual.user_metadata?.nome ||
+        usuarioAtual.email.split('@')[0];
+
+    document.getElementById('profileName')
+        .textContent = nome;
+
+    document.getElementById('profileEmail')
+        .textContent = usuarioAtual.email;
+
+    document.getElementById('editName')
+        .value = nome;
+
+    document.getElementById('privacySelect')
+        .value = perfil?.privacy || 'publico';
+
+    document.getElementById('avatar')
+        .textContent =
+        nome.charAt(0).toUpperCase();
+
+}
 
 
-    const {data,error} =
-    await supabase
-    .storage
-    .from('pinkcloset')
-    .createSignedUrl(
-        path,
-        3600
+/* =====================================================
+   SALVAR PERFIL
+===================================================== */
+
+async function salvarPerfil(){
+
+    if(!usuarioAtual){
+
+        alert('Faça login primeiro.');
+
+        return;
+    }
+
+    const nome =
+        document.getElementById('editName')
+            .value.trim();
+
+    if(!nome){
+
+        alert('Digite um nome.');
+
+        return;
+    }
+
+    const {error} =
+        await supabaseClient
+            .from('profiles')
+            .upsert({
+                id:usuarioAtual.id,
+                username:nome
+            });
+
+    if(error){
+
+        alert(error.message);
+
+        return;
+    }
+
+    await carregarPerfil();
+
+    alert('Perfil atualizado!');
+
+}
+
+
+/* =====================================================
+   PRIVACIDADE
+===================================================== */
+
+async function alterarPrivacidade(){
+
+    if(!usuarioAtual) return;
+
+    const valor =
+        document.getElementById('privacySelect')
+            .value;
+
+    const {error} =
+        await supabaseClient
+            .from('profiles')
+            .update({
+                privacy:valor
+            })
+            .eq('id',usuarioAtual.id);
+
+    if(error){
+
+        alert(error.message);
+
+        return;
+    }
+
+    alert(
+        valor === 'publico'
+        ? 'Seu perfil está público.'
+        : 'Seu perfil está privado.'
     );
 
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+async function logout(){
+
+    if(supabaseClient){
+
+        await supabaseClient.auth.signOut();
+
+    }
+
+    usuarioAtual = null;
+    minhasRoupas = [];
+    lookTemporario = [];
+
+    document.getElementById('profileName')
+        .textContent = 'Meu Perfil';
+
+    document.getElementById('profileEmail')
+        .textContent =
+        'Faça login para acessar seu perfil.';
+
+    document.getElementById('itemList')
+        .innerHTML =
+        '<p>Faça login e adicione suas roupas para elas aparecerem aqui.</p>';
+
+    limparProvador();
+
+    alert('Você saiu da conta.');
+
+}
+
+
+/* =====================================================
+   ADICIONAR ROUPA
+===================================================== */
+
+async function adicionarRoupa(event){
+
+    const arquivo =
+        event.target.files[0];
+
+    if(!arquivo) return;
+
+    if(!usuarioAtual){
+
+        alert(
+            'Faça login para salvar suas roupas.'
+        );
+
+        return;
+    }
+
+    const nome =
+        prompt(
+            'Digite o nome da peça:',
+            arquivo.name
+        );
+
+    if(!nome) return;
+
+    const categoria =
+        prompt(
+            'Categoria: blusa, calça, short, saia, vestido, sapato, acessório, praia, trabalho ou casual',
+            'casual'
+        ) || 'casual';
+
+    try{
+
+        const nomeArquivo =
+            usuarioAtual.id +
+            '/' +
+            Date.now() +
+            '-' +
+            arquivo.name.replace(/\s+/g,'-');
+
+        const upload =
+            await supabaseClient
+                .storage
+                .from('pinkcloset')
+                .upload(
+                    nomeArquivo,
+                    arquivo
+                );
+
+        if(upload.error){
+
+            alert(
+                'Erro ao enviar a imagem: ' +
+                upload.error.message
+            );
+
+            return;
+        }
+
+        const urlData =
+            supabaseClient
+                .storage
+                .from('pinkcloset')
+                .getPublicUrl(nomeArquivo);
+
+        const imagem =
+            urlData.data.publicUrl;
+
+        const {data,error} =
+            await supabaseClient
+                .from('garments')
+                .insert({
+                    user_id:usuarioAtual.id,
+                    name:nome,
+                    category:categoria,
+                    image_url:imagem
+                })
+                .select()
+                .single();
+
+        if(error){
+
+            alert(
+                'Erro ao salvar a peça: ' +
+                error.message
+            );
+
+            return;
+        }
+
+        minhasRoupas.push(data);
+
+        renderizarRoupas();
+
+        mostrarMensagem(
+            'exploreMessage',
+            'Peça adicionada ao seu closet!',
+            'success'
+        );
+
+    }catch(e){
+
+        alert(e.message);
+
+    }
+
+}
+
+
+/* =====================================================
+   CARREGAR ROUPAS
+===================================================== */
+
+async function carregarRoupas(){
+
+    if(!usuarioAtual) return;
+
+    const {data,error} =
+        await supabaseClient
+            .from('garments')
+            .select('*')
+            .eq('user_id',usuarioAtual.id)
+            .order('created_at',{
+                ascending:false
+            });
 
     if(error){
 
         console.error(error);
 
-        return '';
+        return;
     }
 
+    minhasRoupas =
+        data || [];
 
-    return data.signedUrl;
+    renderizarRoupas();
 
 }
 
 
-// ======================================================
-// CADASTRAR
-// ======================================================
+/* =====================================================
+   RENDERIZAR ROUPAS
+===================================================== */
 
-window.cadastrar = async () => {
+function renderizarRoupas(){
 
-    if(!supabase){
+    const lista =
+        document.getElementById('itemList');
 
-        msg(
-            'Configure a URL e a chave do Supabase no código antes de usar.'
-        );
+    if(!minhasRoupas.length){
 
-        return;
-    }
-
-
-    const nome =
-    document
-    .getElementById('nome')
-    .value
-    .trim();
-
-
-    const email =
-    document
-    .getElementById('novoEmail')
-    .value
-    .trim();
-
-
-    const password =
-    document
-    .getElementById('novaSenha')
-    .value;
-
-
-    const file =
-    document
-    .getElementById('avatar')
-    .files[0];
-
-
-    if(
-        !nome ||
-        !email ||
-        password.length < 6
-    ){
-
-        msg(
-            'Preencha nome, e-mail e senha com pelo menos 6 caracteres.'
-        );
+        lista.innerHTML =
+        '<p>Você ainda não adicionou nenhuma peça.</p>';
 
         return;
     }
 
+    lista.innerHTML = '';
 
-    try{
+    minhasRoupas.forEach(roupa => {
 
-        const {data,error} =
-        await supabase.auth.signUp({
+        const div =
+            document.createElement('div');
 
-            email,
+        div.className =
+            'clothing-item';
 
-            password,
+        div.onclick =
+            () => adicionarAoProvador(roupa);
 
-            options:{
-                data:{
-                    display_name:nome
-                }
+        div.innerHTML = `
+
+            <img
+                src="${roupa.image_url}"
+                alt="${roupa.name}"
+            >
+
+            <span>
+                ${roupa.name}
+                <br>
+                <small>
+                    ${roupa.category || ''}
+                </small>
+            </span>
+
+        `;
+
+        lista.appendChild(div);
+
+    });
+
+}
+
+
+/* =====================================================
+   FILTRO
+===================================================== */
+
+function filtrarCategoria(categoria,botao){
+
+    document.querySelectorAll('.category')
+        .forEach(b =>
+            b.classList.remove('active')
+        );
+
+    botao.classList.add('active');
+
+    document.querySelectorAll('.look-card')
+        .forEach(card => {
+
+            if(
+                categoria === 'todos' ||
+                card.dataset.category === categoria
+            ){
+
+                card.style.display='block';
+
+            }else{
+
+                card.style.display='none';
+
             }
 
         });
 
-
-        if(error) throw error;
-
-
-        if(!data.user){
-
-            throw Error(
-                'Não foi possível criar a conta.'
-            );
-
-        }
-
-
-        usuario = data.user;
-
-
-        let avatar_path = null;
-
-
-        if(file){
-
-            avatar_path =
-            await uploadImagem(file);
-
-        }
-
-
-        const {error:pe} =
-        await supabase
-        .from('profiles')
-        .upsert({
-
-            id:usuario.id,
-
-            username:nome,
-
-            avatar_path
-
-        });
-
-
-        if(pe) throw pe;
-
-
-        msg(
-
-            data.session
-
-            ? 'Conta criada! Você já está conectada.'
-
-            : 'Conta criada! Confira seu e-mail para confirmar o cadastro e depois entre.'
-
-        );
-
-
-        if(data.session){
-
-            await carregarDados();
-
-            mostrar('perfil');
-
-        }
-
-    }
-
-    catch(e){
-
-        msg(
-            'Erro: ' +
-            e.message
-        );
-
-    }
-
-};
-
-
-// ======================================================
-// ENTRAR
-// ======================================================
-
-window.entrar = async () => {
-
-    if(!supabase){
-
-        msg(
-            'Configure a URL e a chave do Supabase no código antes de usar.'
-        );
-
-        return;
-    }
-
-
-    try{
-
-        const {data,error} =
-        await supabase.auth.signInWithPassword({
-
-            email:
-            document
-            .getElementById('email')
-            .value
-            .trim(),
-
-            password:
-            document
-            .getElementById('senha')
-            .value
-
-        });
-
-
-        if(error) throw error;
-
-
-        usuario = data.user;
-
-
-        await carregarDados();
-
-
-        msg(
-            'Login realizado! Seus dados foram sincronizados.'
-        );
-
-
-        mostrar('explorar');
-
-    }
-
-    catch(e){
-
-        msg(
-            'Não foi possível entrar: ' +
-            e.message
-        );
-
-    }
-
-};
-
-
-// ======================================================
-// SAIR
-// ======================================================
-
-window.sair = async () => {
-
-    if(supabase){
-
-        await supabase.auth.signOut();
-
-    }
-
-
-    usuario = null;
-
-    pecas = [];
-
-    selecao.clear();
-
-
-    mostrar('inicio');
-
-
-    msg(
-        'Você saiu da sua conta.'
-    );
-
-};
-
-
-// ======================================================
-// CARREGAR DADOS
-// ======================================================
-
-async function carregarDados(){
-
-    if(!usuario) return;
-
-
-    const {data,error} =
-    await supabase
-    .from('garments')
-    .select('*')
-    .eq('user_id',usuario.id)
-    .order(
-        'created_at',
-        {
-            ascending:false
-        }
-    );
-
-
-    if(error) throw error;
-
-
-    pecas = data || [];
-
 }
 
 
-// ======================================================
-// INSPIRAÇÕES
-// ======================================================
+/* =====================================================
+   FEED
+===================================================== */
 
-const INSPIRACOES = [
+const inspiracoes = [
 
 {
-title:'Jeans e blusa branca',
-description:'Uma combinação casual com jeans, blusa clara e bolsa para o dia a dia.',
-category:'Casual',
-author:'Daniel Monteiro',
-source:'https://unsplash.com/photos/woman-wearing-crop-top-and-denim-pants-standing-near-high-rise-building-EjophR9hrgM',
-image:'https://images.unsplash.com/photo-1513441863195-bd50bb875298?auto=format&fit=crop&w=1000&q=85',
-ratio:'ratio-tall'
+nome:'Look Praia',
+categoria:'praia',
+imagem:'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80'
 },
 
 {
-title:'Street style urbano',
-description:'Produção moderna com atitude, perfeita para se inspirar na cidade.',
-category:'Street style',
-author:'Max Omen',
-source:'https://unsplash.com/photos/a-woman-walks-towards-the-camera-outdoors-V7oBvq1qsxw',
-image:'https://images.unsplash.com/photo-1745142640164-74774600af1d?auto=format&fit=crop&w=1000&q=85',
-ratio:'ratio-tall'
+nome:'Look Trabalho',
+categoria:'trabalho',
+imagem:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80'
 },
 
 {
-title:'Look confortável com tênis',
-description:'Camiseta ampla e tênis para um visual descontraído.',
-category:'Casual',
-author:'Anton K Wibowo',
-source:'https://unsplash.com/photos/a-young-woman-in-an-oversized-t-shirt-and-sneakers-Su_IaoGIjBg',
-image:'https://images.unsplash.com/photo-1780566759977-ff8b5d53731c?auto=format&fit=crop&w=1000&q=85',
-ratio:'ratio-medium'
+nome:'Look Casual',
+categoria:'casual',
+imagem:'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=80'
 },
 
 {
-title:'Casual com bolsa preta',
-description:'Uma inspiração simples com acessórios que completam o look.',
-category:'Casual',
-author:'Anton K Wibowo',
-source:'https://unsplash.com/photos/young-woman-posing-in-casual-outfit-with-black-handbag-zEGIgG2aYyQ',
-image:'https://images.unsplash.com/photo-1780566759959-73ce2af09f7c?auto=format&fit=crop&w=1000&q=85',
-ratio:'ratio-tall'
+nome:'Look Festa',
+categoria:'festa',
+imagem:'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=700&q=80'
 },
 
 {
-title:'Alfaiataria moderna',
-description:'Um conjunto de blazer e calça para trabalhar com estilo.',
-category:'Trabalho',
-author:'Alekon pictures',
-source:'https://unsplash.com/photos/woman-in-a-suit-walks-down-a-city-street-srGmVb9y6i4',
-image:'https://images.unsplash.com/photo-1751399566443-a07d07344bdf?auto=format&fit=crop&w=1000&q=85',
-ratio:'ratio-tall'
+nome:'Look Casual Rosa',
+categoria:'casual',
+imagem:'https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=700&q=80'
 },
 
 {
-title:'Praia em amarelo',
-description:'Um look leve e colorido com chapéu para aproveitar os dias de sol.',
-category:'Praia',
-author:'Graca Assane',
-source:'https://unsplash.com/photos/woman-in-yellow-dress-sitting-on-sand-during-daytime-TKrBPpFoY_E',
-image:'https://images.unsplash.com/photo-1583262289555-fba30df10a6c?auto=format&fit=crop&w=1000&q=85',
-ratio:'ratio-medium'
-},
-
-{
-title:'Look preto elegante',
-description:'Uma proposta de alfaiataria preta para ocasiões especiais.',
-category:'Elegante',
-author:'Maksat Zhumanov',
-source:'https://unsplash.com/photos/a-woman-in-a-black-suit-posing-for-a-picture-GaoekHHc2i0',
-image:'https://images.unsplash.com/photo-1634885078257-edbc76b356f4?auto=format&fit=crop&w=1000&q=85',
-ratio:'ratio-tall'
-},
-
-{
-title:'Editorial em tons de roxo',
-description:'Uma produção marcante para quem gosta de cores e personalidade.',
-category:'Elegante',
-author:'Lena Ruffinatto',
-source:'https://unsplash.com/photos/woman-adjusting-clothing-on-a-street-MEY2MdMUUyw',
-image:'https://images.unsplash.com/photo-1768825136230-34fb80291f19?auto=format&fit=crop&w=1000&q=85',
-ratio:'ratio-medium'
+nome:'Look Trabalho Elegante',
+categoria:'trabalho',
+imagem:'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=700&q=80'
 }
 
 ];
 
 
-let categoriaFeed = 'Tudo';
+function carregarFeed(){
 
+    const feed =
+        document.getElementById('feed');
 
-// ======================================================
-// FILTRO
-// ======================================================
+    feed.innerHTML = '';
 
-window.filtrarFeed = (categoria) => {
-
-    categoriaFeed = categoria;
-
-
-    document
-    .querySelectorAll('.filter-chip')
-    .forEach(b => {
-
-        b.classList.toggle(
-            'active',
-            b.textContent.trim() === categoria
-        );
-
-    });
-
-
-    desenharFeed();
-
-};
-
-
-// ======================================================
-// TIPOS
-// ======================================================
-
-const tipos = {
-
-    top:'Blusa / camisa',
-
-    bottom:'Parte de baixo',
-
-    shoes:'Calçado',
-
-    hat:'Chapéu / boné',
-
-    earrings:'Brinco',
-
-    necklace:'Colar',
-
-    other:'Acessório',
-
-    bag:'Bolsa'
-
-};
-
-
-// ======================================================
-// ADICIONAR PEÇA
-// ======================================================
-
-window.adicionarPeca = async () => {
-
-    if(!exigirConta()) return;
-
-
-    const nome =
-    document
-    .getElementById('pecaNome')
-    .value
-    .trim();
-
-
-    const tipo =
-    document
-    .getElementById('pecaTipo')
-    .value;
-
-
-    const file =
-    document
-    .getElementById('pecaFoto')
-    .files[0];
-
-
-    if(!nome || !file){
-
-        alert(
-            'Informe o nome e a foto da peça.'
-        );
-
-        return;
-    }
-
-
-    try{
-
-        const image_path =
-        await uploadImagem(file);
-
-
-        const {error} =
-        await supabase
-        .from('garments')
-        .insert({
-
-            user_id:usuario.id,
-
-            name:nome,
-
-            category:tipo,
-
-            image_path
-
-        });
-
-
-        if(error) throw error;
-
-
-        document
-        .getElementById('pecaNome')
-        .value = '';
-
-
-        document
-        .getElementById('pecaFoto')
-        .value = '';
-
-
-        await carregarDados();
-
-
-        carregarExplorar();
-
-
-        carregarSeletor();
-
-    }
-
-    catch(e){
-
-        alert(
-            'Erro ao salvar: ' +
-            e.message
-        );
-
-    }
-
-};
-
-
-// ======================================================
-// RENDERIZAR PEÇAS
-// ======================================================
-
-async function renderPecas(){
-
-    const area =
-    document.getElementById('minhasPecas');
-
-
-    area.innerHTML = '';
-
-
-    if(!usuario){
-
-        area.innerHTML =
-        '<p>Entre para ver seu guarda-roupa.</p>';
-
-        return;
-    }
-
-
-    if(!pecas.length){
-
-        area.innerHTML =
-        '<p>Você ainda não adicionou roupas.</p>';
-
-        return;
-    }
-
-
-    for(const p of pecas){
-
-        const url =
-        await urlImagem(
-            p.image_path
-        );
-
+    inspiracoes.forEach((look,index)=>{
 
         const card =
-        document.createElement('div');
+            document.createElement('div');
 
+        card.className =
+            'look-card';
 
-        card.className = 'card';
-
+        card.dataset.category =
+            look.categoria;
 
         card.innerHTML = `
 
             <img
-            class="photo"
-            src="${url}"
-            alt=""
+                src="${look.imagem}"
+                alt="${look.nome}"
             >
 
-            <h3></h3>
+            <div class="look-info">
 
-            <span class="tag"></span>
+                <h3>
+                    ${look.nome}
+                </h3>
 
-            <button class="light">
-            Apagar
-            </button>
+                <p>
+                    Inspiração para seu próximo look.
+                </p>
+
+                <button
+                    class="btn"
+                    onclick="experimentarLook(${index})"
+                >
+                    👗 Experimentar
+                </button>
+
+            </div>
 
         `;
 
+        feed.appendChild(card);
 
-        card
-        .querySelector('h3')
-        .textContent = p.name;
+    });
 
-
-        card
-        .querySelector('.tag')
-        .textContent =
-        tipos[p.category] ||
-        'Acessório';
+}
 
 
-        card
-        .querySelector('button')
-        .onclick = async () => {
+/* =====================================================
+   EXPERIMENTAR LOOK
+===================================================== */
 
-            if(
-                !confirm(
-                    'Apagar esta peça?'
-                )
-            ) return;
+function experimentarLook(index){
 
+    const look =
+        inspiracoes[index];
 
-            await supabase
-            .from('garments')
-            .delete()
-            .eq('id',p.id)
-            .eq('user_id',usuario.id);
+    abrirPagina(
+        'provador',
+        document.querySelectorAll('.nav-btn')[2]
+    );
 
+    alert(
+        'Agora você pode adicionar suas próprias peças no provador para criar uma combinação parecida com este look.'
+    );
 
-            await carregarDados();
-
-
-            renderPecas();
+}
 
 
-            carregarSeletor();
+/* =====================================================
+   ADICIONAR PEÇA AO PROVADOR
+===================================================== */
 
+function adicionarAoProvador(roupa){
+
+    const categoria =
+        (roupa.category || '')
+            .toLowerCase();
+
+    let tipo = 'top';
+
+    if(
+        categoria.includes('calça') ||
+        categoria.includes('short') ||
+        categoria.includes('saia')
+    ){
+
+        tipo = 'bottom';
+
+    }
+
+    if(
+        categoria.includes('vestido')
+    ){
+
+        tipo = 'dress';
+
+    }
+
+    if(
+        categoria.includes('sapato') ||
+        categoria.includes('tênis') ||
+        categoria.includes('sandália')
+    ){
+
+        tipo = 'shoe';
+
+    }
+
+    if(
+        categoria.includes('acess') ||
+        categoria.includes('brinco') ||
+        categoria.includes('colar') ||
+        categoria.includes('chapéu') ||
+        categoria.includes('relogio') ||
+        categoria.includes('relógio')
+    ){
+
+        tipo = 'accessory';
+
+    }
+
+    const item =
+        {
+            id:Date.now(),
+            roupa:roupa,
+            tipo:tipo
         };
 
+    lookTemporario.push(item);
 
-        area.append(card);
-
-    }
-
-}
-
-
-// ======================================================
-// EXPLORAR
-// ======================================================
-
-async function carregarExplorar(){
-
-    await carregarFeed();
-
-    await renderPecas();
+    renderizarProvador();
 
 }
 
 
-// ======================================================
-// FEED
-// ======================================================
-
-async function carregarFeed(){
-
-    const {
-        data,
-        error
-    } =
-    supabase
-
-    ? await supabase
-        .from('looks')
-        .select(`
-            id,
-            user_id,
-            name,
-            created_at,
-            profiles(username),
-            look_items(
-                id,
-                garment_id,
-                garments(
-                    name,
-                    category,
-                    image_path
-                )
-            )
-        `)
-        .eq('visibility','public')
-        .order(
-            'created_at',
-            {
-                ascending:false
-            }
-        )
-        .limit(40)
-
-    : {
-        data:[],
-        error:null
-    };
-
-
-    if(error){
-
-        console.error(
-            'Erro ao carregar looks da comunidade:',
-            error
-        );
-
-        feedCache = [];
-
-    }
-
-    else{
-
-        feedCache = data || [];
-
-    }
-
-
-    desenharFeed();
-
-}
-
-
-// ======================================================
-// CARTÃO DE INSPIRAÇÃO
-// ======================================================
-
-function criarCartaoInspiracao(item){
-
-    const card =
-    document.createElement('article');
-
-
-    card.className =
-    'feed-pin';
-
-
-    const img =
-    document.createElement('img');
-
-
-    img.className =
-    'feed-pin-image ' +
-    (item.ratio || 'ratio-tall');
-
-
-    img.src =
-    item.image;
-
-
-    img.alt =
-    item.title;
-
-
-    img.loading =
-    'lazy';
-
-
-    img.referrerPolicy =
-    'no-referrer';
-
-
-    img.onerror = () => {
-
-        img.alt =
-        'Imagem temporariamente indisponível: ' +
-        item.title;
-
-
-        img.classList.add(
-            'image-unavailable'
-        );
-
-    };
-
-
-    const body =
-    document.createElement('div');
-
-
-    body.className =
-    'feed-pin-body';
-
-
-    const title =
-    document.createElement('h3');
-
-
-    title.className =
-    'feed-pin-title';
-
-
-    title.textContent =
-    item.title;
-
-
-    const desc =
-    document.createElement('p');
-
-
-    desc.className =
-    'feed-pin-description';
-
-
-    desc.textContent =
-    item.description;
-
-
-    const meta =
-    document.createElement('div');
-
-
-    meta.className =
-    'feed-pin-meta';
-
-
-    const tag =
-    document.createElement('span');
-
-
-    tag.className =
-    'tag';
-
-
-    tag.textContent =
-    item.category;
-
-
-    const credit =
-    document.createElement('span');
-
-
-    credit.textContent =
-    'Foto: ' +
-    item.author +
-    ' · Unsplash';
-
-
-    meta.append(
-        tag,
-        credit
-    );
-
-
-    body.append(
-        title,
-        desc,
-        meta
-    );
-
-
-    card.append(
-        img,
-        body
-    );
-
-
-    return card;
-
-}
-
-
-// ======================================================
-// DESENHAR FEED
-// ======================================================
-
-async function desenharFeed(){
-
-    const grid =
-    document.getElementById('feedGrid');
-
-
-    if(!grid) return;
-
-
-    grid.innerHTML = '';
-
-
-    if(categoriaFeed === 'Tudo'){
-
-        for(
-            const look of
-            (feedCache || [])
-        ){
-
-            const items =
-            (look.look_items || [])
-            .map(i => i.garments)
-            .filter(Boolean);
-
-
-            if(!items.length)
-                continue;
-
-
-            const first =
-            items.find(
-                g => g.image_path
-            );
-
-
-            if(!first)
-                continue;
-
-
-            const url =
-            await urlImagem(
-                first.image_path
-            );
-
-
-            if(!url)
-                continue;
-
-
-            const card =
-            document.createElement('article');
-
-
-            card.className =
-            'feed-pin';
-
-
-            const img =
-            document.createElement('img');
-
-
-            img.className =
-            'feed-user-photo';
-
-
-            img.src = url;
-
-
-            img.alt =
-            look.name;
-
-
-            img.loading =
-            'lazy';
-
-
-            const body =
-            document.createElement('div');
-
-
-            body.className =
-            'feed-pin-body';
-
-
-            const title =
-            document.createElement('h3');
-
-
-            title.className =
-            'feed-pin-title';
-
-
-            title.textContent =
-            look.name;
-
-
-            const author =
-            document.createElement('p');
-
-
-            author.className =
-            'feed-pin-description';
-
-
-            author.textContent =
-            'Por ' +
-            (
-                look.profiles?.username ||
-                'Usuária PinkCloset'
-            );
-
-
-            const pieces =
-            document.createElement('p');
-
-
-            pieces.className =
-            'feed-user-pieces';
-
-
-            pieces.textContent =
-            items
-            .map(g => g.name)
-            .join(' · ');
-
-
-            const actions =
-            document.createElement('div');
-
-
-            actions.className =
-            'feed-pin-actions';
-
-
-            const count =
-            document.createElement('span');
-
-
-            count.className =
-            'muted';
-
-
-            const {count:n} =
-            supabase
-            ? await supabase
-                .from('look_likes')
-                .select(
-                    '*',
-                    {
-                        count:'exact',
-                        head:true
-                    }
-                )
-                .eq(
-                    'look_id',
-                    look.id
-                )
-            : {
-                count:0
-            };
-
-
-            count.textContent =
-            `♡ ${n || 0} curtidas`;
-
-
-            const like =
-            document.createElement('button');
-
-
-            like.className =
-            'light';
-
-
-            like.textContent =
-            '♡ Curtir';
-
-
-            like.onclick =
-            async () => {
-
-                if(!exigirConta())
-                    return;
-
-
-                const {data:exists} =
-                await supabase
-                .from('look_likes')
-                .select('id')
-                .eq(
-                    'look_id',
-                    look.id
-                )
-                .eq(
-                    'user_id',
-                    usuario.id
-                )
-                .maybeSingle();
-
-
-                if(exists){
-
-                    await supabase
-                    .from('look_likes')
-                    .delete()
-                    .eq(
-                        'id',
-                        exists.id
-                    );
-
-                }
-
-                else{
-
-                    await supabase
-                    .from('look_likes')
-                    .insert({
-
-                        look_id:
-                        look.id,
-
-                        user_id:
-                        usuario.id
-
-                    });
-
-                }
-
-
-                carregarFeed();
-
-            };
-
-
-            const tryBtn =
-            document.createElement('button');
-
-
-            tryBtn.className =
-            'primary';
-
-
-            tryBtn.textContent =
-            'Experimentar';
-
-
-            tryBtn.onclick =
-            () =>
-            experimentarLook(look);
-
-
-            actions.append(
-                count,
-                like,
-                tryBtn
-            );
-
-
-            body.append(
-                title,
-                author,
-                pieces,
-                actions
-            );
-
-
-            card.append(
-                img,
-                body
-            );
-
-
-            grid.append(card);
-
-        }
-
-    }
-
-
-    const inspo =
-    INSPIRACOES.filter(
-
-        i =>
-        categoriaFeed === 'Tudo' ||
-        i.category === categoriaFeed
-
-    );
-
-
-    for(const item of inspo){
-
-        grid.append(
-            criarCartaoInspiracao(item)
-        );
-
-    }
-
-
-    if(!grid.children.length){
-
-        grid.innerHTML =
-        '<p>Nenhuma inspiração encontrada nesta categoria.</p>';
-
-    }
-
-}
-
-
-// ======================================================
-// SELETOR DO PROVADOR
-// ======================================================
-
-async function carregarSeletor(){
+/* =====================================================
+   RENDERIZAR PROVADOR
+===================================================== */
+
+function renderizarProvador(){
 
     const area =
-    document.getElementById(
-        'seletorPecas'
-    );
-
+        document.getElementById('modelItems');
 
     area.innerHTML = '';
 
+    lookTemporario.forEach(item => {
 
-    if(!usuario){
+        const img =
+            document.createElement('img');
 
-        area.innerHTML =
-        '<p>Entre para usar seu guarda-roupa.</p>';
+        img.src =
+            item.roupa.image_url;
 
-        return;
-    }
+        img.alt =
+            item.roupa.name;
 
+        img.className =
+            'wear-item';
 
-    if(!pecas.length){
+        if(item.tipo === 'top'){
 
-        await carregarDados();
+            img.classList.add('wear-top');
 
-    }
+        }
 
+        if(item.tipo === 'bottom'){
 
-    if(!pecas.length){
+            img.classList.add('wear-bottom');
 
-        area.innerHTML =
-        '<p>Adicione peças na aba Explorar.</p>';
+        }
 
-        return;
-    }
+        if(item.tipo === 'dress'){
 
+            img.classList.add('wear-dress');
 
-    for(const p of pecas){
+        }
 
-        const label =
-        document.createElement('label');
+        if(item.tipo === 'shoe'){
 
+            img.classList.add('wear-shoe');
 
-        label.className =
-        'tag';
+            if(
+                lookTemporario
+                    .filter(x => x.tipo === 'shoe')
+                    .length === 1
+            ){
 
+                img.classList.add('left');
 
-        const cb =
-        document.createElement('input');
+            }else{
 
-
-        cb.type = 'checkbox';
-
-
-        cb.style.width =
-        'auto';
-
-
-        cb.checked =
-        selecao.has(p.id);
-
-
-        cb.onchange = () => {
-
-            if(cb.checked){
-
-                selecao.add(p.id);
+                img.classList.add('right');
 
             }
 
-            else{
+        }
 
-                selecao.delete(p.id);
+        if(item.tipo === 'accessory'){
 
-            }
+            img.classList.add('wear-accessory');
 
-        };
+        }
 
+        area.appendChild(img);
 
-        label.append(
-
-            cb,
-
-            document.createTextNode(
-                ' ' + p.name
-            )
-
-        );
-
-
-        area.append(label);
-
-    }
+    });
 
 }
 
 
-// ======================================================
-// MOSTRAR ROUPAS NO MANEQUIM
-// ======================================================
+/* =====================================================
+   LIMPAR PROVADOR
+===================================================== */
 
-async function mostrarNoBoneco(lista){
+function limparProvador(){
 
-    const layer =
-    document.getElementById(
-        'modelItems'
-    );
+    lookTemporario = [];
 
-
-    layer.innerHTML = '';
-
-
-    const order = {
-
-        top:1,
-
-        bottom:2,
-
-        shoes:3,
-
-        hat:4,
-
-        necklace:5,
-
-        earrings:6,
-
-        bag:7,
-
-        other:8
-
-    };
-
-
-    for(
-        const p of
-        lista
-        .slice()
-        .sort(
-            (a,b) =>
-            (order[a.category] || 8) -
-            (order[b.category] || 8)
-        )
-    ){
-
-        const src =
-        p.image_path
-        ? await urlImagem(
-            p.image_path
-        )
-        : p.url;
-
-
-        if(!src)
-            continue;
-
-
-        const im =
-        document.createElement('img');
-
-
-        im.src = src;
-
-
-        im.alt =
-        p.name;
-
-
-        im.title =
-        p.name;
-
-
-        im.className =
-        'model-item ' +
-        (
-            p.category ||
-            'other'
-        );
-
-
-        layer.append(im);
-
-    }
+    document.getElementById('modelItems')
+        .innerHTML = '';
 
 }
 
 
-// ======================================================
-// MONTAR LOOK
-// ======================================================
+/* =====================================================
+   SALVAR LOOK
+===================================================== */
 
-window.montarLook = async () => {
+async function guardarLook(){
 
-    if(!exigirConta())
+    if(!usuarioAtual){
+
+        alert('Faça login para salvar seu look.');
+
         return;
-
-
-    lookTemporario =
-    pecas.filter(
-        p => selecao.has(p.id)
-    );
-
+    }
 
     if(!lookTemporario.length){
 
         alert(
-            'Selecione pelo menos uma peça.'
+            'Adicione pelo menos uma peça ao provador.'
         );
 
         return;
     }
-
-
-    await mostrarNoBoneco(
-        lookTemporario
-    );
-
-
-    document
-    .getElementById('salvarArea')
-    .classList
-    .remove('hidden');
-
-
-    document
-    .getElementById('lookNome')
-    .value =
-    'Meu look ' +
-    Date.now()
-    .toString()
-    .slice(-4);
-
-};
-
-
-// ======================================================
-// LIMPAR MANEQUIM
-// ======================================================
-
-window.limparModelo = () => {
-
-    selecao.clear();
-
-    lookTemporario = [];
-
-
-    document
-    .getElementById('modelItems')
-    .innerHTML = '';
-
-
-    document
-    .getElementById('salvarArea')
-    .classList
-    .add('hidden');
-
-
-    carregarSeletor();
-
-};
-
-
-// ======================================================
-// EXPERIMENTAR LOOK DO FEED
-// ======================================================
-
-async function experimentarLook(look){
-
-    if(!exigirConta())
-        return;
-
-
-    const list =
-    (look.look_items || [])
-    .map(i => i.garments)
-    .filter(Boolean)
-    .map(g => ({
-        ...g,
-        category:g.category
-    }));
-
-
-    await mostrarNoBoneco(
-        list
-    );
-
-
-    lookTemporario = [];
-
-
-    document
-    .getElementById('salvarArea')
-    .classList
-    .remove('hidden');
-
-
-    document
-    .getElementById('lookNome')
-    .value =
-    look.name +
-    ' (minha versão)';
-
-
-    document
-    .getElementById('provadorMsg')
-    .textContent =
-    'Você está experimentando um look do feed. Salve para guardar uma cópia na sua galeria.';
-
-
-    mostrar('provador');
-
-}
-
-
-// ======================================================
-// GUARDAR LOOK
-// ======================================================
-
-window.guardarLook = async () => {
-
-    if(!exigirConta())
-        return;
-
 
     const nome =
-    document
-    .getElementById('lookNome')
-    .value
-    .trim();
-
-
-    const visibility =
-    document
-    .getElementById('lookPrivacidade')
-    .value;
-
-
-    if(!nome){
-
-        alert(
-            'Dê um nome ao look.'
+        prompt(
+            'Digite um nome para o look:',
+            'Meu novo look'
         );
 
-        return;
-    }
+    if(!nome) return;
 
-
-    try{
-
-        let garmentIds =
-        lookTemporario.map(
-            p => p.id
-        );
-
-
-        if(!garmentIds.length){
-
-            alert(
-                'Para salvar uma cópia de um look do feed, primeiro adicione as peças ao seu guarda-roupa ou monte uma combinação com suas peças.'
-            );
-
-            return;
-        }
-
-
-        const {data,error} =
-        await supabase
-        .from('looks')
-        .insert({
-
-            user_id:
-            usuario.id,
-
-            name:
-            nome,
-
-            visibility
-
-        })
-        .select()
-        .single();
-
-
-        if(error) throw error;
-
-
-        const rows =
-        garmentIds.map(
-            garment_id => ({
-
-                look_id:
-                data.id,
-
-                garment_id
-
+    const {data,error} =
+        await supabaseClient
+            .from('looks')
+            .insert({
+                user_id:usuarioAtual.id,
+                name:nome,
+                privacy:
+                document.getElementById('privacySelect')
+                    ?.value || 'publico'
             })
-        );
-
-
-        const {error:ie} =
-        await supabase
-        .from('look_items')
-        .insert(rows);
-
-
-        if(ie) throw ie;
-
-
-        alert(
-
-            visibility === 'public'
-
-            ? 'Look publicado no feed e salvo na galeria! 💗'
-
-            : 'Look salvo na sua galeria! 💗'
-
-        );
-
-
-        lookTemporario = [];
-
-
-        mostrar('perfil');
-
-    }
-
-    catch(e){
-
-        alert(
-            'Erro ao salvar look: ' +
-            e.message
-        );
-
-    }
-
-};
-
-
-// ======================================================
-// SALVAR PERFIL
-// ======================================================
-
-window.salvarPerfil = async () => {
-
-    if(!exigirConta())
-        return;
-
-
-    try{
-
-        const username =
-        document
-        .getElementById('editarNome')
-        .value
-        .trim();
-
-
-        const file =
-        document
-        .getElementById('editarAvatar')
-        .files[0];
-
-
-        if(!username){
-
-            throw Error(
-                'Digite um nome de usuário.'
-            );
-
-        }
-
-
-        let avatar_path;
-
-
-        if(file){
-
-            avatar_path =
-            await uploadImagem(file);
-
-        }
-
-
-        const update = {
-
-            id:
-            usuario.id,
-
-            username
-
-        };
-
-
-        if(avatar_path){
-
-            update.avatar_path =
-            avatar_path;
-
-        }
-
-
-        const {error} =
-        await supabase
-        .from('profiles')
-        .upsert(update);
-
-
-        if(error) throw error;
-
-
-        await carregarPerfil();
-
-
-        alert(
-            'Perfil atualizado!'
-        );
-
-    }
-
-    catch(e){
-
-        alert(
-            e.message
-        );
-
-    }
-
-};
-
-
-// ======================================================
-// CARREGAR PERFIL
-// ======================================================
-
-async function carregarPerfil(){
-
-    const gal =
-    document.getElementById(
-        'galeria'
-    );
-
-
-    if(!usuario){
-
-        document
-        .getElementById('perfilNome')
-        .textContent =
-        'Meu Perfil';
-
-
-        document
-        .getElementById('perfilEmail')
-        .textContent =
-        'Entre na sua conta para ver seu perfil.';
-
-
-        gal.innerHTML =
-        '<p>Faça login para acessar sua galeria.</p>';
-
-
-        return;
-
-    }
-
-
-    const {data:p} =
-    await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id',usuario.id)
-    .single();
-
-
-    document
-    .getElementById('perfilNome')
-    .textContent =
-    p?.username ||
-    usuario.email;
-
-
-    document
-    .getElementById('perfilEmail')
-    .textContent =
-    usuario.email;
-
-
-    document
-    .getElementById('editarNome')
-    .value =
-    p?.username || '';
-
-
-    const av =
-    document
-    .getElementById('perfilAvatar');
-
-
-    if(p?.avatar_path){
-
-        av.src =
-        await urlImagem(
-            p.avatar_path
-        );
-
-
-        av.classList
-        .remove('hidden');
-
-    }
-
-    else{
-
-        av.classList
-        .add('hidden');
-
-    }
-
-
-    const {
-        data:looks,
-        error
-    } =
-    await supabase
-    .from('looks')
-    .select(`
-        id,
-        name,
-        visibility,
-        created_at,
-        look_items(
-            garments(
-                name,
-                category,
-                image_path
-            )
-        )
-    `)
-    .eq(
-        'user_id',
-        usuario.id
-    )
-    .order(
-        'created_at',
-        {
-            ascending:false
-        }
-    );
-
-
-    gal.innerHTML = '';
-
+            .select()
+            .single();
 
     if(error){
 
-        gal.textContent =
-        'Erro ao carregar galeria: ' +
-        error.message;
+        alert(
+            'Erro ao salvar look: ' +
+            error.message
+        );
 
         return;
+    }
+
+    for(const item of lookTemporario){
+
+        await supabaseClient
+            .from('look_items')
+            .insert({
+                look_id:data.id,
+                garment_id:item.roupa.id
+            });
 
     }
 
+    alert('Look salvo com sucesso! 💗');
 
-    if(!looks?.length){
+    await carregarLooks();
 
-        gal.innerHTML =
-        '<p>Você ainda não salvou looks. Experimente peças no provador!</p>';
-
-        return;
-
-    }
+}
 
 
-    for(const l of looks){
+/* =====================================================
+   CARREGAR LOOKS
+===================================================== */
 
-        const card =
-        document.createElement('div');
+async function carregarLooks(){
 
+    if(!usuarioAtual) return;
 
-        card.className =
-        'card';
-
-
-        const h =
-        document.createElement('h3');
-
-
-        h.textContent =
-        l.name;
-
-
-        const vis =
-        document.createElement('select');
-
-
-        vis.innerHTML = `
-
-            <option value="private">
-            🔒 Privado
-            </option>
-
-            <option value="public">
-            🌎 Público (feed)
-            </option>
-
-        `;
-
-
-        vis.value =
-        l.visibility;
-
-
-        vis.onchange =
-        async () => {
-
-            const {error} =
-            await supabase
+    const {data,error} =
+        await supabaseClient
             .from('looks')
-            .update({
-                visibility:
-                vis.value
-            })
-            .eq(
-                'id',
-                l.id
-            )
-            .eq(
-                'user_id',
-                usuario.id
-            );
+            .select('*')
+            .eq('user_id',usuarioAtual.id)
+            .order('created_at',{
+                ascending:false
+            });
 
+    if(error){
 
-            if(error){
+        console.error(error);
 
-                alert(
-                    error.message
-                );
+        return;
+    }
 
-            }
+    const gallery =
+        document.getElementById('lookGallery');
 
-            else{
+    gallery.innerHTML = '';
 
-                carregarFeed();
+    if(!data || !data.length){
 
-            }
+        gallery.innerHTML =
+            '<p>Você ainda não salvou nenhum look.</p>';
 
-        };
+        return;
+    }
 
+    for(const look of data){
 
-        const pics =
-        document.createElement('div');
+        const items =
+            await supabaseClient
+                .from('look_items')
+                .select(`
+                    garment_id,
+                    garments (
+                        image_url
+                    )
+                `)
+                .eq('look_id',look.id);
 
+        let imagem = '';
 
-        pics.className =
-        'cards';
-
-
-        for(
-            const it of
-            l.look_items || []
+        if(
+            items.data &&
+            items.data.length &&
+            items.data[0].garments
         ){
 
-            if(!it.garments)
-                continue;
-
-
-            const im =
-            document.createElement('img');
-
-
-            im.className =
-            'photo';
-
-
-            im.src =
-            await urlImagem(
-                it.garments.image_path
-            );
-
-
-            im.alt =
-            it.garments.name;
-
-
-            pics.append(im);
+            imagem =
+                items.data[0]
+                    .garments
+                    .image_url;
 
         }
 
+        const div =
+            document.createElement('div');
 
-        const del =
-        document.createElement('button');
+        div.className =
+            'gallery-item';
 
+        div.innerHTML = `
 
-        del.className =
-        'light';
-
-
-        del.textContent =
-        'Apagar look';
-
-
-        del.onclick =
-        async () => {
-
-            if(
-                confirm(
-                    'Apagar este look?'
-                )
-            ){
-
-                await supabase
-                .from('looks')
-                .delete()
-                .eq(
-                    'id',
-                    l.id
-                )
-                .eq(
-                    'user_id',
-                    usuario.id
-                );
-
-
-                carregarPerfil();
-
+            ${
+                imagem
+                ?
+                `<img src="${imagem}" alt="${look.name}">`
+                :
+                `<div style="height:220px;display:flex;align-items:center;justify-content:center;font-size:60px;">
+                    👗
+                </div>`
             }
 
-        };
+            <div>
 
+                <strong>
+                    ${look.name}
+                </strong>
 
-        card.append(
-            h,
-            vis,
-            pics,
-            del
-        );
+                <br>
 
+                <small>
+                    ${look.privacy === 'privado'
+                    ? '🔒 Privado'
+                    : '🌎 Público'}
+                </small>
 
-        gal.append(card);
+            </div>
+
+        `;
+
+        gallery.appendChild(div);
 
     }
 
 }
 
 
-// ======================================================
-// AUTENTICAÇÃO
-// ======================================================
+/* =====================================================
+   MENSAGENS
+===================================================== */
 
-supabase?.auth.onAuthStateChange(
-    async (event,session) => {
+function mostrarMensagem(id,texto,tipo){
 
-        usuario =
-        session?.user ||
-        null;
+    const el =
+        document.getElementById(id);
 
+    if(!el) return;
 
-        if(
-            event ===
-            'PASSWORD_RECOVERY'
-        ){
+    el.textContent =
+        texto;
 
-            document
-            .getElementById(
-                'redefinirSenha'
-            )
-            .classList
-            .remove('hidden');
+    el.className =
+        'message ' + tipo;
+
+    el.style.display =
+        'block';
+
+}
 
 
-            msg(
-                'Link confirmado! Agora escolha sua nova senha.'
-            );
+/* =====================================================
+   INICIALIZAÇÃO
+===================================================== */
 
+document.addEventListener(
+    'DOMContentLoaded',
+    async function(){
 
-            mostrar('inicio');
+        carregarFeed();
 
+        if(supabaseClient){
 
-            return;
+            const {data} =
+                await supabaseClient.auth
+                    .getSession();
 
-        }
+            if(data.session){
 
+                usuarioAtual =
+                    data.session.user;
 
-        if(usuario){
+                await carregarPerfil();
 
-            try{
+                await carregarRoupas();
 
-                await carregarDados();
-
-            }
-
-            catch(e){
-
-                console.error(e);
+                await carregarLooks();
 
             }
 
@@ -3780,54 +2471,10 @@ supabase?.auth.onAuthStateChange(
     }
 );
 
-
-// ======================================================
-// INICIALIZAÇÃO
-// ======================================================
-
-if(!configurado){
-
-    msg(
-        'Para ativar o armazenamento entre dispositivos, configure o Supabase neste arquivo e execute o arquivo supabase_setup.sql.'
-    );
-
-}
-
-else{
-
-    const {data} =
-    await supabase.auth.getSession();
-
-
-    usuario =
-    data.session?.user ||
-    null;
-
-
-    if(usuario){
-
-        try{
-
-            await carregarDados();
-
-        }
-
-        catch(e){
-
-            console.error(e);
-
-        }
-
-
-        msg(
-            'Conta conectada. Seus dados estão sincronizados.'
-        );
-
-    }
-
-}
-
 </script>
+
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 </body>
 </html>
